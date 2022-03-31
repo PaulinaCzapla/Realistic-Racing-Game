@@ -44,16 +44,19 @@ namespace SceneManagement
             _persistentScenes.Add(persistentScene);
             
             AddScenesToUnload(_persistentScenes);
+            UnloadScenes();
             LoadScenes(menuScene, showLoadingScreen);
         }
 
         private void LoadScene(GameSceneSO sceneToLoad, bool showLoadingScreen)
         {
+            _persistentScenes.Clear();
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
             
             AddScenesToUnload(_persistentScenes);
+            UnloadScenes();
             LoadScenes(sceneToLoad, showLoadingScreen);
         }
 
@@ -76,7 +79,7 @@ namespace SceneManagement
                     }
                 }
 
-                if (wasPersistent)
+                if (!wasPersistent)
                 {
                     _scenesToUnload.Add(scene);
                 }
@@ -85,8 +88,6 @@ namespace SceneManagement
 
         private void LoadScenes(GameSceneSO sceneToLoad, bool showLoadingScreen)
         {
-            UnloadScenes();
-
             if (showLoadingScreen)
             {
                 // display loading screen
@@ -149,13 +150,13 @@ namespace SceneManagement
                     }
 
                     isLoadingDone = true;
-                    _scenesToLoadAsyncOperations.Clear();
-                    _persistentScenes.Clear();
                 }
 
                 yield return null;
             }
             
+            _scenesToLoadAsyncOperations.Clear();
+            _persistentScenes.Clear();
             onSceneLoaded.RaiseEvent();
             LightProbes.TetrahedralizeAsync();
             
