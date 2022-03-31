@@ -1,0 +1,30 @@
+using Events.ScriptableObjects;
+using SceneManagement.ScriptableObjects;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace SceneManagement
+{
+    public class SceneInitializer : MonoBehaviour
+    {
+        [Header("Events")] 
+        [SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
+    
+        [Header("Scenes to load")] 
+        [SerializeField] private GameSceneSO mainMenuScene;
+        [SerializeField] private GameSceneSO persistentScene;
+        
+        private Scene _initializationScene;
+        private void Awake()
+        {
+            _initializationScene = SceneManager.GetActiveScene();
+            
+            SceneManager.LoadSceneAsync(persistentScene.SceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(mainMenuScene.SceneName, LoadSceneMode.Additive);
+            
+            // TODO: loading screen and waiting for scene load
+            
+            SceneManager.UnloadSceneAsync(_initializationScene);
+        }
+    }
+}
