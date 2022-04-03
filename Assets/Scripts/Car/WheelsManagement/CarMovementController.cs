@@ -30,16 +30,20 @@ namespace Car.WheelsManagement
 
         private void FixedUpdate()
         {
-            if (inputReader.SteerPressed)
+            wheelsController.UpdateWheels();
+            wheelsController.RotateWheels(_direction.x);
+            wheelsController.MoveWheels(_direction.y);
+            
+            if(inputReader.HandBrakePressed)
+                wheelsController.ApplyBrake();
+            else
             {
-                wheelsController.RotateWheels(_direction.x);
-                wheelsController.MoveWheels(_direction.y);
+                 wheelsController.ApplyBrake(0);
             }
         }
 
         private void OnSteerPressed(Vector2 arg0)
         {
-            Debug.Log("steer");
             _direction = arg0;
         }
 

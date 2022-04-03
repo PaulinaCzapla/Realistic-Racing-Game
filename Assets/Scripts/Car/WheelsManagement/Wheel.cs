@@ -9,23 +9,39 @@ namespace Car.WheelsManagement
         [SerializeField] private WheelCollider collider;
 
         private Transform _transform;
-        private Vector3 _initialRotation;
-        private float _rotationSpeedMultiplier = 2f;
-
+        private float _rotationSpeedMultiplier = 3f;
+        
         private void Awake()
         {
             _transform = GetComponent<Transform>();
-            _initialRotation = _transform.rotation.eulerAngles;
         }
 
+        public void ApplyMotorTorque(float force)
+        {
+            collider.motorTorque = force;
+        }
+        
+        public void ApplyBrakeTorque(float force)
+        {
+            collider.brakeTorque = force;
+        }
         public void RotateWheel(float direction)
         {
-            float angle = Quaternion.Angle(_transform.rotation, Quaternion.Euler(_initialRotation));
-            
-            if (angle <= 60f || (transform.rotation.z * direction) >= 0)
+            if (Mathf.Abs(collider.steerAngle) <= 40f || (collider.steerAngle * -direction) >= 0)
             {
-                _transform.Rotate(new Vector3(0, 0, 1), -direction * _rotationSpeedMultiplier);
+                collider.steerAngle += direction * _rotationSpeedMultiplier;
             }
+        }
+
+        public void UpdateWheel()
+        {
+            Vector3 pos;
+            Quaternion rot;
+            
+            collider.GetWorldPose(out pos, out rot);
+
+            _transform.rotation = rot;
+            _transform.position = pos;
         }
     }
 }
