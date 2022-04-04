@@ -9,15 +9,16 @@ namespace SceneManagement
 {
     public class SceneLoader : MonoBehaviour
     {
-        [Header("Game scenes")] 
+        [Header("Game scenes")]
         [SerializeField] private GameSceneSO persistentScene;
         [SerializeField] private GameSceneSO gameplayScene;
         [SerializeField] private GameSceneSO uiScene;
+        [SerializeField] private GameSceneSO joinRoomScene;
 
-        [Header("Events")] 
+        [Header("Events")]
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
         [SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
-        [SerializeField]private VoidEventChannelSO onSceneLoaded;
+        [SerializeField] private VoidEventChannelSO onSceneLoaded;
 
         private List<AsyncOperation> _scenesToLoadAsyncOperations = new List<AsyncOperation>();
         private List<Scene> _scenesToUnload = new List<Scene>();
@@ -25,11 +26,13 @@ namespace SceneManagement
 
         private void OnEnable()
         {
+            Debug.Log("Hello");
             loadSceneEvent.OnEventRaised += LoadScene;
             loadMenuSceneEvent.OnEventRaised += LoadMainMenu;
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
+            _persistentScenes.Add(joinRoomScene);
         }
 
         private void OnDisable()
@@ -42,7 +45,7 @@ namespace SceneManagement
         {
             _persistentScenes.Clear();
             _persistentScenes.Add(persistentScene);
-            
+
             AddScenesToUnload(_persistentScenes);
             UnloadScenes();
             LoadScenes(menuScene, showLoadingScreen);
@@ -54,7 +57,8 @@ namespace SceneManagement
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
-            
+            _persistentScenes.Add(joinRoomScene);
+
             AddScenesToUnload(_persistentScenes);
             UnloadScenes();
             LoadScenes(sceneToLoad, showLoadingScreen);
@@ -98,7 +102,7 @@ namespace SceneManagement
             LoadPersistentScenes();
             StartCoroutine(WaitForSceneLoading(showLoadingScreen));
         }
-        
+
         private bool CheckIfSceneLoaded(string sceneName)
         {
             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -135,7 +139,7 @@ namespace SceneManagement
             if (_scenesToUnload != null)
                 _scenesToUnload.Clear();
         }
-        
+
         private IEnumerator WaitForSceneLoading(bool showLoadingScreen)
         {
             var isLoadingDone = false;
@@ -154,12 +158,12 @@ namespace SceneManagement
 
                 yield return null;
             }
-            
+
             _scenesToLoadAsyncOperations.Clear();
             _persistentScenes.Clear();
             onSceneLoaded.RaiseEvent();
             LightProbes.TetrahedralizeAsync();
-            
+
             if (showLoadingScreen)
             {
                 // stop displaying loading screen
