@@ -14,15 +14,10 @@ namespace UI.MainMenu
         [SerializeField] private GameSceneSO RaceTrackScene;
         [SerializeField] private GameSceneSO JoinRoomScene;
 
-        private void JoinRoomEvent()
-        {
-            loadSceneEvent.RaiseEvent(JoinRoomScene, true);
-        }
-
         private void OnEnable()
         {
             startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
-            roomButton.onClick.AddListener(() => JoinRoomEvent());
+            roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(JoinRoomScene, true););
         }
 
         private void OnDisable()
