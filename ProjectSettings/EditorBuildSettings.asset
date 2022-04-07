@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WheelsDemo.unity
     guid: 3048673939953014ca3a34e825349833
+  - enabled: 1
+    path: Assets/Scenes/JoinRoom.unity
+    guid: b4e41a45ab365514cb001a39bee5684e
   m_configObjects: {}
