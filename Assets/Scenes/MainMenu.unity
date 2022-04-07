@@ -679,56 +679,6 @@ MonoBehaviour:
   loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
   RaceTrackScene: {fileID: 11400000, guid: 4a5f016c1d4aa8e449fee3aa25e5a50f, type: 2}
   JoinRoomScene: {fileID: 11400000, guid: 916edef6796e3ce438a8cb79747c6fe2, type: 2}
---- !u!1 &1396057620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1396057621}
-  - component: {fileID: 1396057622}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1396057621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396057620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 443.5, y: 249.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1396057622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396057620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4863fc843d5f40e2bbc10460aa19e763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  persistentScene: {fileID: 11400000, guid: f31ddcfc901e6564eaaf9da0c217fd14, type: 2}
-  gameplayScene: {fileID: 11400000, guid: 247e40decdc74a4488403a21cdf6c424, type: 2}
-  uiScene: {fileID: 11400000, guid: d84d552cf779b764da6006b9f3199593, type: 2}
-  joinRoomScene: {fileID: 11400000, guid: 916edef6796e3ce438a8cb79747c6fe2, type: 2}
-  loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
-  loadMenuSceneEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
-  onSceneLoaded: {fileID: 11400000, guid: af72c85de5553dc4c8a75c79f1838501, type: 2}
 --- !u!1 &1675984833
 GameObject:
   m_ObjectHideFlags: 0
