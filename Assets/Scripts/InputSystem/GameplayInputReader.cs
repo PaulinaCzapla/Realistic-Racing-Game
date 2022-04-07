@@ -58,7 +58,8 @@ namespace InputSystem
         public void OnSteering(InputAction.CallbackContext context)
         {
             SteerEvent?.Invoke(context.ReadValue<Vector2>());
-            SteerPressed = context.ReadValue<Vector2>().x != 0;
+
+            SteerPressed = context.performed ? true : false;
         }
 
         public void OnStartEngine(InputAction.CallbackContext context)
