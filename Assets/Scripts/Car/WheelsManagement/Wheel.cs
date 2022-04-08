@@ -10,10 +10,12 @@ namespace Car.WheelsManagement
 
         private Transform _transform;
         private float _rotationSpeedMultiplier = 3f;
+        private float _initialAngle;
         
         private void Awake()
         {
             _transform = GetComponent<Transform>();
+            _initialAngle = collider.steerAngle;
         }
 
         public void ApplyMotorTorque(float force)
@@ -27,10 +29,23 @@ namespace Car.WheelsManagement
         }
         public void RotateWheel(float direction)
         {
-            if (Mathf.Abs(collider.steerAngle) <= 40f || (collider.steerAngle * -direction) >= 0)
+            if (Mathf.Approximately(direction , 0) && !Mathf.Approximately(collider.steerAngle ,_initialAngle)) 
             {
-                collider.steerAngle += direction * _rotationSpeedMultiplier;
+                collider.steerAngle += -Mathf.Sign(collider.steerAngle) * _rotationSpeedMultiplier;
+
+                if (Mathf.Abs(collider.steerAngle - _initialAngle) <= (_rotationSpeedMultiplier +1))
+                {
+                    collider.steerAngle = _initialAngle;
+                }
             }
+            else
+            {
+                 if (Mathf.Abs(collider.steerAngle) <= 40f || (collider.steerAngle * -direction) >= 0)
+                 {
+                     collider.steerAngle += direction * _rotationSpeedMultiplier;
+                 }
+            }
+           
         }
 
         public void UpdateWheel()

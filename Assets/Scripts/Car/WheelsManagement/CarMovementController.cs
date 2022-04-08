@@ -31,9 +31,12 @@ namespace Car.WheelsManagement
         private void FixedUpdate()
         {
             wheelsController.UpdateWheels();
-            wheelsController.RotateWheels(_direction.x);
-            wheelsController.MoveWheels(_direction.y);
-            
+            if (inputReader.SteerPressed)
+            {
+                wheelsController.RotateWheels(_direction.x);
+                wheelsController.MoveWheels(_direction.y);
+            }
+
             if(inputReader.HandBrakePressed)
                 wheelsController.ApplyBrake();
             else
