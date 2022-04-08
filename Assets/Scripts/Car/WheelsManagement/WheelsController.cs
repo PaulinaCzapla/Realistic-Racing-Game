@@ -14,9 +14,9 @@ namespace Car.WheelsManagement
         
         public void MoveWheels(float direction)
         {
-            //apply motor force to front wheels
-            wheels[0].ApplyMotorTorque(direction * MotorForce);
-            wheels[1].ApplyMotorTorque(direction * MotorForce);
+            //apply motor force to wheels
+            wheels[2].ApplyMotorTorque(direction * MotorForce);
+            wheels[3].ApplyMotorTorque(direction * MotorForce);
         }
 
         public void ApplyBrake(float force = BrakeForce )

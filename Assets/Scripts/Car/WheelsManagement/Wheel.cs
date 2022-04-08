@@ -10,7 +10,7 @@ namespace Car.WheelsManagement
         
         //temporary place for const values - will be moved to scriptable object
         private const float RotationSpeedMultiplier = 0.5f;
-        private const float MAXWheelsRotationAngle = 40f;
+        private const float MAXWheelsRotationAngle = 30f;
         private float _initialAngle;
         private Transform _transform;
         
