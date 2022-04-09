@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1898715463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8539e62d08e856447ab938829eb654f0, type: 3}
+  m_Script: {fileID: 11500000, guid: d75e2c6d327e6c84e8e5310c27dd537f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   joinRoomButton: {fileID: 707550758}
@@ -1613,6 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db6e330a2e059e4ebd7545ff68c486f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadSceneEvent: {fileID: 0}
   nameInput: {fileID: 1303164770}
   roomNameInput: {fileID: 1269733871}
   joinRoomButton: {fileID: 707550758}
@@ -1728,11 +1729,11 @@ RectTransform:
   m_Father: {fileID: 2057127951}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 106.1}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 282.69, y: 30}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2099384688
 MonoBehaviour:
   m_ObjectHideFlags: 0

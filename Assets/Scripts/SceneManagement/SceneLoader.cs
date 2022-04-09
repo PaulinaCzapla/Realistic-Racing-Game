@@ -13,7 +13,6 @@ namespace SceneManagement
         [SerializeField] private GameSceneSO persistentScene;
         [SerializeField] private GameSceneSO gameplayScene;
         [SerializeField] private GameSceneSO uiScene;
-        [SerializeField] private GameSceneSO joinRoomScene;
 
         [Header("Events")]
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
@@ -26,13 +25,11 @@ namespace SceneManagement
 
         private void OnEnable()
         {
-            Debug.Log("Hello");
             loadSceneEvent.OnEventRaised += LoadScene;
             loadMenuSceneEvent.OnEventRaised += LoadMainMenu;
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
-            _persistentScenes.Add(joinRoomScene);
         }
 
         private void OnDisable()
@@ -57,7 +54,6 @@ namespace SceneManagement
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
-            _persistentScenes.Add(joinRoomScene);
 
             AddScenesToUnload(_persistentScenes);
             UnloadScenes();
