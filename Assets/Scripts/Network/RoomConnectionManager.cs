@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -14,7 +16,64 @@ namespace Network.RoomConnectionManager
         private Button goToGameButton;
         [SerializeField]
         private Text connectionStatus;
-        private void Awake()
+
+        public InputField roomName;
+        List<RoomInfo> Rooms = new List<RoomInfo>();
+        private void Start()
+        {
+            goToGameButton.gameObject.SetActive(false);
+            connectionStatus.text = "Connecting...";
+            PhotonNetwork.ConnectUsingSettings();
+        }
+
+        public override void OnConnectedToMaster()
+        {
+            PhotonNetwork.JoinLobby();
+        }
+
+        public override void OnJoinedLobby()
+        {
+            connectionStatus.text = "Connected to Photon!";
+        }
+
+        public void CreateRoom()
+        {
+            PhotonNetwork.CreateRoom(roomName.text);
+            connectionStatus.text = "Room " + roomName.text + " created!";
+        }
+
+        public void JoinRoom()
+        {
+            PhotonNetwork.JoinRoom(roomName.text);
+        }
+
+        public override void OnJoinedRoom()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                goToGameButton.gameObject.SetActive(true);
+                joinRoomButton.gameObject.SetActive(false);
+                connectionStatus.text = "You are Lobby Leader";
+            }
+            else
+            {
+                goToGameButton.gameObject.SetActive(true);
+                joinRoomButton.gameObject.SetActive(false);
+                connectionStatus.text = "Connected to Lobby";
+            }
+        }
+        
+        public override void OnRoomListUpdate(List<RoomInfo> roomList)
+        {
+            foreach (var item in roomList)
+            {
+                if (!item.IsVisible || !item.IsOpen || item.RemovedFromList)
+                    continue;
+ 
+                Rooms.Add(item);
+            }
+        }
+        /*private void Awake()
         {
             goToGameButton.gameObject.SetActive(false);
         }
@@ -54,7 +113,7 @@ namespace Network.RoomConnectionManager
                 joinRoomButton.gameObject.SetActive(false);
                 connectionStatus.text = "Connected to Lobby";
             }
-        }
+        }*/
 
     }
 }
