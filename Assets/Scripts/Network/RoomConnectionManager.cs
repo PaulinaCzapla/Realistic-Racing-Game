@@ -18,7 +18,7 @@ namespace Network.RoomConnectionManager
         private Text connectionStatus;
 
         public InputField roomName;
-        List<RoomInfo> Rooms = new List<RoomInfo>();
+        /*List<RoomInfo> Rooms = new List<RoomInfo>();
         private void Start()
         {
             goToGameButton.gameObject.SetActive(false);
@@ -72,8 +72,8 @@ namespace Network.RoomConnectionManager
  
                 Rooms.Add(item);
             }
-        }
-        /*private void Awake()
+        }*/
+        private void Awake()
         {
             goToGameButton.gameObject.SetActive(false);
         }
@@ -113,7 +113,6 @@ namespace Network.RoomConnectionManager
                 joinRoomButton.gameObject.SetActive(false);
                 connectionStatus.text = "Connected to Lobby";
             }
-        }*/
-
+        }
     }
 }
