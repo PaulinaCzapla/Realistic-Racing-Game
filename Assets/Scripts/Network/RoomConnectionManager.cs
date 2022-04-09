@@ -50,6 +50,8 @@ namespace Network.RoomConnectionManager
             }
             else
             {
+                goToGameButton.gameObject.SetActive(true);
+                joinRoomButton.gameObject.SetActive(false);
                 connectionStatus.text = "Connected to Lobby";
             }
         }
