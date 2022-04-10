@@ -36,7 +36,7 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
             numberPlayers = 4;
         }
         //Vector3 position = new Vector3(spawnPos.position.x,spawnPos.position.y,spawnPos.position.z);
-        }
+    }
     
     void CheckPlayers()
     {

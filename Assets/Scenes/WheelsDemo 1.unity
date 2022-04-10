@@ -1383,6 +1383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 1901944530985238903, guid: fc9acd3c72e43d14fae5ba9c4771cf81, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5718130806005566433, guid: fc9acd3c72e43d14fae5ba9c4771cf81, type: 3}
       propertyPath: sceneViewId
       value: 1

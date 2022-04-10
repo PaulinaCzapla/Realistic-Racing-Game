@@ -1,13 +1,25 @@
-﻿using UnityEditor;
+﻿using System;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SceneManagement.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "GameScene", menuName = "Scene Data/GameSceneSO")]
     public class GameSceneSO : ScriptableObject
     {
+#if UNITY_EDITOR
         public SceneAsset sceneAsset;
-        public string SceneName => sceneAsset.name;
+#endif
+        public string SceneName;
+
+#if UNITY_EDITOR
+        private void OnEnable()
+        {
+            SceneName = sceneAsset.name;
+        }
+#endif
     }
 }
