@@ -8,14 +8,20 @@ namespace Car.WheelsManagement
     {
         [SerializeField] private  Wheel[] wheels;
 
+        //tmp values for testing
+        private const float MotorForce = 1500;
+        private const float BrakeForce = 10000;
+        
         public void MoveWheels(float direction)
         {
-            wheels[0].ApplyMotorTorque(direction * 1500);
-            wheels[1].ApplyMotorTorque(direction * 1500);
+            //apply motor force to wheels
+            wheels[2].ApplyMotorTorque(direction * MotorForce);
+            wheels[3].ApplyMotorTorque(direction * MotorForce);
         }
 
-        public void ApplyBrake(float force = 10000)
+        public void ApplyBrake(float force = BrakeForce )
         {
+            //apply brake force to all wheels
             foreach (var wheel in wheels)
             {
                 wheel.ApplyBrakeTorque(force);
@@ -24,6 +30,7 @@ namespace Car.WheelsManagement
 
         public void RotateWheels(float direction)
         {
+            //rotate front wheels for moving direction change
             wheels[0].RotateWheel(direction);
             wheels[1].RotateWheel(direction);
         }
