@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ZenvoTS1
   m_EditorClassIdentifier: 
   drive: 1
-  _totalPower: 4068145.5
+  _totalPower: 1452
   _engineTorque:
     serializedVersion: 2
     m_Curve:
@@ -56,7 +56,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxRPM: 13000
+  _maxRPM: 12000
   _gearNum: 1
   _gears:
   - 2.5
@@ -68,9 +68,9 @@ MonoBehaviour:
   - 1.043
   - 0.92
   _finalDrive: 2.64
-  _engineRPM: 1870251.5
+  _engineRPM: 1000
   _vertical: 1
-  _engineLerpValue: 12000
+  _engineLerpValue: 0
   _turnOnRPM: 1000
   _smoothTime: 0.2
   lerpSmoothTime: 5

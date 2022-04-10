@@ -16,8 +16,8 @@ public class EngineController
     public void CalculateEnginePower(float wheelRPM, float velocity)
     {
 
-        /* TODO: Wheel RPM */
 
+        LerpEngine(velocity);
         if (_car._engineRPM >= _car._maxRPM) SetEngineLerp(_car._maxRPM - 1000);
         if (!_engineLerp)
         {
@@ -33,11 +33,12 @@ public class EngineController
         _car._engineLerpValue = num;
     }
 
-    private void LerpEngine(float num, float velocity)
+    private void LerpEngine(float velocity)
     {
         if (_engineLerp)
         {
-            _car._engineRPM = Mathf.SmoothDamp(_car._engineRPM, _car._engineLerpValue, ref velocity, _car.lerpSmoothTime * Time.deltaTime);
+            //_car._engineRPM = Mathf.SmoothDamp(_car._engineRPM, _car._engineLerpValue, ref velocity, _car.lerpSmoothTime * Time.deltaTime);
+            _car._engineRPM = Mathf.Lerp(_car._engineRPM, _car._engineLerpValue,  _car.lerpSmoothTime * Time.deltaTime);
             _engineLerp = _car._engineRPM <= _car._engineLerpValue + 100 ? false : true;
         }
     }
