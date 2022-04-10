@@ -6,6 +6,8 @@ namespace Car.WheelsManagement
 {
     public class Wheel : MonoBehaviour
     {
+        public float WheelRPM => collider.rpm;
+
         [SerializeField] private WheelCollider collider;
         
         //temporary place for const values - will be moved to scriptable object
@@ -14,6 +16,8 @@ namespace Car.WheelsManagement
         private float _initialAngle;
         private Transform _transform;
         
+        
+
         private void Awake()
         {
             _transform = GetComponent<Transform>();

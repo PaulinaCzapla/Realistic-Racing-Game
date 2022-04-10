@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Car", menuName = "CarSimulator/ScriptableObjects/Car")]
-public class Car : ScriptableObject
+public class CarSO : ScriptableObject
 {
     [Header("Suspension variables")]
 
@@ -13,7 +13,7 @@ public class Car : ScriptableObject
     public DriveType drive;
     public float _totalPower = 0.0f;
     public AnimationCurve _engineTorque;
-    
+    public float _maxRPM = 12000;
 
     [Header("Gearbox variables")]
     public int _gearNum;
@@ -23,17 +23,20 @@ public class Car : ScriptableObject
     [Header("Engine checking variables")]
     public float _engineRPM = 1000.0f;
     public float _vertical = 0.0f;
+    public float _engineLerpValue;
+    
 
     [Header("Wheels variables")]
 
 
 
     [Header("Wheels checking variables")]
-    public float _wheelRPM = 0.0f;
-    public float _velocity = 0.0f;
-
+    //public float _wheelRPM = 0.0f;
+    //public float _velocity = 0.0f;
+    
 
     [Header("Motion, machanics and time related constance")]
-    public float _TurnOnRPM = 1000;
+    public float _turnOnRPM = 1000;
     public float _smoothTime = 0.2f;
+    public float lerpSmoothTime = 5;
 }

@@ -9,12 +9,15 @@ namespace Car.WheelsManagement
         [SerializeField] private GameplayInputReader inputReader;
         [SerializeField] private WheelsController wheelsController = new WheelsController();
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private CarSO car;
 
+        private EngineController engine;
         private Vector2 _direction;
         private float _maxSpeed = 50; // m/s
         private void Awake()
         {
             inputReader.SetInput();
+            engine = new EngineController(car);
         }
 
         private void OnEnable()
@@ -40,20 +43,28 @@ namespace Car.WheelsManagement
 
         private void HandleCarAcceleration()
         {
-            if (Mathf.Approximately(_direction.y, 0))
+            //Debug.Log("Text: " + car.drive);
+            if (car && (car.drive == DriveType.FWD || car.drive == DriveType.AWD))
             {
-                //if there is no move forward input - apply the brake so the car can slowly lose speed 
-                wheelsController.MoveWheels(0);
-                wheelsController.ApplyBrake();
-            }
-            else if (rb.velocity.magnitude <= _maxSpeed)
-            {
-                //if max speed not achieved - set motor torque
-                wheelsController.MoveWheels(_direction.y);
+                engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude);
             }
             else
             {
-                wheelsController.MoveWheels(0);
+                engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude);
+            }
+            
+
+            if (Mathf.Approximately(_direction.y, 0))
+            {
+                //if there is no move forward input - apply the brake so the car can slowly lose speed 
+                wheelsController.MoveWheels(0,0,car.drive);
+                wheelsController.ApplyBrake();
+            }
+            else
+            {
+
+                //if max speed not achieved - set motor torque
+                wheelsController.MoveWheels(_direction.y,car._totalPower,car.drive);
             }
         }
 
