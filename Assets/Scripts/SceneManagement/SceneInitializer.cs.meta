@@ -3,7 +3,10 @@ guid: eac98cadaaf881744957352a2da50e5c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - loadMenuSceneEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
+  - mainMenuScene: {fileID: 11400000, guid: a87e389e36952fd4993415f6290a30af, type: 2}
+  - persistentScene: {fileID: 11400000, guid: f31ddcfc901e6564eaaf9da0c217fd14, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
