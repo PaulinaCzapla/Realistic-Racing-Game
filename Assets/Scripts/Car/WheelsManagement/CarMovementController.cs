@@ -14,7 +14,9 @@ namespace Car.WheelsManagement
         [SerializeField] private PhotonView photonView;
         
         private EngineController engine;
-        private Vector2 _direction;
+        private Vector2 _inputDirection;
+        private float _direction;
+        private float _dirDelta = 0.05f;
         private float _maxSpeed = 50; // m/s
         private void Awake()
         {
@@ -36,9 +38,24 @@ namespace Car.WheelsManagement
 
         private void FixedUpdate()
         {
-            //update wheels meshes rotation and position
             if (photonView ? photonView.IsMine : true)
             {
+                if (inputReader.SteerPressed && _inputDirection.x != 0)
+                {
+                    if (Mathf.Abs(_direction) < Mathf.Abs(_inputDirection.x))
+                        _direction += (Mathf.Sign(_inputDirection.x)) * _dirDelta *2;
+                    else
+                        _direction = _inputDirection.x;
+                }
+                else if(_direction != 0)
+                {
+                    if (Mathf.Abs(_direction) > 0.15f)
+                        _direction += -1 *(Mathf.Sign(_direction)) * _dirDelta;
+                    else
+                        _direction = 0;
+                }
+                //update wheels meshes rotation and position3
+
                 wheelsController.UpdateWheels();
                 HandleCarAcceleration();
                 HandleBrake();
@@ -59,7 +76,7 @@ namespace Car.WheelsManagement
             }
             
 
-            if (Mathf.Approximately(_direction.y, 0))
+            if (Mathf.Approximately(_inputDirection.y, 0))
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
                 wheelsController.MoveWheels(0,0,car.drive);
@@ -69,7 +86,7 @@ namespace Car.WheelsManagement
             {
 
                 //if max speed not achieved - set motor torque
-                wheelsController.MoveWheels(_direction.y,car._totalPower,car.drive);
+                wheelsController.MoveWheels(_inputDirection.y,car._totalPower,car.drive);
             }
         }
 
@@ -79,7 +96,7 @@ namespace Car.WheelsManagement
             {
                 wheelsController.ApplyBrake();
             }
-            else if(!Mathf.Approximately(_direction.y,0))
+            else if(!Mathf.Approximately(_inputDirection.y,0))
             {
                 //if brake not pressed and move forward - set brake force to 0
                 wheelsController.ApplyBrake(0);
@@ -88,21 +105,18 @@ namespace Car.WheelsManagement
 
         private void HandleWheelsRotation()
         {
-            if (inputReader.SteerPressed)
-            {
-                wheelsController.RotateWheels(_direction.x);
-            }
+            wheelsController.RotateWheels(_direction);
         }
         
         private void OnSteerPressed(Vector2 arg0)
         {
-            _direction = arg0;
+            _inputDirection = arg0;
             // direction.x and direction.y are floats between -1 and 1. For keyboard there is always -1, 0 or 1 value.
         }
 
         private void OnSteerCanceledPressed(Vector2 arg0)
         {
-            _direction = Vector2.zero;
+            _inputDirection = Vector2.zero;
         }
     }
 }
