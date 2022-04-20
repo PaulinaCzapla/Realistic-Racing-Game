@@ -1,5 +1,6 @@
 ﻿using System;
 using InputSystem;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Car.WheelsManagement
@@ -10,7 +11,8 @@ namespace Car.WheelsManagement
         [SerializeField] private WheelsController wheelsController = new WheelsController();
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CarSO car;
-
+        [SerializeField] private PhotonView photonView;
+        
         private EngineController engine;
         private Vector2 _direction;
         private float _maxSpeed = 50; // m/s
@@ -35,10 +37,13 @@ namespace Car.WheelsManagement
         private void FixedUpdate()
         {
             //update wheels meshes rotation and position
-            wheelsController.UpdateWheels();
-            HandleCarAcceleration();
-            HandleBrake();
-            HandleWheelsRotation();
+            if (photonView ? photonView.IsMine : true)
+            {
+                wheelsController.UpdateWheels();
+                HandleCarAcceleration();
+                HandleBrake();
+                HandleWheelsRotation();
+            }
         }
 
         private void HandleCarAcceleration()
