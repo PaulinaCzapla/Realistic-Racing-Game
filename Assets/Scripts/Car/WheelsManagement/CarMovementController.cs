@@ -76,7 +76,7 @@ namespace Car.WheelsManagement
             }
             
 
-            if (Mathf.Approximately(_inputDirection.y, 0))
+            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <=car._minBrakeRPM)
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
                 wheelsController.MoveWheels(0,0,car.drive);

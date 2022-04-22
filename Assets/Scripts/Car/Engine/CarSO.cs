@@ -24,7 +24,7 @@ public class CarSO : ScriptableObject
     public float _engineRPM = 1000.0f;
     public float _vertical = 0.0f;
     public float _engineLerpValue;
-    
+    public float _minBrakeRPM = 2000.0F;
 
     [Header("Wheels variables")]
 
