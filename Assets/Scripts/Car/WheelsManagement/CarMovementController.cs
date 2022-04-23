@@ -60,6 +60,63 @@ namespace Car.WheelsManagement
                 HandleCarAcceleration();
                 HandleBrake();
                 HandleWheelsRotation();
+                HandleGearSwap();
+            }
+        }
+
+        private void Update()
+        {
+            
+        }
+
+        private void  ApplyDownForce()
+        {
+            var downForce = car._downForce.Evaluate(rb.velocity.magnitude * 3.6f);
+            rb.AddForce(-Vector3.up * downForce);
+        }
+
+        private void HandleGearSwap()
+        {
+            if(_inputDirection.y > 0 & car._gearNum == 0)
+            {
+                car._gearNum = 1;
+            }
+            switch (car._gearType)
+            {
+                case GearBoxType.AUTO:
+                    autoShift();
+                    break;
+                case GearBoxType.HALF:
+                    demandShift();
+                    break;
+                case GearBoxType.MAN:
+                    if (inputReader.ClutchPressed)
+                    {
+                        demandShift();
+                    }
+                        break;
+            }
+        }
+
+        private void demandShift()
+        {
+            if (car._gearNum != 1 && inputReader.ShiftDownGuard)
+                car._gearNum--;
+            inputReader.ShiftDownGuard = false;
+            if (car._gearNum != (car._gears.Length - 1) && inputReader.ShiftUpGuard)
+                car._gearNum++;
+            inputReader.ShiftUpGuard = false;
+            
+        }
+
+        private void autoShift()
+        {
+            if(car._engineRPM > car._maxRPM + 1000 && car._gearNum < car._gears.Length - 1)
+            {
+                car._gearNum++;
+            } else if(car._engineRPM <= car._minBrakeRPM + 1000 && car._gearNum > 1)
+            {
+                car._gearNum--;
             }
         }
 
@@ -68,15 +125,23 @@ namespace Car.WheelsManagement
             //Debug.Log("Text: " + car.drive);
             if (car && (car.drive == DriveType.FWD || car.drive == DriveType.AWD))
             {
-                engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude);
+                if (_inputDirection.y < 0)
+                {
+                    car._gearNum = 0;
+                }
+                engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude, inputReader.ClutchPressed, _inputDirection.y);
             }
             else
             {
-                engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude);
+                if (_inputDirection.y < 0)
+                {
+                    car._gearNum = 0;
+                }
+                engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude, inputReader.ClutchPressed, _inputDirection.y);
             }
             
 
-            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <=car._minBrakeRPM)
+            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <=car._minBrakeRPM && (!inputReader.ClutchPressed))
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
                 wheelsController.MoveWheels(0,0,car.drive);
@@ -118,5 +183,7 @@ namespace Car.WheelsManagement
         {
             _inputDirection = Vector2.zero;
         }
+
+        
     }
 }
