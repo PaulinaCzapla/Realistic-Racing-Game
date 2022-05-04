@@ -368,6 +368,10 @@ PrefabInstance:
       value: CarWhite
       objectReference: {fileID: 0}
     - target: {fileID: 8248937493791295055, guid: b2d885da23d00a741b79975db27f7957, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 4581932849815329276}
+    - target: {fileID: 8248937493791295055, guid: b2d885da23d00a741b79975db27f7957, type: 3}
       propertyPath: photonView
       value: 
       objectReference: {fileID: 4313527217915133679}

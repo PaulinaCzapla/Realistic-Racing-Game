@@ -7,6 +7,8 @@ namespace Car.WheelsManagement
 {
     public class CarMovementController : MonoBehaviour
     {
+        [SerializeField] private GameObject cam;
+        //public Camera cam;
         [SerializeField] private GameplayInputReader inputReader;
         [SerializeField] private WheelsController wheelsController = new WheelsController();
         [SerializeField] private Rigidbody rb;
@@ -24,6 +26,10 @@ namespace Car.WheelsManagement
 
         private void OnEnable()
         {
+            if (!photonView.IsMine)
+            {
+                cam.SetActive(false);
+            }
             inputReader.SteerEvent += OnSteerPressed;
             inputReader.SteerCanceledEvent += OnSteerCanceledPressed;
         }
