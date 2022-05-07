@@ -6,6 +6,8 @@ using UnityEngine;
 public class CarSO : ScriptableObject
 {
     [Header("Suspension variables")]
+    public AnimationCurve _downForce;
+
 
     [Header("Suspension checking variables")]
 
@@ -16,6 +18,7 @@ public class CarSO : ScriptableObject
     public float _maxRPM = 12000;
 
     [Header("Gearbox variables")]
+    public GearBoxType _gearType;
     public int _gearNum;
     public float[] _gears = { };
     public float _finalDrive = 0.0f;
@@ -24,7 +27,7 @@ public class CarSO : ScriptableObject
     public float _engineRPM = 1000.0f;
     public float _vertical = 0.0f;
     public float _engineLerpValue;
-    
+    public float _minBrakeRPM = 2000.0F;
 
     [Header("Wheels variables")]
 
