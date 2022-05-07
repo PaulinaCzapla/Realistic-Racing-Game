@@ -16,12 +16,15 @@ namespace RaceManagement
         [Header("EventChannels")]
         [SerializeField] private RaceParticipantEventChannelSO onFinishPointEntered;
         [SerializeField] private ControlPointEnterEventChannelSO  onControlPointEntered;
+        [SerializeField] private IntEventChannelSO onSetMaxLapsCount;
+        [SerializeField] private VoidEventChannelSO onRaceFinished;
 
         private int _index = 0;
         private void OnEnable()
         {
             onFinishPointEntered.OnEventRaised += OnFinishLineAchieved;
             onControlPointEntered.OnEventRaised += OnControlPointEntered;
+            onSetMaxLapsCount.RaiseEvent(maxLapsCount);
         }
 
         private void OnDisable()
