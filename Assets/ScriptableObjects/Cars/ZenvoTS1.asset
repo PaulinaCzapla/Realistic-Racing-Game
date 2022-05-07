@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f04718bfec6a64693c02e19d940b4c, type: 3}
+  m_Name: ZenvoTS1
+  m_EditorClassIdentifier: 
+  drive: 1
+  _totalPower: 1452
+  _engineTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1000
+      value: 200
+      inSlope: 0.08720209
+      outSlope: 0.08720209
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3705.124
+      value: 435.89246
+      inSlope: 0.12672096
+      outSlope: 0.12672096
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 7700
+      value: 1100
+      inSlope: -0.019505277
+      outSlope: -0.019505277
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10329.225
+      value: 560.3506
+      inSlope: -0.2052504
+      outSlope: -0.2052504
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxRPM: 12000
+  _gearNum: 1
+  _gears:
+  - 2.5
+  - 2.75
+  - 2.214
+  - 1.8
+  - 1.471
+  - 1.238
+  - 1.043
+  - 0.92
+  _finalDrive: 2.64
+  _engineRPM: 1000
+  _vertical: 1
+  _engineLerpValue: 0
+  _turnOnRPM: 1000
+  _smoothTime: 0.2
+  lerpSmoothTime: 5
