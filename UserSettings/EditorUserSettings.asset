@@ -6,7 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c6a39580216233831
+      value: 22424703114646680e0b0227036c681813121439082d2b3f633c133af6f9
       flags: 0
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c6a39580216233831
@@ -14,6 +14,7 @@ EditorUserSettings:
     RecentlyUsedScenePath-2:
       value: 22424703114646680e0b0227036c6d1115122c382d2b2d61633c133af6f9
       flags: 0
+
   m_VCAutomaticAdd: 1
   m_VCDebugCom: 0
   m_VCDebugCmd: 0
