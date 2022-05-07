@@ -52,3 +52,5 @@ MonoBehaviour:
   photonView: {fileID: 0}
   onFinishPointEntered: {fileID: 11400000, guid: 8f0f0b8a26b42db40beba277cd6ec7c4, type: 2}
   onControlPointEntered: {fileID: 11400000, guid: 1281f6f65433de446a75aa7028ea04cd, type: 2}
+  onSetMaxLapsCount: {fileID: 11400000, guid: 77b49f54eb16d8547988c76b407e70a5, type: 2}
+  onRaceFinished: {fileID: 11400000, guid: ae5e43e8c009fa0479d5a830cf0417e7, type: 2}
