@@ -84,21 +84,21 @@ namespace Car.WheelsManagement
             switch (car._gearType)
             {
                 case GearBoxType.AUTO:
-                    autoShift();
+                    AutoShift();
                     break;
                 case GearBoxType.HALF:
-                    demandShift();
+                    DemandShift();
                     break;
                 case GearBoxType.MAN:
                     if (inputReader.ClutchPressed)
                     {
-                        demandShift();
+                        DemandShift();
                     }
                         break;
             }
         }
 
-        private void demandShift()
+        private void DemandShift()
         {
             if (car._gearNum != 1 && inputReader.ShiftDownGuard)
                 car._gearNum--;
@@ -109,7 +109,7 @@ namespace Car.WheelsManagement
             
         }
 
-        private void autoShift()
+        private void AutoShift()
         {
             if(car._engineRPM > car._maxRPM + 1000 && car._gearNum < car._gears.Length - 1)
             {
@@ -170,7 +170,8 @@ namespace Car.WheelsManagement
 
         private void HandleWheelsRotation()
         {
-            wheelsController.RotateWheels(_direction);
+            float _currMaxAngle = car._maxSteerAngle.Evaluate(rb.velocity.magnitude * 3.6f);
+            wheelsController.RotateWheels(_direction, _currMaxAngle);
         }
         
         private void OnSteerPressed(Vector2 arg0)
