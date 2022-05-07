@@ -1575,6 +1575,8 @@ GameObject:
   - component: {fileID: 3018554102693136766}
   - component: {fileID: 446280378792268351}
   - component: {fileID: 330382151600293167}
+  - component: {fileID: 5261703033656761337}
+  - component: {fileID: 7234110346320644311}
   m_Layer: 0
   m_Name: CarWhite
   m_TagString: Untagged
@@ -1687,6 +1689,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 028827910203cdd48ab0e536379f1d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5261703033656761337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248937493791295048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492100d844e1b2346b1cddddd3b16efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipped: 0
+--- !u!114 &7234110346320644311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248937493791295048}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205f9b2ba369278499d91e863b1d7d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8248970707652042728
