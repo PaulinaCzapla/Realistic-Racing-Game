@@ -23,7 +23,7 @@ public class EngineController
         if (!_engineLerp)
         {
             _car._engineRPM =  Mathf.SmoothDamp(_car._engineRPM, _car._turnOnRPM + (Mathf.Abs(wheelRPM) * _car._finalDrive * _car._gears[_car._gearNum]), ref vel, _car._smoothTime * Time.deltaTime) ;
-            _car._totalPower = (float)(clutch ? 0.0 :  _car._engineTorque.Evaluate(_car._engineRPM) * (_car._gears[_car._gearNum]) * _car._finalDrive * (vertical+0.000000001));
+            _car._totalPower = (float)(clutch ? 0.0 :  _car._engineTorque.Evaluate(_car._engineRPM) * (_car._gears[_car._gearNum]) * _car._finalDrive * (Mathf.Abs(vertical)+0.000000001));
         }
         
     }
