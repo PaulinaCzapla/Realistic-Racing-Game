@@ -21,7 +21,9 @@ namespace InputSystem
         public event UnityAction GasCanceledEvent = delegate { };
         public bool GasPressed { get; private set; }
         public event UnityAction ShiftDownEvent = delegate { };
+        public bool ShiftDownGuard { get; set; }
         public event UnityAction ShiftUpEvent = delegate { };
+        public bool ShiftUpGuard { get; set; }
         public event UnityAction HandBrakeEvent = delegate { };
         public event UnityAction HandBrakeCanceledEvent = delegate { };
         public bool HandBrakePressed { get; private set; }
@@ -108,6 +110,7 @@ namespace InputSystem
         {
             if (context.performed)
             {
+                ShiftDownGuard = true;
                 ShiftDownEvent?.Invoke();
             }
         }
@@ -116,6 +119,7 @@ namespace InputSystem
         {
             if (context.performed)
             {
+                ShiftUpGuard = true;
                 ShiftUpEvent?.Invoke();
             }
         }

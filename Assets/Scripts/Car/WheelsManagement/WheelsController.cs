@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utilities;
 
 namespace Car.WheelsManagement
 {
@@ -8,13 +9,20 @@ namespace Car.WheelsManagement
     {
         public float Wheel0RPM => wheels[0].WheelRPM;
         public float Wheel2RPM => wheels[2].WheelRPM;
+        
+        public float AxleSeparation => (wheels[1].transform.position - wheels[3].transform.position).magnitude;
+        public float AxleWidth => (wheels[1].transform.position - wheels[0].transform.position).magnitude;
+        
 
         [SerializeField] private  Wheel[] wheels;
-        
 
         //tmp values for testing
         //private const float MotorForce = 1500;
         private const float BrakeForce = 10000;
+        private const float Range = 35;
+        private const float Rate = 45;
+        private float _angle;
+        
         
         public void MoveWheels(float direction, float motorForce, DriveType drive)
         {
@@ -51,11 +59,13 @@ namespace Car.WheelsManagement
             }
         }
 
-        public void RotateWheels(float direction)
+        public void RotateWheels(float steeringInput)
         {
-            //rotate front wheels for moving direction change
-            wheels[0].RotateWheel(direction);
-            wheels[1].RotateWheel(direction);
+            var destination = steeringInput * Range;
+            float currAngle = 0;
+            currAngle = Mathf.MoveTowards(currAngle, destination,   Rate);
+            currAngle = Mathf.Clamp(currAngle, -Range, Range);
+            _angle = currAngle;
         }
 
         public void UpdateWheels()
@@ -64,6 +74,20 @@ namespace Car.WheelsManagement
             {
                 wheel.UpdateWheel();
             }
+            
+            var farAngle = AckermannUtility.GetSecondaryAngle(_angle, AxleSeparation, AxleWidth);
+            // The rear wheels are always at 0 steer in Ackermann
+            wheels[2].SetSteeringAngle(0);
+            wheels[3].SetSteeringAngle(0);
+
+            if (Mathf.Approximately(_angle, 0))
+            {
+                wheels[0].SetSteeringAngle(0);
+                wheels[1].SetSteeringAngle(0);
+            }
+            
+            wheels[0].SetSteeringAngle(farAngle);
+            wheels[1].SetSteeringAngle(_angle);
         }
     }
 }

@@ -12,8 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f04718bfec6a64693c02e19d940b4c, type: 3}
   m_Name: ZenvoTS1
   m_EditorClassIdentifier: 
-  drive: 1
-  _totalPower: 1452
+  _downForce:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 40
+      outSlope: 40
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 400
+      value: 16000
+      inSlope: 40
+      outSlope: 40
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  drive: 2
+  _totalPower: 0.0000017000001
   _engineTorque:
     serializedVersion: 2
     m_Curve:
@@ -38,17 +62,44 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 7700
       value: 1100
-      inSlope: -0.019505277
-      outSlope: -0.019505277
+      inSlope: -0.013897069
+      outSlope: -0.013897069
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.24615364
+    - serializedVersion: 3
+      time: 10294.858
+      value: 848.4177
+      inSlope: -0.27552694
+      outSlope: -0.27552694
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.36574814
+    - serializedVersion: 3
+      time: 10878.113
+      value: 408.8714
+      inSlope: -0.5090753
+      outSlope: -0.5090753
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 10329.225
-      value: 560.3506
-      inSlope: -0.2052504
-      outSlope: -0.2052504
+      time: 12423.7
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08237059
+      outWeight: 0.2101595
+    - serializedVersion: 3
+      time: 14214.524
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -56,8 +107,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxRPM: 12000
-  _gearNum: 1
+  _maxRPM: 11000
+  _gearType: 0
+  _gearNum: 0
   _gears:
   - 2.5
   - 2.75
@@ -66,11 +118,12 @@ MonoBehaviour:
   - 1.471
   - 1.238
   - 1.043
-  - 0.92
-  _finalDrive: 2.64
+  - 1
+  _finalDrive: 3.4
   _engineRPM: 1000
   _vertical: 1
-  _engineLerpValue: 0
+  _engineLerpValue: 10000
+  _minBrakeRPM: 2000
   _turnOnRPM: 1000
   _smoothTime: 0.2
   lerpSmoothTime: 5
