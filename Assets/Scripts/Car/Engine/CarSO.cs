@@ -30,7 +30,7 @@ public class CarSO : ScriptableObject
     public float _minBrakeRPM = 2000.0F;
 
     [Header("Wheels variables")]
-
+    public AnimationCurve _maxSteerAngle;
 
 
     [Header("Wheels checking variables")]

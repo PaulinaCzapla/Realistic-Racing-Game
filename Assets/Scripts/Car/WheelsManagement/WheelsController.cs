@@ -19,7 +19,7 @@ namespace Car.WheelsManagement
         //tmp values for testing
         //private const float MotorForce = 1500;
         private const float BrakeForce = 10000;
-        private const float Range = 35;
+        //private const float Range = 30f;
         private const float Rate = 45;
         private float _angle;
         
@@ -59,12 +59,12 @@ namespace Car.WheelsManagement
             }
         }
 
-        public void RotateWheels(float steeringInput)
+        public void RotateWheels(float steeringInput, float maxAngle)
         {
-            var destination = steeringInput * Range;
+            var destination = steeringInput * maxAngle;
             float currAngle = 0;
             currAngle = Mathf.MoveTowards(currAngle, destination,   Rate);
-            currAngle = Mathf.Clamp(currAngle, -Range, Range);
+            currAngle = Mathf.Clamp(currAngle, -maxAngle, maxAngle);
             _angle = currAngle;
         }
 
