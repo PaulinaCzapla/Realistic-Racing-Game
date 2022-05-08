@@ -421,18 +421,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1.9999988}
   m_Center: {x: -0.00000032782555, y: 0, z: 0.00000033527613}
---- !u!114 &822985425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822985419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205f9b2ba369278499d91e863b1d7d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &848279888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581932849815329266, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8899093
+      value: 2.4399996
       objectReference: {fileID: 0}
     - target: {fileID: 4581932849815329266, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1161,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581932851280329047, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8899093
+      value: 2.4399996
       objectReference: {fileID: 0}
     - target: {fileID: 4581932851280329047, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1182,6 +1170,18 @@ PrefabInstance:
     - target: {fileID: 4581932851280329047, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921328456864648118, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
+    - target: {fileID: 5305953756110330748, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
+    - target: {fileID: 5613630712351650756, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5613630712351650756, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1207,7 +1207,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProfessionalPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4921328456864648118, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
 --- !u!1 &2105495716
 GameObject:
