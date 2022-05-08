@@ -20,6 +20,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        connectionStatus.text = "Connected to server";
+        // connectionStatus.text = "Connected to server";
     }
 }

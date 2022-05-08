@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Events.ScriptableObjects;
 using Photon.Pun;
 using Photon.Realtime;
+using SceneManagement.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ namespace UI.RoomMenu
         [SerializeField]
         private LoadSceneEventChannelSO loadSceneEvent;
         [SerializeField]
+        private GameSceneSO RaceTrackScene;
+        [SerializeField]
         private InputField nameInput;
         [SerializeField]
         private InputField roomNameInput;
@@ -20,6 +23,9 @@ namespace UI.RoomMenu
         private Button joinRoomButton;
         [SerializeField]
         private Button goToGameButton;
+
+        [SerializeField]
+        private Button goBackButton;
 
         private void JoinRoomEvent()
         {
@@ -43,12 +49,14 @@ namespace UI.RoomMenu
         {
             joinRoomButton.onClick.AddListener(() => JoinRoomEvent());
             goToGameButton.onClick.AddListener(() => GoToGameEvent());
+            goBackButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
         }
 
         private void OnDisable()
         {
             joinRoomButton.onClick.RemoveAllListeners();
-            // goToGameButton.onClick.RemoveAllListeners();
+            goToGameButton.onClick.RemoveAllListeners();
+            goBackButton.onClick.RemoveAllListeners();
         }
     }
 }
