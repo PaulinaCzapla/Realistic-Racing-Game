@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092b32dbd3ae429d82dbc2e756deb71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
   inputReader: {fileID: 11400000, guid: d463ba73e49cfd14cbaa68e1829484d7, type: 2}
   wheelsController:
     wheels:
@@ -1708,8 +1709,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5027b059e95f614a94f9c52863986de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  axles: []
+  rigidbody: {fileID: 8248937493791295054}
+  axles:
+  - leftWheel: {fileID: 6601733914566895845}
+    rightWheel: {fileID: 6601733914428629341}
+    force: 4000
+  - leftWheel: {fileID: 6601733914379764177}
+    rightWheel: {fileID: 6601733915013294907}
+    force: 4000
 --- !u!114 &2617843994349002081
 MonoBehaviour:
   m_ObjectHideFlags: 0

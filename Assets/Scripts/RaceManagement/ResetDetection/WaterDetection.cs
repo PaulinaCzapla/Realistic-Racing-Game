@@ -17,6 +17,7 @@ namespace RaceManagement.ResetDetection
                 other.gameObject.transform.rotation = _pointcontrol.SpawnPoint.transform.rotation;
                 other.gameObject.transform.position = _pointcontrol.SpawnPoint.transform.position;
                 car._gearNum = 1;
+                //Debug.Log(participant.ControlPointsActivated.Count);
             }
         }
     }

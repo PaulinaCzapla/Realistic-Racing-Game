@@ -30,6 +30,7 @@ namespace RaceManagement.ResetDetection
 
         private void Timer()
         {
+            //Debug.Log(_raceParticipant.ControlPointsActivated.Count);
             _pointcontrol = _raceParticipant.ControlPointsActivated[_raceParticipant.ControlPointsActivated.Count - 1];
             if (_resetTime > 2f)
             {
