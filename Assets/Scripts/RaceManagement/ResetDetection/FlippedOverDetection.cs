@@ -9,6 +9,8 @@ namespace RaceManagement.ResetDetection
         private float _resetTime = 0f;
         private ControlPoint _pointcontrol;
         private RaceParticipant _raceParticipant;
+        [SerializeField] private CarSO car;
+
         private void Start()
         {
             _raceParticipant = GetComponent<RaceParticipant>();
@@ -33,6 +35,7 @@ namespace RaceManagement.ResetDetection
             {
                 transform.rotation = _pointcontrol.SpawnPoint.transform.rotation;
                 transform.position = _pointcontrol.SpawnPoint.transform.position;
+                car._gearNum = 1;
             }
             _resetTime += Time.deltaTime;
         }
