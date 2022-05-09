@@ -7,12 +7,13 @@ namespace Car.WheelsManagement
 {
     public class CarMovementController : MonoBehaviour
     {
+        [SerializeField] private GameObject cam;
         [SerializeField] private GameplayInputReader inputReader;
         [SerializeField] private WheelsController wheelsController = new WheelsController();
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CarSO car;
         [SerializeField] private PhotonView photonView;
-        
+
         private EngineController engine;
         private Vector2 _inputDirection;
         private float _direction;
@@ -26,6 +27,10 @@ namespace Car.WheelsManagement
 
         private void OnEnable()
         {
+            if (!photonView.IsMine)
+            {
+                cam.SetActive(false);
+            }
             inputReader.SteerEvent += OnSteerPressed;
             inputReader.SteerCanceledEvent += OnSteerCanceledPressed;
         }
@@ -43,14 +48,14 @@ namespace Car.WheelsManagement
                 if (inputReader.SteerPressed && _inputDirection.x != 0)
                 {
                     if (Mathf.Abs(_direction) < Mathf.Abs(_inputDirection.x))
-                        _direction += (Mathf.Sign(_inputDirection.x)) * _dirDelta *2;
+                        _direction += (Mathf.Sign(_inputDirection.x)) * _dirDelta * 2;
                     else
                         _direction = _inputDirection.x;
                 }
-                else if(_direction != 0)
+                else if (_direction != 0)
                 {
                     if (Mathf.Abs(_direction) > 0.15f)
-                        _direction += -1 *(Mathf.Sign(_direction)) * _dirDelta;
+                        _direction += -1 * (Mathf.Sign(_direction)) * _dirDelta;
                     else
                         _direction = 0;
                 }
@@ -66,10 +71,10 @@ namespace Car.WheelsManagement
 
         private void Update()
         {
-            
+
         }
 
-        private void  ApplyDownForce()
+        private void ApplyDownForce()
         {
             var downForce = car._downForce.Evaluate(rb.velocity.magnitude * 3.6f);
             rb.AddForce(-Vector3.up * downForce);
@@ -77,7 +82,7 @@ namespace Car.WheelsManagement
 
         private void HandleGearSwap()
         {
-            if(_inputDirection.y > 0 & car._gearNum == 0)
+            if (_inputDirection.y > 0 & car._gearNum == 0)
             {
                 car._gearNum = 1;
             }
@@ -94,7 +99,7 @@ namespace Car.WheelsManagement
                     {
                         DemandShift();
                     }
-                        break;
+                    break;
             }
         }
 
@@ -106,15 +111,16 @@ namespace Car.WheelsManagement
             if (car._gearNum != (car._gears.Length - 1) && inputReader.ShiftUpGuard)
                 car._gearNum++;
             inputReader.ShiftUpGuard = false;
-            
+
         }
 
         private void AutoShift()
         {
-            if(car._engineRPM > car._maxRPM + 1000 && car._gearNum < car._gears.Length - 1)
+            if (car._engineRPM > car._maxRPM + 1000 && car._gearNum < car._gears.Length - 1)
             {
                 car._gearNum++;
-            } else if(car._engineRPM <= car._minBrakeRPM + 1000 && car._gearNum > 1)
+            }
+            else if (car._engineRPM <= car._minBrakeRPM + 1000 && car._gearNum > 1)
             {
                 car._gearNum--;
             }
@@ -139,19 +145,19 @@ namespace Car.WheelsManagement
                 }
                 engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude, inputReader.ClutchPressed, _inputDirection.y);
             }
-            
 
-            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <=car._minBrakeRPM && (!inputReader.ClutchPressed))
+
+            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <= car._minBrakeRPM && (!inputReader.ClutchPressed))
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
-                wheelsController.MoveWheels(0,0,car.drive);
+                wheelsController.MoveWheels(0, 0, car.drive);
                 wheelsController.ApplyBrake();
             }
             else
             {
 
                 //if max speed not achieved - set motor torque
-                wheelsController.MoveWheels(_inputDirection.y,car._totalPower,car.drive);
+                wheelsController.MoveWheels(_inputDirection.y, car._totalPower, car.drive);
             }
         }
 
@@ -161,7 +167,7 @@ namespace Car.WheelsManagement
             {
                 wheelsController.ApplyBrake();
             }
-            else if(!Mathf.Approximately(_inputDirection.y,0))
+            else if (!Mathf.Approximately(_inputDirection.y, 0))
             {
                 //if brake not pressed and move forward - set brake force to 0
                 wheelsController.ApplyBrake(0);
@@ -173,7 +179,7 @@ namespace Car.WheelsManagement
             float _currMaxAngle = car._maxSteerAngle.Evaluate(rb.velocity.magnitude * 3.6f);
             wheelsController.RotateWheels(_direction, _currMaxAngle);
         }
-        
+
         private void OnSteerPressed(Vector2 arg0)
         {
             _inputDirection = arg0;
@@ -185,6 +191,6 @@ namespace Car.WheelsManagement
             _inputDirection = Vector2.zero;
         }
 
-        
+
     }
 }
