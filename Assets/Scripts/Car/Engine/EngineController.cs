@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EngineController 
 {
@@ -17,7 +18,6 @@ public class EngineController
     public void CalculateEnginePower(float wheelRPM, float velocity, bool clutch, float vertical)
     {
         
-
         LerpEngine(velocity);
         if (_car._engineRPM >= _car._maxRPM) SetEngineLerp(_car._maxRPM - 1000);
         if (!_engineLerp)
