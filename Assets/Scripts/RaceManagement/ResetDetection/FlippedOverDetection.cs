@@ -7,18 +7,19 @@ namespace RaceManagement.ResetDetection
     {
         public bool flipped = false;
         private float _resetTime = 0f;
-        private ControlPoint _pointcontrol;
-        private RaceParticipant _raceParticipant;
-        [SerializeField] private CarSO car;
+        //private ControlPoint _pointcontrol;
+        //private RaceParticipant _raceParticipant;
+        private BackToCheckpoint _backToCheckpoint;
+        //[SerializeField] private CarSO car;
 
         private void Start()
         {
-            _raceParticipant = GetComponent<RaceParticipant>();
+            _backToCheckpoint = GetComponent<BackToCheckpoint>();
         }
 
         void Update()
         {
-            if (transform.position.y < 5 && transform.eulerAngles.z > 90 && transform.eulerAngles.z < 300)
+            if (transform.position.y < 5 && transform.eulerAngles.z > 80 && transform.eulerAngles.z < 300)
             { 
                 Timer();
             }
@@ -30,13 +31,9 @@ namespace RaceManagement.ResetDetection
 
         private void Timer()
         {
-            //Debug.Log(_raceParticipant.ControlPointsActivated.Count);
-            _pointcontrol = _raceParticipant.ControlPointsActivated[_raceParticipant.ControlPointsActivated.Count - 1];
             if (_resetTime > 2f)
             {
-                transform.rotation = _pointcontrol.SpawnPoint.transform.rotation;
-                transform.position = _pointcontrol.SpawnPoint.transform.position;
-                car._gearNum = 1;
+                _backToCheckpoint.ResetPosition();
             }
             _resetTime += Time.deltaTime;
         }
