@@ -153,9 +153,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.9
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 10
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.8
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!1 &6601733914566895847
 GameObject:
@@ -214,9 +214,9 @@ WheelCollider:
   m_SidewaysFriction:
     m_ExtremumSlip: 0.9
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 10
+    m_AsymptoteSlip: 0.6
+    m_AsymptoteValue: 0.8
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!1 &6601733915013294901
 GameObject:
@@ -1713,10 +1713,10 @@ MonoBehaviour:
   axles:
   - leftWheel: {fileID: 6601733914566895845}
     rightWheel: {fileID: 6601733914428629341}
-    force: 4000
+    force: 9000
   - leftWheel: {fileID: 6601733914379764177}
     rightWheel: {fileID: 6601733915013294907}
-    force: 4000
+    force: 9000
 --- !u!114 &2617843994349002081
 MonoBehaviour:
   m_ObjectHideFlags: 0
