@@ -107,6 +107,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetPosition"",
+                    ""type"": ""Button"",
+                    ""id"": ""831bca39-f679-4b7c-9b20-051f0ef44e84"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -404,6 +413,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Clutch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5dfbe242-1fbd-4352-885c-d016c60dc387"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ResetPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -766,6 +786,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Handbrake = m_Gameplay.FindAction("Handbrake", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Clutch = m_Gameplay.FindAction("Clutch", throwIfNotFound: true);
+        m_Gameplay_ResetPosition = m_Gameplay.FindAction("ResetPosition", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -842,6 +863,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Handbrake;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Clutch;
+    private readonly InputAction m_Gameplay_ResetPosition;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -855,6 +877,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Handbrake => m_Wrapper.m_Gameplay_Handbrake;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Clutch => m_Wrapper.m_Gameplay_Clutch;
+        public InputAction @ResetPosition => m_Wrapper.m_Gameplay_ResetPosition;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -891,6 +914,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clutch.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
                 @Clutch.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
                 @Clutch.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
+                @ResetPosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
+                @ResetPosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
+                @ResetPosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -922,6 +948,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clutch.started += instance.OnClutch;
                 @Clutch.performed += instance.OnClutch;
                 @Clutch.canceled += instance.OnClutch;
+                @ResetPosition.started += instance.OnResetPosition;
+                @ResetPosition.performed += instance.OnResetPosition;
+                @ResetPosition.canceled += instance.OnResetPosition;
             }
         }
     }
@@ -1028,6 +1057,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnHandbrake(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnClutch(InputAction.CallbackContext context);
+        void OnResetPosition(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

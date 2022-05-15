@@ -59,6 +59,15 @@ namespace Car.WheelsManagement
             }
         }
 
+        public void StopWheels()
+        {
+            //stop all wheels
+            foreach (var wheel in wheels)
+            {
+                wheel.ApplyMotorTorque(0);
+            }
+        }
+        
         public void RotateWheels(float steeringInput, float maxAngle)
         {
             var destination = steeringInput * maxAngle;
