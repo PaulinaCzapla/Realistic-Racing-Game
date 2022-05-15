@@ -1,0 +1,3 @@
+*.png filter=lfs diff=lfs merge=lfs -text
+*.mat filter=lfs diff=lfs merge=lfs -text
+8K[[:space:]]Skybox[[:space:]]Pack[[:space:]]Free/** filter=lfs diff=lfs merge=lfs -text
