@@ -152,10 +152,10 @@ WheelCollider:
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.9
-    m_ExtremumValue: 1
+    m_ExtremumValue: 1.2
     m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 0.8
-    m_Stiffness: 5
+    m_Stiffness: 6
   m_Enabled: 1
 --- !u!1 &6601733914566895847
 GameObject:
@@ -213,10 +213,10 @@ WheelCollider:
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.9
-    m_ExtremumValue: 1
+    m_ExtremumValue: 1.2
     m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 0.8
-    m_Stiffness: 5
+    m_Stiffness: 6
   m_Enabled: 1
 --- !u!1 &6601733915013294901
 GameObject:
