@@ -242,6 +242,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3409e269-ed21-4104-b76d-3869bf02674a"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""927098ec-421a-420c-bd95-a098c387e34f"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0c56654d-b07b-4076-9752-a3f1996cee03"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
@@ -286,6 +308,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6bb68781-7891-4f10-83fa-d38110562c50"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a7efad3-cb19-4207-b18e-63c7a1aa3abc"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b3421fb1-9eac-4752-b5eb-5b69cbad1453"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
@@ -302,6 +346,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Gas"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3adcedd0-532d-4f21-81fa-5c50dcc0f51d"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gas"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecbe8013-68db-4f02-af10-45e6c2ae85df"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Gas"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -330,6 +396,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""658eefd0-f8c5-4c15-8d11-e28f0db7c53f"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster Racing Wheel FFB>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32500f10-da55-4ac0-aaf7-5a05a7e47637"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b2da1862-4e68-4a32-8d85-7defd15741fc"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -352,6 +440,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""27b7221a-59a4-4a4d-a482-4c53aeebcb8d"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster Racing Wheel FFB>/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""529b9a75-12eb-4c94-ae55-48cb4139b095"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""61e197b3-92eb-4bff-8804-1167b5563a32"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -365,6 +475,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""90fb9889-0aa1-4c65-824b-69872ed7cef6"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Handbrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""703c3414-3fa7-4e42-a76f-ab22e8c61573"",
+                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Handbrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31974980-9c11-483c-a3d8-578babfe8aca"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -418,11 +550,44 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""576c7335-5e0e-49c6-b0a7-5896003e187f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Clutch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87b36bda-2ecf-470c-80a5-73955e9cdfd5"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Clutch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5dfbe242-1fbd-4352-885c-d016c60dc387"",
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ResetPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f8d9693-b55e-48e1-a99c-9f4c5c75a6a8"",
+                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""ResetPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

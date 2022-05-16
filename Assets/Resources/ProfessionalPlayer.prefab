@@ -295,7 +295,6 @@ MonoBehaviour:
   target: {fileID: 3644827126255189760}
   distance: 5.8
   height: 2.4
-  rotationXOffset: 10
   rotationDamping: 2.1
   heightDamping: 5
 --- !u!1 &5973886207147386593

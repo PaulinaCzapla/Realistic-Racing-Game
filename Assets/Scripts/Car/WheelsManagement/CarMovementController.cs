@@ -33,6 +33,18 @@ namespace Car.WheelsManagement
             }
             inputReader.SteerEvent += OnSteerPressed;
             inputReader.SteerCanceledEvent += OnSteerCanceledPressed;
+            inputReader.GasEvent += OnGasPressed;
+            inputReader.GasCanceledEvent += OnGasCanceled;
+        }
+
+        private void OnGasCanceled()
+        {
+            _inputDirection = new Vector2(_inputDirection.x, 0);
+        }
+
+        private void OnGasPressed()
+        {
+            _inputDirection = new Vector2(_inputDirection.x, 1);
         }
 
         private void OnDisable()
@@ -71,7 +83,7 @@ namespace Car.WheelsManagement
 
         private void Update()
         {
-
+            Debug.Log(Input.GetAxis("x"));
         }
 
         private void ApplyDownForce()
@@ -182,7 +194,8 @@ namespace Car.WheelsManagement
 
         private void OnSteerPressed(Vector2 arg0)
         {
-            _inputDirection = arg0;
+            Debug.Log(arg0.y);
+            _inputDirection = new Vector2(arg0.x, _inputDirection.y);
             // direction.x and direction.y are floats between -1 and 1. For keyboard there is always -1, 0 or 1 value.
         }
 
