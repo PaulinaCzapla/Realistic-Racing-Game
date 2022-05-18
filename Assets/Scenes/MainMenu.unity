@@ -2324,12 +2324,11 @@ MonoBehaviour:
   optionsButton: {fileID: 979059822}
   creditsButton: {fileID: 1254103882}
   backButton: {fileID: 906598634}
-  loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
-  RaceTrackScene: {fileID: 11400000, guid: 4a5f016c1d4aa8e449fee3aa25e5a50f, type: 2}
-  JoinRoomScene: {fileID: 11400000, guid: 916edef6796e3ce438a8cb79747c6fe2, type: 2}
-  OptionsContainer: {fileID: 1301893462}
-  CreditsContainer: {fileID: 1050280000}
-  MenuContainer: {fileID: 1736099727}
+  loadSceneEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
+  joinRoomScene: {fileID: 11400000, guid: 916edef6796e3ce438a8cb79747c6fe2, type: 2}
+  optionsContainer: {fileID: 979059820}
+  creditsContainer: {fileID: 1254103880}
+  menuContainer: {fileID: 0}
 --- !u!1 &1399781288
 GameObject:
   m_ObjectHideFlags: 0
