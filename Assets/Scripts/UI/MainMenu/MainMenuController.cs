@@ -13,12 +13,14 @@ namespace UI.MainMenu
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button creditsButton;
         [SerializeField] private Button backButton;
+        
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
-        [SerializeField] private GameSceneSO RaceTrackScene;
-        [SerializeField] private GameSceneSO JoinRoomScene;
-        [SerializeField] private GameObject OptionsContainer;
-        [SerializeField] private GameObject CreditsContainer;
-        [SerializeField] private GameObject MenuContainer;
+        
+        //[SerializeField] private GameSceneSO RaceTrackScene;
+        [SerializeField] private GameSceneSO joinRoomScene;
+        [SerializeField] private GameObject optionsContainer;
+        [SerializeField] private GameObject creditsContainer;
+        [SerializeField] private GameObject menuContainer;
 
         private void OnStart()
         {
@@ -26,31 +28,31 @@ namespace UI.MainMenu
         }
         private void OnEnable()
         {
-            startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
-            roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(JoinRoomScene, true));
-            optionsButton.onClick.AddListener(() => handleOptionsButtonClick());
-            creditsButton.onClick.AddListener(() => handleCreditsButtonClick());
-            backButton.onClick.AddListener(() => handleBackButtonClick());
+          //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
+            roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
+            optionsButton.onClick.AddListener(HandleOptionsButtonClick);
+            creditsButton.onClick.AddListener(HandleCreditsButtonClick);
+            backButton.onClick.AddListener(HandleBackButtonClick);
         }
 
-        private void handleBackButtonClick()
+        private void HandleBackButtonClick()
         {
-            OptionsContainer.SetActive(false);
-            CreditsContainer.SetActive(false);
-            MenuContainer.SetActive(true);
+            optionsContainer.SetActive(false);
+            creditsContainer.SetActive(false);
+            menuContainer.SetActive(true);
             backButton.gameObject.SetActive(false);
         }
-        private void handleOptionsButtonClick()
+        private void HandleOptionsButtonClick()
         {
-            OptionsContainer.SetActive(true);
-            MenuContainer.SetActive(false);
+            optionsContainer.SetActive(true);
+            menuContainer.SetActive(false);
             backButton.gameObject.SetActive(true);
         }
 
-        private void handleCreditsButtonClick()
+        private void HandleCreditsButtonClick()
         {
-            CreditsContainer.SetActive(true);
-            MenuContainer.SetActive(false);
+            creditsContainer.SetActive(true);
+            menuContainer.SetActive(false);
             backButton.gameObject.SetActive(true);
         }
 
