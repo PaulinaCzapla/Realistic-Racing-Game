@@ -25,7 +25,7 @@ namespace UI.HudUI
 
         [SerializeField] private CarSO car;
 
-        CarSO SelectedCar { get { return GameController.PlayerCar; } }
+      //  CarSO SelectedCar { get { return GameController.PlayerCar; } }
 
         private int _maxLapsCount;
         private int _lapsCount;
@@ -48,14 +48,14 @@ namespace UI.HudUI
 
         void UpdateArrow ()
 	{
-		var procent = SelectedCar.EngineRPM / SelectedCar.GetMaxRPM;
+		var procent = car._engineRPM / car._maxRPM;
 		var angle = (MaxArrowAngle - MinArrowAngle) * procent + MinArrowAngle;
 		TahometerArrow.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 	}
     void UpdateGamePanel ()
 	{
-		SpeedText.text = SelectedCar.SpeedInHour.ToString ("000");
-		CurrentGearText.text = SelectedCar.CurrentGear.ToString ();
+		//SpeedText.text = SelectedCar.SpeedInHour.ToString ("000");
+		//CurrentGearText.text = SelectedCar.CurrentGear.ToString ();
 	}
 
         private void OnEnable()

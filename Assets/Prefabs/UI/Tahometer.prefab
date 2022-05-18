@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 2947687615856271657}
   - component: {fileID: 2947687615856271639}
   - component: {fileID: 2947687615856271638}
+  - component: {fileID: 6657273448174695314}
   m_Layer: 0
   m_Name: Tahometer
   m_TagString: Untagged
@@ -636,6 +637,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6657273448174695314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947687615856271656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506073d47e8d42daa76972def9253a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSetMaxLapsCount: {fileID: 11400000, guid: 77b49f54eb16d8547988c76b407e70a5, type: 2}
+  onRaceFinished: {fileID: 11400000, guid: ae5e43e8c009fa0479d5a830cf0417e7, type: 2}
+  onUpdateLapsCount: {fileID: 11400000, guid: 29e1c19744fae5b46bd31610f8d4ebfa, type: 2}
+  UpdateFrameCount: 3
+  SpeedText: {fileID: 2947687615778503894}
+  CurrentGearText: {fileID: 2947687614568231671}
+  TahometerArrow: {fileID: 2947687614604643329}
+  MinArrowAngle: 0
+  MaxArrowAngle: -315
+  car: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
 --- !u!1 &2947687616155373065
 GameObject:
   m_ObjectHideFlags: 0
