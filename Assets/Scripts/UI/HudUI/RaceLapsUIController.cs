@@ -54,8 +54,8 @@ namespace UI.HudUI
 	}
     void UpdateGamePanel ()
 	{
-		//SpeedText.text = SelectedCar.SpeedInHour.ToString ("000");
-		//CurrentGearText.text = SelectedCar.CurrentGear.ToString ();
+		//SpeedText.text = car.{Tu jest miejsce na prędkość!}.ToString ("000");
+		CurrentGearText.text = car._gearNum.ToString ();
 	}
 
         private void OnEnable()
