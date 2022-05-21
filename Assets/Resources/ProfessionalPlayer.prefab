@@ -579,3 +579,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipped: 0
+--- !u!114 &331920188735221586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614958857083615842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5add8b1b73c3f6048b51ce0200d872ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: d463ba73e49cfd14cbaa68e1829484d7, type: 2}
+  car: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
+  lowAccelClip: {fileID: 8300000, guid: fdeaf4eafebf6274f9d5c7b5d40ea2d8, type: 3}
+  lowDecelClip: {fileID: 8300000, guid: fdeaf4eafebf6274f9d5c7b5d40ea2d8, type: 3}
+  highAccelClip: {fileID: 8300000, guid: ef0d13f6ec3700f47b1b1347670f1242, type: 3}
+  highDecelClip: {fileID: 8300000, guid: 1a191a60fe545a54cae6a7b552ba7258, type: 3}
+  pitchMultiplier: 1
+  highPitchMultiplier: 0.25
+  lowPitchMin: 1
+  lowPitchMax: 4.37
+  dopplerLevel: 1
+  maxRolloffDistance: 500

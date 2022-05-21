@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41522828, g: 0.2050502, b: 0.19887283, a: 1}
+  m_IndirectSpecularColor: {r: 0.41518888, g: 0.20504811, b: 0.19856757, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -369,6 +369,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 331920188735221586, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: lowPitchMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 331920188735221586, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: lowPitchMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331920188735221586, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: highAccelClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef0d13f6ec3700f47b1b1347670f1242, type: 3}
+    - target: {fileID: 331920188735221586, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
+      propertyPath: highDecelClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a191a60fe545a54cae6a7b552ba7258, type: 3}
     - target: {fileID: 1731302304849293400, guid: 186733b2e76567f4ab7564677f1ae74c, type: 3}
       propertyPath: sceneViewId
       value: 3
