@@ -24,7 +24,7 @@ namespace Car.WheelsManagement
 
         private void Awake()
         {
-            inputReader.SetInput();
+           // inputReader.SetInput();
             engine = new EngineController(car);
         }
 
