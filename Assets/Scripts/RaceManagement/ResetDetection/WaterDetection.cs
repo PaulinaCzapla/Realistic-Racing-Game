@@ -1,6 +1,3 @@
-using Car.WheelsManagement;
-using InputSystem;
-using RaceManagement.ControlPoints;
 using UnityEngine;
 
 namespace RaceManagement.ResetDetection
