@@ -33,7 +33,9 @@ namespace InputSystem
         public event UnityAction MenuEvent = delegate { };
         public event UnityAction ClutchEvent = delegate { };
         public event UnityAction ClutchCanceledEvent = delegate { };
-        
+        public event UnityAction ReverseEvent = delegate { };
+        public event UnityAction ReverseCanceledEvent = delegate { };
+        public bool ReversePressed { get; private set; }
         public bool ResetPositionPressed { get; private set; }
         public event UnityAction ResetPositionEvent = delegate { };
         public event UnityAction ResetPositionCanceledEvent = delegate { };
@@ -104,6 +106,20 @@ namespace InputSystem
             {
                 ResetPositionPressed = false;
                 ResetPositionCanceledEvent?.Invoke();
+            }
+        }
+
+        public void OnReverse(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                ReversePressed= true;
+                ReverseEvent?.Invoke();
+            }
+            if (context.canceled)
+            {
+                ReversePressed = false;
+                ReverseCanceledEvent?.Invoke();
             }
         }
 
