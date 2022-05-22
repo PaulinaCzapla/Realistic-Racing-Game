@@ -39,8 +39,8 @@ namespace Car.WheelsManagement
             inputReader.SteerCanceledEvent += OnSteerCanceledPressed;
             inputReader.GasEvent += OnGasPressed;
             inputReader.GasCanceledEvent += OnGasCanceled;
-            inputReader.BrakeEvent += OnBrakePressed;
-            inputReader.BrakeCanceledEvent += OnBrakeCanceled;
+            inputReader.ReverseEvent += OnReversePressed;
+            inputReader.ReverseCanceledEvent += OnReverseCanceled;
             // inputReader.HandBrakePressed += OnHandBrakePressed;
         }
 
@@ -50,8 +50,8 @@ namespace Car.WheelsManagement
             inputReader.SteerCanceledEvent -= OnSteerCanceledPressed;
             inputReader.GasEvent -= OnGasPressed;
             inputReader.GasCanceledEvent -= OnGasCanceled;
-            inputReader.BrakeEvent -= OnBrakePressed;
-            inputReader.BrakeCanceledEvent -= OnBrakeCanceled;
+            inputReader.ReverseEvent -= OnReversePressed;
+            inputReader.ReverseCanceledEvent -= OnReverseCanceled;
         }
 
         private void FixedUpdate()
@@ -72,9 +72,9 @@ namespace Car.WheelsManagement
 
         private void OnGasPressed() => _inputDirection = new Vector2(_inputDirection.x, 1);
         
-        private void OnBrakePressed() => _inputDirection = new Vector2(_inputDirection.x, -1);
+        private void OnReversePressed() => _inputDirection = new Vector2(_inputDirection.x, -1);
 
-        private void OnBrakeCanceled() => _inputDirection = new Vector2(_inputDirection.x, 0);
+        private void OnReverseCanceled() => _inputDirection = new Vector2(_inputDirection.x, 0);
         
         private void OnSteerPressed(Vector2 arg0) => _inputDirection = new Vector2(arg0.x, _inputDirection.y);
         
@@ -203,11 +203,12 @@ namespace Car.WheelsManagement
 
         private void HandleBrake()
         {
-            if (inputReader.BrakePressed)
-            {
-                wheelsController.ApplyBrake(6000);
-            }
-            else if (inputReader.HandBrakePressed)
+            // if (inputReader.BrakePressed)
+            // {
+            //    // wheelsController.ApplyBrake(6000);
+            // }
+            // else
+            if (inputReader.HandBrakePressed)
             {
                 wheelsController.ApplyBrake();
             }

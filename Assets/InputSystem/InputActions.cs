@@ -116,6 +116,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reverse"",
+                    ""type"": ""Button"",
+                    ""id"": ""8514211a-1c84-4845-ae9e-a876385076c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,28 +273,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""84ca922d-b573-44c8-8687-8862a38b1c89"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""af40e954-e6d2-45ed-85e2-a0878556d0ec"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6bb68781-7891-4f10-83fa-d38110562c50"",
                     ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button7"",
                     ""interactions"": """",
@@ -302,17 +289,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""035c8e97-66cd-4eaf-855b-c961fe2be5d0"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
                     ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -589,6 +565,39 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ResetPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad21a2b4-0d49-4847-b35c-00ba8327875f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6d2434b-3e60-48b3-9f23-3e328a0ba106"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b893c15-cf1d-4c22-a923-b91f939b87bb"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -952,6 +961,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Clutch = m_Gameplay.FindAction("Clutch", throwIfNotFound: true);
         m_Gameplay_ResetPosition = m_Gameplay.FindAction("ResetPosition", throwIfNotFound: true);
+        m_Gameplay_Reverse = m_Gameplay.FindAction("Reverse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1029,6 +1039,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Clutch;
     private readonly InputAction m_Gameplay_ResetPosition;
+    private readonly InputAction m_Gameplay_Reverse;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1043,6 +1054,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Clutch => m_Wrapper.m_Gameplay_Clutch;
         public InputAction @ResetPosition => m_Wrapper.m_Gameplay_ResetPosition;
+        public InputAction @Reverse => m_Wrapper.m_Gameplay_Reverse;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1082,6 +1094,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @ResetPosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
                 @ResetPosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
                 @ResetPosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
+                @Reverse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
+                @Reverse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
+                @Reverse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1116,6 +1131,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @ResetPosition.started += instance.OnResetPosition;
                 @ResetPosition.performed += instance.OnResetPosition;
                 @ResetPosition.canceled += instance.OnResetPosition;
+                @Reverse.started += instance.OnReverse;
+                @Reverse.performed += instance.OnReverse;
+                @Reverse.canceled += instance.OnReverse;
             }
         }
     }
@@ -1223,6 +1241,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnClutch(InputAction.CallbackContext context);
         void OnResetPosition(InputAction.CallbackContext context);
+        void OnReverse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
