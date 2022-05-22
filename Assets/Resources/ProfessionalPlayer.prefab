@@ -469,6 +469,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4581932851280329043}
     - target: {fileID: 8248937493791295055, guid: b2d885da23d00a741b79975db27f7957, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1854684229547096008}
+    - target: {fileID: 8248937493791295055, guid: b2d885da23d00a741b79975db27f7957, type: 3}
       propertyPath: photonView
       value: 
       objectReference: {fileID: 4547809167791583383}
@@ -576,6 +580,36 @@ MonoBehaviour:
     - {fileID: 5615103854440067363}
     - {fileID: 5615296013665971057}
     - {fileID: 5615615705613476447}
+--- !u!114 &1854684229547096008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614958857083615842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 01560c2055d5cef40b5abafa0f9ece71, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &5305953756110330748
 MonoBehaviour:
   m_ObjectHideFlags: 0
