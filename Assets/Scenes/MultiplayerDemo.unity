@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6320262907808699958, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8858317189546579344, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
       propertyPath: controlPoints.Array.data[0]
       value: 

@@ -15,12 +15,12 @@ namespace RaceManagement
         {
             inputReader.SetInput();
             inputReader.GameplayInputEnabled(false);
-            
             StartCoroutine(RaceStart());
         }
 
         private IEnumerator RaceStart()
         {
+            yield return new WaitForSeconds(10f);
             textMesh.enabled = true;
             yield return new WaitForSeconds(1f);
             StartCoroutine(DisplayText("Ready?"));

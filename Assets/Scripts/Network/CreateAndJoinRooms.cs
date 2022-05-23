@@ -7,6 +7,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public InputField createInput;
     public InputField joinInput;
+    [SerializeField] private Text instructionText;
 
     public void CreateRoom()
     {
@@ -20,6 +21,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        instructionText.text = "Wait for other players";
         PhotonNetwork.LoadLevel("MultiplayerDemo");
     }
 }

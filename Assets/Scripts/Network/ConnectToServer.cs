@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ConnectToServer : MonoBehaviourPunCallbacks
+namespace Network
 {
-    public InputField connectionStatus;
-    void Start()
+    public class ConnectToServer : MonoBehaviourPunCallbacks
     {
-        PhotonNetwork.ConnectUsingSettings();
-    }
+        public Text connectionStatus;
+        void Start()
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
 
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
+        public override void OnConnectedToMaster()
+        {
+            PhotonNetwork.JoinLobby();
+            connectionStatus.text = "Connected to Master";
+        }
 
-    public override void OnJoinedLobby()
-    {
-        // connectionStatus.text = "Connected to server";
+        public override void OnJoinedLobby()
+        { 
+            connectionStatus.text = "Joined Lobby";
+        }
     }
 }

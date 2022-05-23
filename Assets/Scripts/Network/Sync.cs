@@ -28,8 +28,11 @@ public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
         {
             //receive the next data from the stream and set it to the truLoc varible
             if (!photonView.IsMine)
-            {//do we own this photonView?????
-                this.trueLoc = (Vector3)stream.ReceiveNext(); //the stream send data types of "object" we must typecast the data into a Vector3 format
+            {
+                //do we own this photonView?????
+                this.trueLoc =
+                    (Vector3) stream
+                        .ReceiveNext(); //the stream send data types of "object" we must typecast the data into a Vector3 format
             }
         }
         //we need to send our data
