@@ -7,7 +7,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public InputField createInput;
     public InputField joinInput;
-
+    [SerializeField] private Text connectionStatus;
+    
     public void CreateRoom()
     {
         PhotonNetwork.CreateRoom(createInput.text);
@@ -20,6 +21,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        connectionStatus.text = "Wait for other players";
         PhotonNetwork.LoadLevel("MultiplayerDemo");
     }
 }
