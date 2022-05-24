@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System;
+using Car.WheelsManagement;
+using RaceManagement;
+using TMPro;
 
 public class SpawnPlayer : MonoBehaviourPunCallbacks
 {
@@ -11,12 +14,31 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
     private Transform spawnPos;
     private int numberPlayers;
 
+    [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
+    [SerializeField] private RaceController raceController;
+    [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
+
 
     private void Start()
     {
         CheckPlayers();
         StartCoroutine(SpawnNewPlayer());
         //Invoke(nameof(SpawnNewPlayer), 1f);
+    }
+
+    private void Update()
+    {
+        var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
+        numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
+        if (numberOfPlayersInScene.Length == PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            foreach (var canvasObject in canvasObjects)
+            {
+                canvasObject.SetActive(false);
+            }
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            raceController.enabled = true;
+        }
     }
 
     private void CheckPlayers()

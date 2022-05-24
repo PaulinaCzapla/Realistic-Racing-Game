@@ -21,7 +21,7 @@ namespace RaceManagement
 
         private IEnumerator RaceStart()
         {
-            yield return new WaitForSeconds(10f);
+            //yield return new WaitForSeconds(10f);
             textMesh.enabled = true;
             yield return new WaitForSeconds(1f);
             StartCoroutine(DisplayText("Ready?"));
