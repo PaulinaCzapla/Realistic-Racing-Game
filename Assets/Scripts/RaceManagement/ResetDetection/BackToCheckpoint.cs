@@ -50,7 +50,7 @@ public class BackToCheckpoint : MonoBehaviour
                 _rigidbody.isKinematic = true;
                 transform1.rotation = _pointcontrol.SpawnPoint.transform.rotation;
                 transform1.position = _pointcontrol.SpawnPoint.transform.position;
-                car._gearNum = 1;
+                car.gearNum = 1;
                 StartCoroutine(inputReader.DisableInput());
                 _rigidbody.isKinematic = false;
             }

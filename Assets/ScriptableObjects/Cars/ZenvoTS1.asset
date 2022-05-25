@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   drive: 1
-  _totalPower: 0.00000070924
+  totalPower: 0.0000017
   _engineTorque:
     serializedVersion: 2
     m_Curve:
@@ -107,10 +107,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxRPM: 10000
-  _gearType: 1
-  _gearNum: 6
-  _gears:
+  maxRpm: 10000
+  gearType: 1
+  gearNum: 1
+  gears:
   - 2.5
   - 2.75
   - 2.214
@@ -119,11 +119,11 @@ MonoBehaviour:
   - 1.238
   - 1.043
   - 1
-  _finalDrive: 3.4
-  _engineRPM: 1000
-  _vertical: 1
-  _engineLerpValue: 9000
-  _minBrakeRPM: 2000
+  finalDrive: 3.4
+  engineRpm: 1000
+  vertical: 1
+  engineLerpValue: 9000
+  minBrakeRpm: 2000
   _maxSteerAngle:
     serializedVersion: 2
     m_Curve:
@@ -148,6 +148,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _turnOnRPM: 1000
-  _smoothTime: 0.2
+  turnOnRpm: 1000
+  smoothTime: 0.2
   lerpSmoothTime: 5
+  speed: 0
