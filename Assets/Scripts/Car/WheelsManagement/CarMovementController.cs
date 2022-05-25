@@ -56,6 +56,8 @@ namespace Car.WheelsManagement
 
         private void FixedUpdate()
         {
+            car.carSpeed = rb.velocity.magnitude;
+            
             if (photonView ? photonView.IsMine : true)
             {
                 HandleSmoothSteering();
@@ -117,12 +119,12 @@ namespace Car.WheelsManagement
 
         private void HandleGearSwap()
         {
-            if (_inputDirection.y > 0 & car._gearNum == 0)
+            if (_inputDirection.y > 0 & car.gearNum == 0)
             {
-                car._gearNum = 1;
+                car.gearNum = 1;
             }
 
-            switch (car._gearType)
+            switch (car.gearType)
             {
                 case GearBoxType.AUTO:
                     AutoShift();
@@ -142,23 +144,23 @@ namespace Car.WheelsManagement
 
         private void DemandShift()
         {
-            if (car._gearNum != 1 && inputReader.ShiftDownGuard)
-                car._gearNum--;
+            if (car.gearNum != 1 && inputReader.ShiftDownGuard)
+                car.gearNum--;
             inputReader.ShiftDownGuard = false;
-            if (car._gearNum != (car._gears.Length - 1) && inputReader.ShiftUpGuard)
-                car._gearNum++;
+            if (car.gearNum != (car.gears.Length - 1) && inputReader.ShiftUpGuard)
+                car.gearNum++;
             inputReader.ShiftUpGuard = false;
         }
 
         private void AutoShift()
         {
-            if (car._engineRPM > car._maxRPM + 1000 && car._gearNum < car._gears.Length - 1)
+            if (car.engineRpm > CarSO.MAXRpm + 1000 && car.gearNum < car.gears.Length - 1)
             {
-                car._gearNum++;
+                car.gearNum++;
             }
-            else if (car._engineRPM <= car._minBrakeRPM + 1000 && car._gearNum > 1)
+            else if (car.engineRpm <= car.minBrakeRpm + 1000 && car.gearNum > 1)
             {
-                car._gearNum--;
+                car.gearNum--;
             }
         }
 
@@ -169,7 +171,7 @@ namespace Car.WheelsManagement
             {
                 if (_inputDirection.y < 0)
                 {
-                    car._gearNum = 0;
+                    car.gearNum = 0;
                 }
 
                 engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude,
@@ -179,7 +181,7 @@ namespace Car.WheelsManagement
             {
                 if (_inputDirection.y < 0)
                 {
-                    car._gearNum = 0;
+                    car.gearNum = 0;
                 }
 
                 engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude,
@@ -187,7 +189,7 @@ namespace Car.WheelsManagement
             }
 
 
-            if (Mathf.Approximately(_inputDirection.y, 0) && car._engineRPM <= car._minBrakeRPM &&
+            if (Mathf.Approximately(_inputDirection.y, 0) && car.engineRpm <= car.minBrakeRpm &&
                 (!inputReader.ClutchPressed))
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
@@ -197,7 +199,7 @@ namespace Car.WheelsManagement
             else
             {
                 //if max speed not achieved - set motor torque
-                wheelsController.MoveWheels(_inputDirection.y, car._totalPower, car.drive);
+                wheelsController.MoveWheels(_inputDirection.y, car.totalPower, car.drive);
             }
         }
 
