@@ -6595,6 +6595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onUpdateLapsCount: {fileID: 11400000, guid: 29e1c19744fae5b46bd31610f8d4ebfa, type: 2}
+  onUpdateRaceTimeUI: {fileID: 11400000, guid: ec12f4cc6d32be84dbf889192e6f6ed0, type: 2}
+  onRaceStarted: {fileID: 11400000, guid: f012a68ad2a83184491ffb0841b1551d, type: 2}
 --- !u!114 &4504704421718272220
 MonoBehaviour:
   m_ObjectHideFlags: 0

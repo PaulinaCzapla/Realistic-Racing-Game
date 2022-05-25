@@ -304,3 +304,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 3133937745945474055}
   inputReader: {fileID: 11400000, guid: d463ba73e49cfd14cbaa68e1829484d7, type: 2}
+  onRaceStarted: {fileID: 11400000, guid: f012a68ad2a83184491ffb0841b1551d, type: 2}
