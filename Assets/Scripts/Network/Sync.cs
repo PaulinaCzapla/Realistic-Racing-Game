@@ -42,7 +42,6 @@ public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
             }
             if (photonView == null)
             {
-                Debug.Log("lol");
             }
         }
     }

@@ -9,10 +9,10 @@ using TMPro;
 
 public class SpawnPlayer : MonoBehaviourPunCallbacks
 {
-    public GameObject playerPrefab;
-    public Transform[] spawnPositions;
-    private Transform spawnPos;
-    private int numberPlayers;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform[] spawnPositions;
+    private Transform _spawnPos;
+    private int _numberPlayers;
 
     [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
     [SerializeField] private RaceController raceController;
@@ -23,7 +23,6 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
     {
         CheckPlayers();
         StartCoroutine(SpawnNewPlayer());
-        //Invoke(nameof(SpawnNewPlayer), 1f);
     }
 
     private void Update()
@@ -43,12 +42,12 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
 
     private void CheckPlayers()
     {
-        numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
-        for (int i = 0; i <= numberPlayers; i++)
+        _numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
+        for (int i = 0; i <= _numberPlayers; i++)
         {
-            if (numberPlayers > 4)
+            if (_numberPlayers > 4)
             {
-                numberPlayers -= 4;
+                _numberPlayers -= 4;
             }
         }
     }
@@ -56,25 +55,7 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
     private IEnumerator SpawnNewPlayer()
     {
         yield return new WaitForSeconds(10f);
-        if (numberPlayers == 0)
-        {
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[0].position, spawnPositions[0].rotation, 0);
-            numberPlayers = 1;
-        }
-        else if (numberPlayers == 1)
-        {
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[1].position, spawnPositions[1].rotation, 0);
-            numberPlayers = 2;
-        }
-        else if (numberPlayers == 2)
-        {
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[2].position, spawnPositions[2].rotation, 0);
-            numberPlayers = 3;
-        }
-        else if (numberPlayers == 3)
-        {
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[3].position, spawnPositions[3].rotation, 0);
-            numberPlayers = 4;
-        }
+        PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[_numberPlayers].position, spawnPositions[_numberPlayers].rotation, 0);
+        _numberPlayers ++;
     }
 }
