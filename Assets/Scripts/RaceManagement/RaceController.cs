@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Events.ScriptableObjects;
 using InputSystem;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace RaceManagement
     {
         [SerializeField] private TextMeshProUGUI textMesh;
         [SerializeField] private GameplayInputReader inputReader;
+        [SerializeField] private VoidEventChannelSO onRaceStarted;
+        
         private bool _coroutineFinished;
         private void OnEnable()
         {
@@ -39,6 +42,8 @@ namespace RaceManagement
             yield return new WaitUntil(() => _coroutineFinished);
             inputReader.GameplayInputEnabled(true);
             textMesh.enabled = false;
+            
+            onRaceStarted.RaiseEvent();
         }
 
         private IEnumerator DisplayText(string text)
