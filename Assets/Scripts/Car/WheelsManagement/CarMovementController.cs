@@ -14,7 +14,7 @@ namespace Car.WheelsManagement
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CarSO car;
         [SerializeField] private PhotonView photonView;
-        [SerializeField] private PlayerInput input;
+        //[SerializeField] private PlayerInput input;
 
         private EngineController engine;
         private Vector2 _inputDirection;
@@ -90,8 +90,8 @@ namespace Car.WheelsManagement
 
         private void HandleSmoothSteering()
         {
-            if (input.currentControlScheme.Equals("Keyboard&Mouse") || input.currentControlScheme.Equals("Gamepad"))
-            {
+            //if (input.currentControlScheme.Equals("Keyboard&Mouse") || input.currentControlScheme.Equals("Gamepad"))
+            //{
                 if (inputReader.SteerPressed && _inputDirection.x != 0)
                 {
                     if (Mathf.Abs(_direction) < Mathf.Abs(_inputDirection.x))
@@ -110,11 +110,11 @@ namespace Car.WheelsManagement
                 {
                     _direction = _inputDirection.x;
                 }
-            }
-            else
-            {
-                _direction = _inputDirection.x;
-            }
+            //}
+            //else
+            //{
+                //_direction = _inputDirection.x;
+            //}
         }
 
         private void HandleGearSwap()

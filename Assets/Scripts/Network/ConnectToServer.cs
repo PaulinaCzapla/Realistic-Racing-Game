@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
-    public InputField connectionStatus;
+    [SerializeField] private Text connectionStatus;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -15,11 +15,13 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        connectionStatus.text = "Connected to Master";
         PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
     {
-        // connectionStatus.text = "Connected to server";
+        connectionStatus.text = "Joined Lobby";
     }
+    
 }

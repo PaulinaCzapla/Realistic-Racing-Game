@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d073e2663aef04e4da08fce76e6f4a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionStatus: {fileID: 0}
+  connectionStatus: {fileID: 2099384688}
 --- !u!4 &859249862
 Transform:
   m_ObjectHideFlags: 0
@@ -2422,6 +2422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createInput: {fileID: 910923888}
   joinInput: {fileID: 1908399339}
+  connectionStatus: {fileID: 2099384688}
 --- !u!4 &1550324718
 Transform:
   m_ObjectHideFlags: 0
@@ -3284,7 +3285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2099384687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3301,7 +3302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -431, y: 79}
   m_SizeDelta: {x: 282.69, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2099384688
@@ -3325,7 +3326,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
