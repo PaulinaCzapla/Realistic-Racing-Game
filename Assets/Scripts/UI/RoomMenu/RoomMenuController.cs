@@ -5,40 +5,28 @@ using Photon.Pun;
 using Photon.Realtime;
 using SceneManagement.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI.RoomMenu
 {
     public class RoomMenuController : MonoBehaviour
     {
-        [Header("Event Channels")]
-        [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
-        [SerializeField] private LoadSceneEventChannelSO loadMenuEvent;
+        [SerializeField]
+        private LoadSceneEventChannelSO loadSceneEvent;
+        [SerializeField]
+        private GameSceneSO RaceTrackScene;
+        [SerializeField]
+        private InputField nameInput;
+        [SerializeField]
+        private InputField roomNameInput;
+        [SerializeField]
+        private Button joinRoomButton;
+        [SerializeField]
+        private Button goToGameButton;
 
-        [Header("Room SO")] 
-        [SerializeField] private GameSceneSO menu;
+        [SerializeField]
+        private Button goBackButton;
 
-        
-        [SerializeField] private InputField nameInput;
-        [SerializeField] private InputField roomNameInput;
-        [SerializeField] private Button joinRoomButton;
-        [SerializeField] private Button goToGameButton;
-        [SerializeField] private Button goBackButton;
-        private void OnEnable()
-        {
-            joinRoomButton.onClick.AddListener(() => JoinRoomEvent());
-            goToGameButton.onClick.AddListener(() => GoToGameEvent());
-            goBackButton.onClick.AddListener(() => loadMenuEvent.RaiseEvent(menu, true));
-        }
-
-        private void OnDisable()
-        {
-            joinRoomButton.onClick.RemoveAllListeners();
-            goToGameButton.onClick.RemoveAllListeners();
-            goBackButton.onClick.RemoveAllListeners();
-        }
         private void JoinRoomEvent()
         {
             if (PhotonNetwork.IsConnected)
@@ -55,6 +43,20 @@ namespace UI.RoomMenu
         private void GoToGameEvent()
         {
             PhotonNetwork.LoadLevel("MultiplayerDemo");
+        }
+
+        private void OnEnable()
+        {
+            joinRoomButton.onClick.AddListener(() => JoinRoomEvent());
+            goToGameButton.onClick.AddListener(() => GoToGameEvent());
+            goBackButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
+        }
+
+        private void OnDisable()
+        {
+            joinRoomButton.onClick.RemoveAllListeners();
+            goToGameButton.onClick.RemoveAllListeners();
+            goBackButton.onClick.RemoveAllListeners();
         }
     }
 }

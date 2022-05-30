@@ -3,59 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System;
-using Car.WheelsManagement;
-using RaceManagement;
-using TMPro;
 
 public class SpawnPlayer : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform[] spawnPositions;
-    private Transform _spawnPos;
-    private int _numberPlayers;
-
-    [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
-    [SerializeField] private RaceController raceController;
-    [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
-
+    public GameObject playerPrefab;
+    public Transform[] spawnPositions;
+    private Transform spawnPos;
+    private int numberPlayers;
+    
 
     private void Start()
     {
         CheckPlayers();
-        StartCoroutine(SpawnNewPlayer());
-    }
-
-    private void Update()
-    {
-        var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
-        numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
-        if (numberOfPlayersInScene.Length == PhotonNetwork.CurrentRoom.PlayerCount)
+        if (numberPlayers == 0)
         {
-            foreach (var canvasObject in canvasObjects)
-            {
-                canvasObject.SetActive(false);
-            }
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            raceController.enabled = true;
+            PhotonNetwork.Instantiate(playerPrefab.name,spawnPositions[0].position ,spawnPositions[0].rotation, 0);
+            numberPlayers = 1;
         }
-    }
-
-    private void CheckPlayers()
-    {
-        _numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
-        for (int i = 0; i <= _numberPlayers; i++)
+        else if (numberPlayers == 1)
         {
-            if (_numberPlayers > 4)
-            {
-                _numberPlayers -= 4;
-            }
+            PhotonNetwork.Instantiate(playerPrefab.name,spawnPositions[1].position , spawnPositions[1].rotation, 0);
+            numberPlayers = 2;
         }
+        else if (numberPlayers == 2)
+        {
+            PhotonNetwork.Instantiate(playerPrefab.name,spawnPositions[2].position , spawnPositions[2].rotation, 0);
+            numberPlayers = 3;
+        }
+        else if (numberPlayers == 3)
+        {
+            PhotonNetwork.Instantiate(playerPrefab.name,spawnPositions[3].position , spawnPositions[3].rotation, 0);
+            numberPlayers = 4;
+        }
+        //Vector3 position = new Vector3(spawnPos.position.x,spawnPos.position.y,spawnPos.position.z);
     }
-
-    private IEnumerator SpawnNewPlayer()
+    
+    void CheckPlayers()
     {
-        yield return new WaitForSeconds(10f);
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[_numberPlayers].position, spawnPositions[_numberPlayers].rotation, 0);
-        _numberPlayers ++;
+        numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
+        for (int i = 0; i <= numberPlayers; i++)
+        {
+            if (numberPlayers > 4)
+            {
+                numberPlayers -= 4;
+            }
+           
+        }
     }
 }

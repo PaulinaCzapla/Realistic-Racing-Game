@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d073e2663aef04e4da08fce76e6f4a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionStatus: {fileID: 2099384688}
+  connectionStatus: {fileID: 0}
 --- !u!4 &859249862
 Transform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createInput: {fileID: 910923888}
   joinInput: {fileID: 1908399339}
-  connectionStatus: {fileID: 2099384688}
 --- !u!4 &1550324718
 Transform:
   m_ObjectHideFlags: 0
@@ -3048,8 +3047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
-  loadMenuEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
-  menu: {fileID: 11400000, guid: a87e389e36952fd4993415f6290a30af, type: 2}
+  RaceTrackScene: {fileID: 11400000, guid: a87e389e36952fd4993415f6290a30af, type: 2}
   nameInput: {fileID: 1303164770}
   roomNameInput: {fileID: 1269733871}
   joinRoomButton: {fileID: 707550758}
@@ -3285,7 +3283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2099384687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3302,7 +3300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -431, y: 79}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 282.69, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2099384688
@@ -3326,7 +3324,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0

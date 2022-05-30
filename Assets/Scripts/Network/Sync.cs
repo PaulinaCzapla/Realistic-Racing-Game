@@ -40,9 +40,6 @@ public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
             {
                 stream.SendNext(transform.position);
             }
-            if (photonView == null)
-            {
-            }
         }
     }
 }

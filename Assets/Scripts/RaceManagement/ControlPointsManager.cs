@@ -49,7 +49,6 @@ namespace RaceManagement
             if (controlPoints.Count == participant.ControlPointsActivated.Count)
             {
                 participant.LapFinished();
-                
                 _index = 0;
                 
                 if (participant.LapsFinished >= maxLapsCount)

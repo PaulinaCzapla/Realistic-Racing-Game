@@ -1,17 +1,23 @@
+using RaceManagement.ControlPoints;
 using UnityEngine;
 
 namespace RaceManagement.ResetDetection
 {
     public class WaterDetection : MonoBehaviour
     {
-        //private ControlPoint _pointcontrol;
-        //[SerializeField] private CarSO car;
+        private ControlPoint _pointcontrol;
+        [SerializeField] private CarSO car;
 
+        
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out BackToCheckpoint backToCheckpoint))
+            if (other.TryGetComponent(out RaceParticipant participant))
             {
-                backToCheckpoint.ResetPosition();
+                _pointcontrol = participant.ControlPointsActivated[participant.ControlPointsActivated.Count - 1];
+                other.gameObject.transform.rotation = _pointcontrol.SpawnPoint.transform.rotation;
+                other.gameObject.transform.position = _pointcontrol.SpawnPoint.transform.position;
+                car._gearNum = 1;
+                //Debug.Log(participant.ControlPointsActivated.Count);
             }
         }
     }

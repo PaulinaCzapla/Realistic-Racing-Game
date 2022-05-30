@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 namespace InputSystem
@@ -33,13 +30,6 @@ namespace InputSystem
         public event UnityAction MenuEvent = delegate { };
         public event UnityAction ClutchEvent = delegate { };
         public event UnityAction ClutchCanceledEvent = delegate { };
-        public event UnityAction ReverseEvent = delegate { };
-        public event UnityAction ReverseCanceledEvent = delegate { };
-        public bool ReversePressed { get; private set; }
-        public bool ResetPositionPressed { get; private set; }
-        public event UnityAction ResetPositionEvent = delegate { };
-        public event UnityAction ResetPositionCanceledEvent = delegate { };
-        
         public bool ClutchPressed { get; private set; }
         private InputActions _inputActionsPlayer;
         private InputActions.IGameplayActions _gameplayActionsImplementation;
@@ -53,13 +43,6 @@ namespace InputSystem
 
                 _inputActionsPlayer.Gameplay.SetCallbacks(this);
             }
-            _inputActionsPlayer.Gameplay.Enable();
-        }
-
-        public IEnumerator DisableInput()
-        {
-            _inputActionsPlayer.Gameplay.Disable();
-            yield return new WaitForSeconds(1);
             _inputActionsPlayer.Gameplay.Enable();
         }
 
@@ -95,34 +78,6 @@ namespace InputSystem
             }
         }
 
-        public void OnResetPosition(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                ResetPositionPressed = true;
-                ResetPositionEvent?.Invoke();
-            }
-            if (context.canceled)
-            {
-                ResetPositionPressed = false;
-                ResetPositionCanceledEvent?.Invoke();
-            }
-        }
-
-        public void OnReverse(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                ReversePressed= true;
-                ReverseEvent?.Invoke();
-            }
-            if (context.canceled)
-            {
-                ReversePressed = false;
-                ReverseCanceledEvent?.Invoke();
-            }
-        }
-
         public void OnBrake(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -139,7 +94,6 @@ namespace InputSystem
 
         public void OnGas(InputAction.CallbackContext context)
         {
-        
             if (context.performed)
             {
                 GasPressed= true;
@@ -215,7 +169,6 @@ namespace InputSystem
             GasPressed = false;
             HandBrakePressed = false;
             ClutchPressed = false;
-            ResetPositionPressed = false;
         }
     }
 }
