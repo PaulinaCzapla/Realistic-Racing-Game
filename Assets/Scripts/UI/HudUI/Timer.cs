@@ -30,6 +30,6 @@ public class Timer : MonoBehaviour
         currentTime +=1;
         float minutes = Mathf.FloorToInt(currentTime/60);
         float seconds = Mathf.FloorToInt(currentTime%60);
-        gameObject.GetComponent<TextMeshProUGUI>.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
