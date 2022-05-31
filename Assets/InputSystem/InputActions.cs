@@ -107,24 +107,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ResetPosition"",
-                    ""type"": ""Button"",
-                    ""id"": ""831bca39-f679-4b7c-9b20-051f0ef44e84"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reverse"",
-                    ""type"": ""Button"",
-                    ""id"": ""8514211a-1c84-4845-ae9e-a876385076c2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -138,6 +120,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Steering"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d3811bb0-0624-409a-a005-b21675a75f70"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1770d971-e3a3-4635-a085-9f947db7a706"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
@@ -229,28 +233,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3409e269-ed21-4104-b76d-3869bf02674a"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""927098ec-421a-420c-bd95-a098c387e34f"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0c56654d-b07b-4076-9752-a3f1996cee03"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
@@ -273,22 +255,22 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6bb68781-7891-4f10-83fa-d38110562c50"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button7"",
+                    ""id"": ""84ca922d-b573-44c8-8687-8862a38b1c89"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a7efad3-cb19-4207-b18e-63c7a1aa3abc"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick/down"",
+                    ""id"": ""af40e954-e6d2-45ed-85e2-a0878556d0ec"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -317,39 +299,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3adcedd0-532d-4f21-81fa-5c50dcc0f51d"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Gas"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ecbe8013-68db-4f02-af10-45e6c2ae85df"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/stick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Gas"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e9ea8bac-d4dc-4622-ad62-e569ba926587"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Gas"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c9c0057f-3871-4a24-a63a-4b8331d14990"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -366,28 +315,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""ShiftDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""658eefd0-f8c5-4c15-8d11-e28f0db7c53f"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster Racing Wheel FFB>/button5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShiftDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""32500f10-da55-4ac0-aaf7-5a05a7e47637"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""ShiftDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -416,28 +343,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""27b7221a-59a4-4a4d-a482-4c53aeebcb8d"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster Racing Wheel FFB>/button4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShiftUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""529b9a75-12eb-4c94-ae55-48cb4139b095"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShiftUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""61e197b3-92eb-4bff-8804-1167b5563a32"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -451,28 +356,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""90fb9889-0aa1-4c65-824b-69872ed7cef6"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Handbrake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""703c3414-3fa7-4e42-a76f-ab22e8c61573"",
-                    ""path"": ""<HID::Thrustmaster Thrustmaster FFB Wheel>/button7"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Handbrake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""31974980-9c11-483c-a3d8-578babfe8aca"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -521,83 +404,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Clutch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""576c7335-5e0e-49c6-b0a7-5896003e187f"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Clutch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""87b36bda-2ecf-470c-80a5-73955e9cdfd5"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Clutch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5dfbe242-1fbd-4352-885c-d016c60dc387"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""ResetPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0f8d9693-b55e-48e1-a99c-9f4c5c75a6a8"",
-                    ""path"": ""<HID::Logitech Logitech Formula Force RX>/button9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ResetPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ad21a2b4-0d49-4847-b35c-00ba8327875f"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b6d2434b-3e60-48b3-9f23-3e328a0ba106"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7b893c15-cf1d-4c22-a923-b91f939b87bb"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -960,8 +766,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Handbrake = m_Gameplay.FindAction("Handbrake", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Clutch = m_Gameplay.FindAction("Clutch", throwIfNotFound: true);
-        m_Gameplay_ResetPosition = m_Gameplay.FindAction("ResetPosition", throwIfNotFound: true);
-        m_Gameplay_Reverse = m_Gameplay.FindAction("Reverse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1038,8 +842,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Handbrake;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Clutch;
-    private readonly InputAction m_Gameplay_ResetPosition;
-    private readonly InputAction m_Gameplay_Reverse;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1053,8 +855,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Handbrake => m_Wrapper.m_Gameplay_Handbrake;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Clutch => m_Wrapper.m_Gameplay_Clutch;
-        public InputAction @ResetPosition => m_Wrapper.m_Gameplay_ResetPosition;
-        public InputAction @Reverse => m_Wrapper.m_Gameplay_Reverse;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1091,12 +891,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clutch.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
                 @Clutch.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
                 @Clutch.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClutch;
-                @ResetPosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
-                @ResetPosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
-                @ResetPosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResetPosition;
-                @Reverse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
-                @Reverse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
-                @Reverse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1128,12 +922,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clutch.started += instance.OnClutch;
                 @Clutch.performed += instance.OnClutch;
                 @Clutch.canceled += instance.OnClutch;
-                @ResetPosition.started += instance.OnResetPosition;
-                @ResetPosition.performed += instance.OnResetPosition;
-                @ResetPosition.canceled += instance.OnResetPosition;
-                @Reverse.started += instance.OnReverse;
-                @Reverse.performed += instance.OnReverse;
-                @Reverse.canceled += instance.OnReverse;
             }
         }
     }
@@ -1240,8 +1028,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnHandbrake(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnClutch(InputAction.CallbackContext context);
-        void OnResetPosition(InputAction.CallbackContext context);
-        void OnReverse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
