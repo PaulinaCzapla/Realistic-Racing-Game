@@ -461,7 +461,6 @@ GameObject:
   - component: {fileID: 1648363210}
   - component: {fileID: 1648363213}
   - component: {fileID: 1648363212}
-  - component: {fileID: 1648363211}
   m_Layer: 0
   m_Name: Laps
   m_TagString: Untagged
@@ -488,20 +487,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 491.42798, y: 134.60901}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1648363211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648363209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eebd88d2083a4e4b8ddcec9a32654c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 1648363212}
-  onUpdateRaceTimeUI: {fileID: 11400000, guid: ec12f4cc6d32be84dbf889192e6f6ed0, type: 2}
 --- !u!114 &1648363212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +630,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762311593}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
