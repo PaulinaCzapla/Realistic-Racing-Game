@@ -28,16 +28,16 @@ namespace RaceManagement
             yield return new WaitForSeconds(1f);
             StartCoroutine(DisplayText("Ready?"));
             yield return new WaitUntil(() => _coroutineFinished);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(DisplayText("3"));
             yield return new WaitUntil(() => _coroutineFinished);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(DisplayText("2"));
             yield return new WaitUntil(() => _coroutineFinished);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(DisplayText("1"));
             yield return new WaitUntil(() => _coroutineFinished);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(DisplayText("GO!"));
             yield return new WaitUntil(() => _coroutineFinished);
             inputReader.GameplayInputEnabled(true);
@@ -53,14 +53,14 @@ namespace RaceManagement
             textMesh.fontSize = 380;
             textMesh.color = new Color(1,1,1,1);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             while (true)
             {
                 textMesh.fontSize -= 2.5f;
-                textMesh.color -= new Color(0,0,0,0.03f);
+                textMesh.color -= new Color(0,0,0,0.1f);
 
-                yield return new WaitForSeconds(0.0000001f);
+                yield return new WaitForSeconds(0.00000001f);
 
                 if (textMesh.color.a <= 0.1f)
                 {
