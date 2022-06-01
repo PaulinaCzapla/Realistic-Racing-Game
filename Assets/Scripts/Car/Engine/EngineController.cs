@@ -19,7 +19,7 @@ public class EngineController
     {
         
         LerpEngine(velocity);
-        if (_car.engineRpm >= CarSO.MAXRpm) SetEngineLerp(CarSO.MAXRpm - 1000);
+        if (_car.engineRpm >= _car.MAXRpm) SetEngineLerp(_car.MAXRpm - 1000);
         if (!_engineLerp)
         {
             _car.engineRpm =  Mathf.SmoothDamp(_car.engineRpm, _car.turnOnRpm + (Mathf.Abs(wheelRPM) * _car.finalDrive * _car.gears[_car.gearNum]), ref vel, _car.smoothTime * Time.deltaTime) ;

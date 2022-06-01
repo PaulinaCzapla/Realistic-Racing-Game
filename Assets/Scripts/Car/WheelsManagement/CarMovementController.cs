@@ -154,7 +154,7 @@ namespace Car.WheelsManagement
 
         private void AutoShift()
         {
-            if (car.engineRpm > CarSO.MAXRpm + 1000 && car.gearNum < car.gears.Length - 1)
+            if (car.engineRpm > car.MAXRpm + 1000 && car.gearNum < car.gears.Length - 1)
             {
                 car.gearNum++;
             }

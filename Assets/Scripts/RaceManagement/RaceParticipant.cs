@@ -23,6 +23,7 @@ namespace RaceManagement
         private int _lapsFinished = 0;
         private TimeCounter _timer = new TimeCounter();
         private RaceStats _stats = new RaceStats();
+        private bool _timerStarted;
         
         private void Awake()
         {
@@ -31,18 +32,26 @@ namespace RaceManagement
 
         private void OnEnable()
         {
-            onRaceStarted.OnEventRaised +=() => _timer.StartTimer();
+            onRaceStarted.OnEventRaised +=StartTimer;
         }
 
         private void OnDisable()
         {
-            onRaceStarted.OnEventRaised -=() => _timer.StartTimer();
+            onRaceStarted.OnEventRaised -=StartTimer;
         }
 
+        private void StartTimer()
+        {
+            _timer.StartTimer();
+            _timerStarted = true;
+        }
         private void FixedUpdate()
         {
-            onUpdateRaceTimeUI.RaiseEvent(_timer.TimeElapsed);
-            _stats.RaceTime = _timer.TimeElapsed;
+            if (_timerStarted)
+            {
+                onUpdateRaceTimeUI.RaiseEvent(_timer.TimeElapsed);
+                _stats.RaceTime = _timer.TimeElapsed;
+            }
         }
 
         public void LapFinished()
