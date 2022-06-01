@@ -17,52 +17,53 @@ namespace UI.HudUI
         [SerializeField] int UpdateFrameCount = 3;
         [SerializeField] TextMeshProUGUI SpeedText;
         [SerializeField] TextMeshProUGUI CurrentGearText;
-
+        [SerializeField] TextMeshProUGUI lapsText;
+        
         [SerializeField] RectTransform TahometerArrow;
         [SerializeField] float MinArrowAngle = 0;
         [SerializeField] float MaxArrowAngle = -315f;
-
-        int CurrentFrame;
-
         [SerializeField] private CarSO car;
 
         //  CarSO SelectedCar { get { return GameController.PlayerCar; } }
 
         private int _maxLapsCount;
         private int _lapsCount;
-
+        private int _currentFrame;
+        
         private void Update()
         {
-            if (CurrentFrame >= UpdateFrameCount)
+            if (_currentFrame >= UpdateFrameCount)
             {
                 UpdateGamePanel();
-                CurrentFrame = 0;
+                _currentFrame = 0;
             }
             else
             {
-                CurrentFrame++;
+                _currentFrame++;
             }
 
             UpdateArrow();
+            UpdateLaps();
         }
 
         void UpdateArrow()
         {
-            //var procent = car._engineRPM / car._maxRPM;
-            //var angle = (MaxArrowAngle - MinArrowAngle) * procent + MinArrowAngle;
-            //TahometerArrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            var procent = 0.3f *(car._engineRPM / car._maxRPM);
+            var procent = 0.3f *(car.engineRpm/ car.MAXRpm);
             var angle = (MaxArrowAngle - MinArrowAngle) * procent + MinArrowAngle;
             TahometerArrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            //TahometerArrow.transform.Rotate(0,0,angle);
         }
 
         void UpdateGamePanel()
         {
-            //SpeedText.text = car.{Tu jest miejsce na prędkość!}.ToString ("000");
-            CurrentGearText.text = car._gearNum.ToString();
+            SpeedText.text = car.carSpeed.ToString("0.0");
+            CurrentGearText.text = car.gearNum.ToString();
         }
 
+        private void UpdateLaps()
+        {
+            lapsText.text = _lapsCount + "/" + 5;
+        }
+        
         private void OnEnable()
         {
             onSetMaxLapsCount.OnEventRaised += (int value) => _maxLapsCount = value;

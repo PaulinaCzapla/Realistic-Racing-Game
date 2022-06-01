@@ -15,7 +15,7 @@ public class CarSO : ScriptableObject
     public DriveType drive;
     public float totalPower = 1.7e-06f;
     public AnimationCurve _engineTorque;
-    public const float MAXRpm = 10000;
+    public float MAXRpm = 10000;
 
     [Header("Gearbox variables")]
     public GearBoxType gearType = GearBoxType.HALF;
