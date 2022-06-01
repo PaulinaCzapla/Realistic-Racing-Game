@@ -667,7 +667,7 @@ MonoBehaviour:
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 10
+    InterpolateLerpSpeed: 20
     ExtrapolateOption: 0
     ExtrapolateSpeed: 1
     ExtrapolateIncludingRoundTripTime: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     InterpolateOption: 2
     InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 10
+    InterpolateLerpSpeed: 20
   m_ScaleModel:
     SynchronizeEnabled: 0
     InterpolateOption: 0

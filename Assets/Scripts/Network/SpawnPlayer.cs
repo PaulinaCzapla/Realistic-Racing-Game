@@ -27,6 +27,7 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        //Debug.Log(PhotonNetwork.CurrentRoom.);
         var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
         numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
         if (numberOfPlayersInScene.Length == PhotonNetwork.CurrentRoom.PlayerCount)
@@ -35,7 +36,7 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
             {
                 canvasObject.SetActive(false);
             }
-            PhotonNetwork.CurrentRoom.IsOpen = false;
+            //PhotonNetwork.CurrentRoom.IsOpen = false;
             raceController.enabled = true;
         }
     }

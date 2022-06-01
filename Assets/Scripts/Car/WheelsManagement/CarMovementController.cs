@@ -24,7 +24,7 @@ namespace Car.WheelsManagement
 
         private void Awake()
         {
-           // inputReader.SetInput();
+            //inputReader.SetInput();
             engine = new EngineController(car);
         }
 
@@ -53,6 +53,7 @@ namespace Car.WheelsManagement
             inputReader.ReverseEvent -= OnReversePressed;
             inputReader.ReverseCanceledEvent -= OnReverseCanceled;
         }
+        
 
         private void FixedUpdate()
         {
