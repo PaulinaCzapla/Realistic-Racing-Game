@@ -28,7 +28,7 @@ namespace UI.MainMenu
         }
         private void OnEnable()
         {
-          //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
+            //startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
             roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
             optionsButton.onClick.AddListener(HandleOptionsButtonClick);
             creditsButton.onClick.AddListener(HandleCreditsButtonClick);
