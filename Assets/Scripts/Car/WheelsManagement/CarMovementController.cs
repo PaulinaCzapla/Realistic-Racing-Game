@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using InputSystem;
+using Network;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +18,7 @@ namespace Car.WheelsManagement
         [SerializeField] private PhotonView photonView;
         //[SerializeField] private PlayerInput input;
 
+        private SpawnPlayer _spawnPlayer;
         private EngineController engine;
         private Vector2 _inputDirection;
         private float _direction;
@@ -30,6 +33,8 @@ namespace Car.WheelsManagement
 
         private void OnEnable()
         {
+            _spawnPlayer = FindObjectOfType<SpawnPlayer>();
+            
             if (!photonView.IsMine)
             {
                 cam.SetActive(false);
@@ -225,5 +230,6 @@ namespace Car.WheelsManagement
             float _currMaxAngle = car._maxSteerAngle.Evaluate(rb.velocity.magnitude * 3.6f);
             wheelsController.RotateWheels(_direction, _currMaxAngle);
         }
+        
     }
 }

@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class LobbyController : MonoBehaviourPun
 {
@@ -28,7 +29,7 @@ public class LobbyController : MonoBehaviourPun
     private void OnEnable()
     {
         SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
-        raceStartButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(multiplayerDemoScene, true));
+        raceStartButton.onClick.AddListener(RaceStart);
         menuReturnButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(mainMenuScene, true));
         color1Button.onClick.AddListener(() => ChosenColor(1));
         color2Button.onClick.AddListener(() => ChosenColor(2));
@@ -36,41 +37,51 @@ public class LobbyController : MonoBehaviourPun
         color4Button.onClick.AddListener(() => ChosenColor(4));
         if (PhotonNetwork.IsMasterClient)
         {
-            playersInLobbyText.gameObject.SetActive(true);
+            playersInLobbyText.text = "is a master";
+            raceStartButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            playersInLobbyText.text = "is not a master";
         }
     }
 
     private void ChosenColor(int color)
     {
+        var hash = new Hashtable();
         switch (color)
         {
             case 1:
                 GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.AllBuffered, 1);
-                PlayerPrefs.SetInt("PlayerColor",1);
                 break;
             case 2:
                 GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.AllBuffered, 2);
-                PlayerPrefs.SetInt("PlayerColor",2);
                 break;
             case 3:
                 GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.AllBuffered, 3);
-                PlayerPrefs.SetInt("PlayerColor",3);
                 break;
             case 4:
                 GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.AllBuffered, 4);
-                PlayerPrefs.SetInt("PlayerColor",4);
                 break;
         }
+        hash.Add("color",color);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
     }
 
     private void OnDisable()
     {
+        SceneManager.UnloadSceneAsync("PersistentScene");
         raceStartButton.onClick.RemoveAllListeners();
         menuReturnButton.onClick.RemoveAllListeners();
         color1Button.onClick.RemoveAllListeners();
         color2Button.onClick.RemoveAllListeners();
         color3Button.onClick.RemoveAllListeners();
         color4Button.onClick.RemoveAllListeners();
+    }
+
+    private void RaceStart()
+    {
+        GetComponent<PhotonView>().RPC("StartRace", RpcTarget.AllBuffered, null);
     }
 
     [PunRPC]
@@ -91,5 +102,11 @@ public class LobbyController : MonoBehaviourPun
                 color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                 break;
         }
+    }
+
+    [PunRPC]
+    public void StartRace()
+    {
+        loadSceneEvent.RaiseEvent(multiplayerDemoScene, true);
     }
 }

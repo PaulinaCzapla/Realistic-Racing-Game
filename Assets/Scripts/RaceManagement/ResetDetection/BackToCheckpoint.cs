@@ -30,7 +30,7 @@ public class BackToCheckpoint : MonoBehaviour
         inputReader.ResetPositionEvent -= ResetPosition;
     }
 
-    void Start()
+    private void Start()
     {
         _raceParticipant = GetComponent<RaceParticipant>();
         _rigidbody = GetComponent<Rigidbody>();

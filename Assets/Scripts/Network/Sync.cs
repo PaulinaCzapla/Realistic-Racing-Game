@@ -1,47 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
+namespace Network
 {
-    Vector3 trueLoc;
-    Quaternion trueRot;
-    PhotonView photonView;
-    void Start()
+    public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
     {
-        photonView = GetComponent<PhotonView>();
-    }
-    void Update()
-    {
-        if (!photonView.IsMine)
+        private Vector3 _trueLoc;
+        private Quaternion _trueRot;
+        private PhotonView _photonView;
+        private SpawnPlayer _spawnPlayer;
+        private int _color;
+        [SerializeField] private GameObject body;
+        private void Start()
         {
-            transform.position = Vector3.Lerp(transform.position, trueLoc, Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, trueRot, Time.deltaTime);
+            _photonView = GetComponent<PhotonView>();
+            _spawnPlayer = FindObjectOfType<SpawnPlayer>();
+            body.GetComponent<MeshRenderer>().material = _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
         }
-    }
+        
+        private void Update()
+        {
+            if (!_photonView.IsMine)
+            {
+                transform.position = Vector3.Lerp(transform.position, _trueLoc, Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, _trueRot, Time.deltaTime);
+                transform.Find("View").transform.Find("body").GetComponent<MeshRenderer>().material = _spawnPlayer.colors[_color - 1];
+            }
+        }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        //we are reicieving data
-        if (stream.IsReading)
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            //receive the next data from the stream and set it to the truLoc varible
-            if (!photonView.IsMine)
-            {//do we own this photonView?????
-                this.trueLoc = (Vector3)stream.ReceiveNext(); //the stream send data types of "object" we must typecast the data into a Vector3 format
-            }
-        }
-        //we need to send our data
-        else
-        {
-            //send our posistion in the data stream
-            if (photonView.IsMine)
+            if (stream.IsReading)
             {
-                stream.SendNext(transform.position);
+                if (!_photonView.IsMine)
+                {
+                    this._trueLoc = (Vector3)stream.ReceiveNext(); 
+                    this._color = (int) stream.ReceiveNext();
+                }
             }
-            if (photonView == null)
+            else
             {
+                if (_photonView.IsMine)
+                {
+                    stream.SendNext(transform.position);
+                    stream.SendNext((int) PhotonNetwork.LocalPlayer.CustomProperties["color"]);
+                }
+                if (_photonView == null)
+                {
+                }
             }
         }
     }
