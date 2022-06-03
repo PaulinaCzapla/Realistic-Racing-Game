@@ -3452,6 +3452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b826385e0eb045be3d7f3226b07e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isColorFree: 
   raceStartButton: {fileID: 1228347064}
   menuReturnButton: {fileID: 1928442899}
   color1Button: {fileID: 175534012}
@@ -4124,6 +4125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chosenButton: 0
+  _lobbyController: {fileID: 1363552390}
 --- !u!4 &1640936755
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class LobbyController : MonoBehaviourPun
     private Color _selectedColor = new Color(236,197,48,255);
     private Color _unselectedColor = new Color(0,0,0,255);
     private int _numberOfLaps;
-    
+
     [SerializeField] private Button raceStartButton;
     [SerializeField] private Button menuReturnButton;
     [SerializeField] private Button color1Button;
@@ -45,6 +45,7 @@ public class LobbyController : MonoBehaviourPun
         color4Button.onClick.AddListener(() => ChosenColor(4));
         minusButton.onClick.AddListener(() => UpdateLaps(-1));
         plusButton.onClick.AddListener(() => UpdateLaps(1));
+        
         if (PhotonNetwork.IsMasterClient)
         {
             raceStartButton.gameObject.SetActive(true);
@@ -105,6 +106,7 @@ public class LobbyController : MonoBehaviourPun
         
         _playerChoices.chosenButton = color;
         hash.Add("color",color);
+        _playerChoices.PlayerHasChosenColor();
         PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
     }
 
@@ -130,7 +132,6 @@ public class LobbyController : MonoBehaviourPun
         var component = chosenButton.gameObject.transform.parent.Find("Panel").GetComponent<Outline>();
         component.effectColor = _selectedColor;
         component.effectDistance = chosenColor;
-
     }
     
     private void PlayerUnselectedColor(Component chosenButton)
@@ -139,7 +140,6 @@ public class LobbyController : MonoBehaviourPun
         var component = chosenButton.gameObject.transform.parent.Find("Panel").GetComponent<Outline>();
         component.effectColor = _unselectedColor;
         component.effectDistance = changedColor;
-
     }
 
     private void UpdateLaps(int i)
@@ -169,21 +169,25 @@ public class LobbyController : MonoBehaviourPun
                 color1Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                 color1Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
                 color1Button.interactable = false;
+                PlayerPrefs.SetInt("color1", 1);
                 break;
             case 2:
                 color2Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                 color2Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
                 color2Button.interactable = false;
+                PlayerPrefs.SetInt("color2", 1);
                 break;
             case 3:
                 color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                 color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                color3Button.interactable = false;
+                color1Button.interactable = false;
+                PlayerPrefs.SetInt("color3", 1);
                 break;
             case 4:
                 color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                 color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                color4Button.interactable = false;
+                color1Button.interactable = false;
+                PlayerPrefs.SetInt("color4", 1);
                 break;
         }
     }
@@ -197,21 +201,25 @@ public class LobbyController : MonoBehaviourPun
                 color1Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                 color1Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
                 color1Button.interactable = true;
+                PlayerPrefs.SetInt("color1", 0);
                 break;
             case 2:
                 color2Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                 color2Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                color2Button.interactable = true;
+                color1Button.interactable = true;
+                PlayerPrefs.SetInt("color2", 0);
                 break;
             case 3:
                 color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                 color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                color3Button.interactable = true;
+                color1Button.interactable = true;
+                PlayerPrefs.SetInt("color3", 0);
                 break;
             case 4:
                 color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                 color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                color4Button.interactable = true;
+                color1Button.interactable = true;
+                PlayerPrefs.SetInt("color4", 0);
                 break;
         }
     }

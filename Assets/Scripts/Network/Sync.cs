@@ -1,3 +1,4 @@
+using Car.WheelsManagement;
 using Photon.Pun;
 using UnityEngine;
 
@@ -15,7 +16,11 @@ namespace Network
         {
             _photonView = GetComponent<PhotonView>();
             _spawnPlayer = FindObjectOfType<SpawnPlayer>();
-            body.GetComponent<MeshRenderer>().material = _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
+            if (gameObject.TryGetComponent(out CarMovementController _))
+            {
+                body.GetComponent<MeshRenderer>().material = _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
+            }
+            
         }
         
         private void Update()
@@ -24,7 +29,11 @@ namespace Network
             {
                 transform.position = Vector3.Lerp(transform.position, _trueLoc, Time.deltaTime);
                 transform.rotation = Quaternion.Lerp(transform.rotation, _trueRot, Time.deltaTime);
-                transform.Find("View").transform.Find("body").GetComponent<MeshRenderer>().material = _spawnPlayer.colors[_color - 1];
+                if (gameObject.TryGetComponent(out CarMovementController _))
+                {
+                    transform.Find("View").transform.Find("body").GetComponent<MeshRenderer>().material =
+                        _spawnPlayer.colors[_color - 1];
+                }
             }
         }
 
