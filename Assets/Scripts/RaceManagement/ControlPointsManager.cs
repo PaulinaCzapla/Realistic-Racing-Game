@@ -18,12 +18,14 @@ namespace RaceManagement
         [SerializeField] private ControlPointEnterEventChannelSO  onControlPointEntered;
         [SerializeField] private IntEventChannelSO onSetMaxLapsCount;
         [SerializeField] private VoidEventChannelSO onRaceFinished;
+        [SerializeField] private VoidEventChannelSO onRaceStarted;
 
         private int _index = 0;
         private void OnEnable()
         {
             onFinishPointEntered.OnEventRaised += OnFinishLineAchieved;
             onControlPointEntered.OnEventRaised += OnControlPointEntered;
+            onRaceStarted.OnEventRaised += OnRaceStarted;
             onSetMaxLapsCount.RaiseEvent(maxLapsCount);
         }
 
@@ -31,16 +33,26 @@ namespace RaceManagement
         {
             onFinishPointEntered.OnEventRaised -= OnFinishLineAchieved;
             onControlPointEntered.OnEventRaised -= OnControlPointEntered;
+            onRaceStarted.OnEventRaised -= OnRaceStarted;
+        }
+
+        private void OnRaceStarted()
+        {
+            var participants = FindObjectsOfType<RaceParticipant>();
+
+            foreach (var participant in participants)
+            {
+                Debug.Log("participant found");
+                OnControlPointEntered(participant, controlPoints[0]);
+            }
         }
 
         private void OnControlPointEntered(RaceParticipant participant, ControlPoint controlPoint)
         {
             if (!participant.ControlPointsActivated.Contains(controlPoint)
-                && _index< controlPoints.Count && controlPoints[_index] == controlPoint)
+                && participant.ControlPointsActivated.Count < controlPoints.Count && controlPoints[participant.ControlPointsActivated.Count] == controlPoint)
             {
                 participant.ControlPointsActivated.Add(controlPoint);
-                _index++;
-                Debug.Log("Control point entered");
             }
         }
 

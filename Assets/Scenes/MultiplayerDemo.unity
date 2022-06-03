@@ -245,6 +245,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8858317189546579344, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
+      propertyPath: onRaceStarted
+      value: 
+      objectReference: {fileID: 11400000, guid: f012a68ad2a83184491ffb0841b1551d, type: 2}
+    - target: {fileID: 8858317189546579344, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
       propertyPath: controlPoints.Array.data[0]
       value: 
       objectReference: {fileID: 814013566}

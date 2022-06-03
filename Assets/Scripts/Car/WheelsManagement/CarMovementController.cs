@@ -16,7 +16,7 @@ namespace Car.WheelsManagement
         [SerializeField] private PhotonView photonView;
         //[SerializeField] private PlayerInput input;
 
-        private EngineController engine;
+        private EngineController _engine;
         private Vector2 _inputDirection;
         private float _direction;
         private float _dirDelta = 0.05f;
@@ -25,7 +25,7 @@ namespace Car.WheelsManagement
         private void Awake()
         {
            // inputReader.SetInput();
-            engine = new EngineController(car);
+            _engine = new EngineController(car);
         }
 
         private void OnEnable()
@@ -174,7 +174,7 @@ namespace Car.WheelsManagement
                     car.gearNum = 0;
                 }
 
-                engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude,
+                _engine.CalculateEnginePower(wheelsController.Wheel0RPM, rb.velocity.magnitude,
                     inputReader.ClutchPressed, _inputDirection.y);
             }
             else
@@ -184,7 +184,7 @@ namespace Car.WheelsManagement
                     car.gearNum = 0;
                 }
 
-                engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude,
+                _engine.CalculateEnginePower(wheelsController.Wheel2RPM, rb.velocity.magnitude,
                     inputReader.ClutchPressed, _inputDirection.y);
             }
 
