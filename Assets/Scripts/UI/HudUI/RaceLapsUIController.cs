@@ -32,15 +32,6 @@ namespace UI.HudUI
         
         private void FixedUpdate()
         {
-            // if (_currentFrame >= UpdateFrameCount)
-            // {
-            //     UpdateGamePanel();
-            //     _currentFrame = 0;
-            // }
-            // else
-            // {
-            //     _currentFrame++;
-            // }
             UpdateGamePanel();
             UpdateArrow();
             UpdateLaps();
@@ -55,7 +46,7 @@ namespace UI.HudUI
 
         void UpdateGamePanel()
         {
-            SpeedText.text = car.carSpeed.ToString("000.0");
+            SpeedText.text = ((int)car.carSpeed).ToString();
             CurrentGearText.text = car.gearNum.ToString();
         }
 

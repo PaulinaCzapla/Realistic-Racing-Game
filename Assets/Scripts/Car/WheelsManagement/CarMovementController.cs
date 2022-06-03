@@ -56,10 +56,9 @@ namespace Car.WheelsManagement
 
         private void FixedUpdate()
         {
-            car.carSpeed = rb.velocity.magnitude;
-            
             if (photonView ? photonView.IsMine : true)
             {
+                car.carSpeed = rb.velocity.magnitude *3.6f;
                 HandleSmoothSteering();
                 //update wheels meshes rotation and position3
                 wheelsController.UpdateWheels();
