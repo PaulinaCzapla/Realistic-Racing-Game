@@ -4940,8 +4940,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 30000
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.08
   m_ForceAppPointDistance: 0
@@ -5001,8 +5001,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 30000
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.08
   m_ForceAppPointDistance: 0
@@ -5015,11 +5015,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.9
-    m_ExtremumValue: 1.2
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 0.8
-    m_Stiffness: 7
+    m_Stiffness: 16
   m_Enabled: 1
 --- !u!1 &6601733914566895847
 GameObject:
@@ -5062,8 +5062,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 30000
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.08
   m_ForceAppPointDistance: 0
@@ -5076,11 +5076,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.9
-    m_ExtremumValue: 1.2
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 0.8
-    m_Stiffness: 7
+    m_Stiffness: 16
   m_Enabled: 1
 --- !u!1 &6601733915013294901
 GameObject:
@@ -5123,8 +5123,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 30000
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.08
   m_ForceAppPointDistance: 0
@@ -6555,7 +6555,6 @@ MonoBehaviour:
   rb: {fileID: 8248937493791295054}
   car: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
   photonView: {fileID: 0}
-  input: {fileID: 0}
 --- !u!65 &3018554102693136766
 BoxCollider:
   m_ObjectHideFlags: 0
