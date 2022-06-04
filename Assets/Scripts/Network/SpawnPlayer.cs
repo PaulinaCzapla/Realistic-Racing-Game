@@ -40,7 +40,11 @@ namespace Network
                     canvasObject.SetActive(false);
                 }
                 //PhotonNetwork.CurrentRoom.IsOpen = false;
-                raceController.enabled = true;
+                //raceController.enabled = true;
+                if (raceController.enabled == false)
+                {
+                    GetComponent<PhotonView>().RPC("RaceStart", RpcTarget.AllBuffered, null);
+                }
             }
         }
 
@@ -61,6 +65,12 @@ namespace Network
             yield return new WaitForSeconds(1f);
             PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].rotation, 0);
             _numberPlayers++;
+        }
+
+        [PunRPC]
+        public void RaceStart()
+        {
+            raceController.enabled = true;
         }
         
     }

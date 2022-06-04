@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using InputSystem;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ namespace RaceManagement
             inputReader.SetInput();
             inputReader.GameplayInputEnabled(false);
             
-            StartCoroutine(RaceStart());
+            GetComponent<PhotonView>().RPC("StartRace", RpcTarget.AllBuffered, null);
+            //StartCoroutine(RaceStart());
         }
 
         private IEnumerator RaceStart()
@@ -64,6 +66,12 @@ namespace RaceManagement
                 }
             }
             _coroutineFinished = true;
+        }
+
+        [PunRPC]
+        public void StartRace()
+        {
+            StartCoroutine(RaceStart());
         }
     }
 }
