@@ -22,7 +22,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         connectionStatus.text = "Wait for other players";
-        PhotonNetwork.LoadLevel("MultiplayerDemo");
+        //PhotonNetwork.LoadLevel("MultiplayerDemo");
+        PhotonNetwork.LoadLevel("ColorLobby");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

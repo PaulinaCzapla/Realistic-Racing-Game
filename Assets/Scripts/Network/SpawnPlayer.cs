@@ -1,61 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Photon.Pun;
-using System;
 using Car.WheelsManagement;
+using Photon.Pun;
 using RaceManagement;
 using TMPro;
+using UnityEngine;
 
-public class SpawnPlayer : MonoBehaviourPunCallbacks
+namespace Network
 {
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform[] spawnPositions;
-    private Transform _spawnPos;
-    private int _numberPlayers;
-
-    [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
-    [SerializeField] private RaceController raceController;
-    [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
-
-
-    private void Start()
+    public class SpawnPlayer : MonoBehaviourPunCallbacks
     {
-        CheckPlayers();
-        StartCoroutine(SpawnNewPlayer());
-    }
+        [SerializeField] private GameObject playerPrefab;
+        [SerializeField] private Transform[] spawnPositions;
+        private Transform _spawnPos;
+        private int _numberPlayers;
 
-    private void Update()
-    {
-        var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
-        numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
-        if (numberOfPlayersInScene.Length == PhotonNetwork.CurrentRoom.PlayerCount)
+        [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
+        [SerializeField] private RaceController raceController;
+        [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
+        [SerializeField] public List<Material> colors = new List<Material>();
+
+        private void Start()
         {
-            foreach (var canvasObject in canvasObjects)
+            CheckPlayers();
+            StartCoroutine(SpawnNewPlayer());
+        }
+
+        private void Update()
+        {
+            var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
+            numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
+            if (numberOfPlayersInScene.Length == PhotonNetwork.CurrentRoom.PlayerCount)
             {
-                canvasObject.SetActive(false);
+                foreach (var canvasObject in canvasObjects)
+                {
+                    canvasObject.SetActive(false);
+                }
+                //PhotonNetwork.CurrentRoom.IsOpen = false;
+                //raceController.enabled = true;
+                if (raceController.enabled == false)
+                {
+                    GetComponent<PhotonView>().RPC("RaceStart", RpcTarget.AllBuffered, null);
+                }
             }
-            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+
+        private void CheckPlayers()
+        {
+            _numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
+            for (int i = 0; i <= _numberPlayers; i++)
+            {
+                if (_numberPlayers > 4)
+                {
+                    _numberPlayers -= 4;
+                }
+            }
+        }
+
+        private IEnumerator SpawnNewPlayer()
+        {
+            yield return new WaitForSeconds(1f);
+            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].rotation, 0);
+            _numberPlayers ++;
+        }
+    
+        [PunRPC]
+        public void RaceStart()
+        {
             raceController.enabled = true;
         }
-    }
-
-    private void CheckPlayers()
-    {
-        _numberPlayers = PhotonNetwork.CountOfPlayersInRooms;
-        for (int i = 0; i <= _numberPlayers; i++)
-        {
-            if (_numberPlayers > 4)
-            {
-                _numberPlayers -= 4;
-            }
-        }
-    }
-
-    private IEnumerator SpawnNewPlayer()
-    {
-        yield return new WaitForSeconds(10f);
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[_numberPlayers].position, spawnPositions[_numberPlayers].rotation, 0);
-        _numberPlayers ++;
     }
 }
