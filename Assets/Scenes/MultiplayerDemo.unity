@@ -906,6 +906,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 279745928187681219, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 11400000, guid: a7c6c4cb7e09eee43801679c428fb095, type: 2}
     - target: {fileID: 4858703145045126682, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
       propertyPath: m_Name
       value: raceTrackLakeLevel
@@ -954,6 +958,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4858703146272423436, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858703146272423436, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
 --- !u!1 &1423876483 stripped
@@ -974,6 +986,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999993, y: 2, z: 1.9999988}
   m_Center: {x: -0.00000031292439, y: 0, z: 0.00000032782555}
+--- !u!1 &1423876485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4858703145271907798, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+  m_PrefabInstance: {fileID: 1423876482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423876486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423876485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36725f5f1a8c4384eb1d33bbb36ac60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1456990372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1203976862611101124, guid: 5a65a78dacb2b74478c5ec99b89ad951, type: 3}

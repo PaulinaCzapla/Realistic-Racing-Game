@@ -100,7 +100,6 @@ namespace Network.RoomConnectionManager
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("weszlem");
             if (PhotonNetwork.IsMasterClient)
             {
                 goToGameButton.gameObject.SetActive(true);

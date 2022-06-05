@@ -35,7 +35,7 @@ public class BackToCheckpoint : MonoBehaviour
         _raceParticipant = GetComponent<RaceParticipant>();
         _rigidbody = GetComponent<Rigidbody>();
     }
-    
+
     public void ResetPosition()
     {
         if (photonView ? photonView.IsMine : true)

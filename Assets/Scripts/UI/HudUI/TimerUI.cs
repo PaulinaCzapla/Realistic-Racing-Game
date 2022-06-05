@@ -25,7 +25,7 @@ public class TimerUI : MonoBehaviour
     private void OnUpdateTimer(float time)
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(time);
-        timerText.text = timeSpan.ToString(@"mm\:ss");
+        timerText.text = timeSpan.ToString(@"mm\:ss\:ff");
     }
-    
+
 }
