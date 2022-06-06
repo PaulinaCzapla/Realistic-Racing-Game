@@ -17,12 +17,12 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
     [SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
     [SerializeField] private RaceController raceController;
     [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
-
+    [SerializeField] public List<Material> colors = new List<Material>();
 
     private void Start()
     {
         CheckPlayers();
-        StartCoroutine(SpawnNewPlayer());
+        SpawnNewPlayer();
     }
 
     private void Update()
@@ -35,8 +35,12 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
             {
                 canvasObject.SetActive(false);
             }
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            raceController.enabled = true;
+            //PhotonNetwork.CurrentRoom.IsOpen = false;
+            //raceController.enabled = true;
+            if (raceController.enabled == false)
+            {
+                GetComponent<PhotonView>().RPC("RaceStart", RpcTarget.AllBuffered, null);
+            }
         }
     }
 
@@ -52,10 +56,15 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
         }
     }
 
-    private IEnumerator SpawnNewPlayer()
+    private void SpawnNewPlayer()
     {
-        yield return new WaitForSeconds(10f);
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[_numberPlayers].position, spawnPositions[_numberPlayers].rotation, 0);
+        PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].rotation, 0);
         _numberPlayers ++;
+    }
+    
+    [PunRPC]
+    public void RaceStart()
+    {
+        raceController.enabled = true;
     }
 }

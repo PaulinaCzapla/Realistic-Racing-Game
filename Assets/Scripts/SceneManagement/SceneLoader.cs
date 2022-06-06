@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Events.ScriptableObjects;
+using Photon.Pun;
 using SceneManagement.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ namespace SceneManagement
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
         [SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
         [SerializeField] private VoidEventChannelSO onSceneLoaded;
+        [SerializeField] private LoadSceneEventChannelSO photonLoadSceneEvent;
 
         private List<AsyncOperation> _scenesToLoadAsyncOperations = new List<AsyncOperation>();
         private List<Scene> _scenesToUnload = new List<Scene>();
@@ -27,6 +29,7 @@ namespace SceneManagement
         {
             loadSceneEvent.OnEventRaised += LoadScene;
             loadMenuSceneEvent.OnEventRaised += LoadMainMenu;
+            photonLoadSceneEvent.OnPhotonEventRaised += PhotonLoadScene;
             _persistentScenes.Add(uiScene);
             _persistentScenes.Add(persistentScene);
             _persistentScenes.Add(gameplayScene);
@@ -36,6 +39,7 @@ namespace SceneManagement
         {
             loadSceneEvent.OnEventRaised -= LoadScene;
             loadMenuSceneEvent.OnEventRaised -= LoadMainMenu;
+            photonLoadSceneEvent.OnPhotonEventRaised -= PhotonLoadScene;
         }
 
         private void LoadMainMenu(GameSceneSO menuScene, bool showLoadingScreen)
@@ -58,6 +62,18 @@ namespace SceneManagement
             AddScenesToUnload(_persistentScenes);
             UnloadScenes();
             LoadScenes(sceneToLoad, showLoadingScreen);
+        }
+
+        private void PhotonLoadScene()//GameSceneSO sceneToLoad, bool showLoadingScreen
+        {
+            _persistentScenes.Clear();
+            _persistentScenes.Add(uiScene);
+            _persistentScenes.Add(persistentScene);
+            _persistentScenes.Add(gameplayScene);
+
+            AddScenesToUnload(_persistentScenes);
+            UnloadScenes();
+            PhotonLoadScenes();//sceneToLoad, showLoadingScreen
         }
 
         private void AddScenesToUnload(List<GameSceneSO> persistentScenes)
@@ -97,6 +113,21 @@ namespace SceneManagement
                 LoadSceneMode.Additive));
             LoadPersistentScenes();
             StartCoroutine(WaitForSceneLoading(showLoadingScreen));
+        }
+
+        private void PhotonLoadScenes()//GameSceneSO sceneToLoad, bool showLoadingScreen
+        {
+            //if (showLoadingScreen)
+            //{
+                // display loading screen
+            //}
+
+            //PhotonNetwork.LoadLevel(sceneToLoad.SceneName);
+            //_scenesToLoadAsyncOperations.Add(SceneManager.LoadSceneAsync(sceneToLoad.SceneName,
+                //LoadSceneMode.Additive));
+            LoadPersistentScenes();
+            //StartCoroutine(WaitForSceneLoading(showLoadingScreen));
+            
         }
 
         private bool CheckIfSceneLoaded(string sceneName)
