@@ -1,6 +1,7 @@
 using System;
 using Events.ScriptableObjects;
 using SceneManagement.ScriptableObjects;
+using SoundManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,10 @@ namespace UI.MainMenu
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button creditsButton;
         [SerializeField] private Button backButton;
-        
+
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
-        
+        [SerializeField] private SoundEventChannelSO onMenuMusicStart;
+
         //[SerializeField] private GameSceneSO RaceTrackScene;
         [SerializeField] private GameSceneSO joinRoomScene;
         [SerializeField] private GameObject optionsContainer;
@@ -26,13 +28,19 @@ namespace UI.MainMenu
         {
             backButton.gameObject.SetActive(false);
         }
+        private void OnAwake()
+        {
+
+        }
         private void OnEnable()
         {
-          //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
+            Debug.Log("di[a");
+            //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
             roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
             optionsButton.onClick.AddListener(HandleOptionsButtonClick);
             creditsButton.onClick.AddListener(HandleCreditsButtonClick);
             backButton.onClick.AddListener(HandleBackButtonClick);
+            onMenuMusicStart.RaiseEvent(SoundName.MenuMusic);
         }
 
         private void HandleBackButtonClick()
