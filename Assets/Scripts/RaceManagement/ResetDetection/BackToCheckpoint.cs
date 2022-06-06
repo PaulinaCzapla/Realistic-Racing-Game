@@ -48,8 +48,8 @@ public class BackToCheckpoint : MonoBehaviour
                     _raceParticipant.ControlPointsActivated[_raceParticipant.ControlPointsActivated.Count - 1];
                 var transform1 = transform;
                 _rigidbody.isKinematic = true;
-                transform1.rotation = _pointcontrol.SpawnPoint.transform.rotation;
-                transform1.position = _pointcontrol.SpawnPoint.transform.position;
+                transform1.rotation = _pointcontrol.spawnPoints[0].transform.rotation;
+                transform1.position = _pointcontrol.spawnPoints[0].transform.position;
                 car.gearNum = 1;
                 StartCoroutine(inputReader.DisableInput());
                 _rigidbody.isKinematic = false;

@@ -1,5 +1,6 @@
 using Car.WheelsManagement;
 using Events.ScriptableObjects;
+using RaceManagement.ControlPoints;
 using SoundManagement;
 using UnityEngine;
 
@@ -9,6 +10,17 @@ public class ColisionEvents : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
+        if (other.TryGetComponent(out ControlPoint controlPoint))
+        {
+            foreach (var point in controlPoint.spawnPoints)
+            {
+                if (!point.activeSelf)
+                { 
+                    point.SetActive(true);
+                }
+                
+            }
+        }
         if (other.TryGetComponent(out CarMovementController controller))
         {
             playSound.RaiseEvent(SoundName.CarColision);

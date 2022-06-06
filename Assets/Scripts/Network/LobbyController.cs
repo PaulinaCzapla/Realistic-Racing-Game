@@ -120,7 +120,6 @@ namespace Network
             color3Button.onClick.RemoveAllListeners();
             color4Button.onClick.RemoveAllListeners();
             PlayerPrefs.SetInt("NumberOfLaps",_numberOfLaps);
-            SceneManager.UnloadSceneAsync("PersistentScene");
         }
 
         private void RaceStart()
