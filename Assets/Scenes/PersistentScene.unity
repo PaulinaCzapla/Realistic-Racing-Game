@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6602275901849050698, guid: 6ba02973aadc6e64da30a99ac2dcf9fa, type: 3}
+      propertyPath: photonLoadSceneEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
     - target: {fileID: 8331275948162565246, guid: 6ba02973aadc6e64da30a99ac2dcf9fa, type: 3}
       propertyPath: m_Name
       value: SceneLoader

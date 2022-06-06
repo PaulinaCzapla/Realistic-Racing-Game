@@ -2423,6 +2423,8 @@ MonoBehaviour:
   createInput: {fileID: 910923888}
   joinInput: {fileID: 1908399339}
   connectionStatus: {fileID: 2099384688}
+  photonLoadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
+  colorLobbyScene: {fileID: 11400000, guid: 0c58b240cdbb6874db046776c199aba2, type: 2}
 --- !u!4 &1550324718
 Transform:
   m_ObjectHideFlags: 0
@@ -2935,7 +2937,6 @@ GameObject:
   - component: {fileID: 2057127950}
   - component: {fileID: 2057127949}
   - component: {fileID: 2057127948}
-  - component: {fileID: 2057127952}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3035,26 +3036,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2057127952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057127947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db6e330a2e059e4ebd7545ff68c486f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
-  loadMenuEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
-  menu: {fileID: 11400000, guid: a87e389e36952fd4993415f6290a30af, type: 2}
-  nameInput: {fileID: 1303164770}
-  roomNameInput: {fileID: 1269733871}
-  joinRoomButton: {fileID: 707550758}
-  goToGameButton: {fileID: 494108362}
-  goBackButton: {fileID: 1402559887}
 --- !u!1 &2059443694
 GameObject:
   m_ObjectHideFlags: 0

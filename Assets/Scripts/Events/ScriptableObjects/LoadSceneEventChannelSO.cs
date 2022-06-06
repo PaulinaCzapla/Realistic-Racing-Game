@@ -8,11 +8,18 @@ namespace Events.ScriptableObjects
     public class LoadSceneEventChannelSO : BaseEventChannelSO
     {
         public UnityAction<GameSceneSO, bool> OnEventRaised;
+        public UnityAction OnPhotonEventRaised;
 
         public void RaiseEvent(GameSceneSO arg0, bool arg1)
         {
             if (OnEventRaised != null)
                 OnEventRaised.Invoke(arg0, arg1);
+        }
+        
+        public void RaiseEvent()
+        {
+            if (OnPhotonEventRaised != null)
+                OnPhotonEventRaised.Invoke();
         }
     }
 }
