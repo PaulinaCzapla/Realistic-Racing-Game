@@ -38,7 +38,6 @@ namespace Network
         
         private void OnEnable()
         {
-            //SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
             raceStartButton.onClick.AddListener(RaceStart);
             menuReturnButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(mainMenuScene, true));
             color1Button.onClick.AddListener(() => ChosenColor(1));
@@ -47,10 +46,7 @@ namespace Network
             color4Button.onClick.AddListener(() => ChosenColor(4));
             minusButton.onClick.AddListener(() => UpdateLaps(-1));
             plusButton.onClick.AddListener(() => UpdateLaps(1));
-        
-            //onMenuMusicStart.RaiseEvent(SoundName.MenuMusic);
-            //photonLoadSceneEvent.RaiseEvent();
-        
+
             if (PhotonNetwork.IsMasterClient)
             {
                 raceStartButton.gameObject.SetActive(true);
