@@ -35,10 +35,9 @@ namespace VisualNovel.UI
         [Header("Fade")]
         [SerializeField] private List<Fade> componentsToFade;
         
-        
-        private const float InitialPauseBetweenLetters = 0.025f;
+        private const float InitialPauseBetweenLetters = 0.015f;
         private const float InitialPauseBetweenSounds = 0.04f;
-        private const float ShortPauseBetweenLetters = 0.005f;
+        private const float ShortPauseBetweenLetters = 0.001f;
         private const float CloseAfter = 1.5f;
         
         private float _pauseBetweenLetters;
@@ -137,20 +136,33 @@ namespace VisualNovel.UI
                 foreach (var image in charactersImages)
                 {
                     image.sprite = null;
+                    Color color;
+                    ColorUtility.TryParseHtmlString("#9D9D9D", out color);
+                    image.color = color;
                     image.enabled = false;
                 }
             }
 
+            int numOfFadedIn = 0;
+            
             for (int i = 0; i < images; i++)
             {
+                Color color; 
+                
+                if (i == 0)
+                    ColorUtility.TryParseHtmlString("#FFFFFF", out color);
+                else
+                    ColorUtility.TryParseHtmlString("#9D9D9D", out color);
+                
                 foreach (var image in charactersImages)
                 {
                     if (!image.enabled)
                     {
+                        image.color = color;
                         image.sprite = dialogue.sceneElements[i].sprite;
                         image.transform.localPosition = dialogue.sceneElements[i].position;
 
-                        if (dialogue.shouldFadeIn)
+                        if (dialogue.shouldFadeIn && numOfFadedIn < dialogue.numOfFadeInCharacters)
                         {
                             image.color = new Color(image.color.r, image.color.g, image.color.b,
                                 0);
@@ -161,6 +173,7 @@ namespace VisualNovel.UI
                             }
 
                             image.GetComponent<Fade>().FadeIn();
+                            numOfFadedIn++;
                         }
 
                         image.enabled = true;
@@ -193,12 +206,10 @@ namespace VisualNovel.UI
         private IEnumerator DisplayDialoguePart(string dialogue)
         {
             arrow.gameObject.SetActive(false);
-
-            yield return new WaitUntil(() => _isFading == false );
-            
             if (dialogue != null)
             {
                 _isSegmentDisplayedCurrently = true;
+                yield return new WaitUntil(() => _isFading == false);
                 int i = 0;
                 _timeElapsed = 0;
 
@@ -246,6 +257,5 @@ namespace VisualNovel.UI
             _canDisplay = true;
             DisplayDialogueSceneSegment(_currentScene);
         }
-        
     }
 }

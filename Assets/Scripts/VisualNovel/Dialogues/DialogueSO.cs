@@ -16,6 +16,7 @@ namespace VisualNovel.Dialogues
         [Header("Character name")]
         public string name;
 
+        public int numOfFadeInCharacters = 1;
         public bool shouldFadeIn;
         public bool shouldOverridePreviousDialogue = true;
     }

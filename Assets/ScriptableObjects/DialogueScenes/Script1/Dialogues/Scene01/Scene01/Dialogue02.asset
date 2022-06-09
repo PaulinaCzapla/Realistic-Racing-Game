@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue02
   m_EditorClassIdentifier: 
   sceneElements:
+  - position: {x: 600, y: -100}
+    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
   - position: {x: -600, y: -100}
     sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
   dialogueSegment: "Werka, zakocha\u0142am si\u0119\u2026"
   name: Paulina
   shouldFadeIn: 1
-  shouldOverridePreviousDialogue: 0
+  shouldOverridePreviousDialogue: 1

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue11
   m_EditorClassIdentifier: 
   sceneElements:
-  - position: {x: -600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
   - position: {x: 600, y: -100}
+    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+  - position: {x: -600, y: -100}
     sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
   dialogueSegment: "Mo\u017Cesz!!! By\u0142oby super!"
   name: Paulina

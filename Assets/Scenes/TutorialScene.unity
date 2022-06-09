@@ -598,7 +598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weronikaaa
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c34f6336cb18f34b8429da9046f973d, type: 2}
   m_sharedMaterial: {fileID: 8197700200537020326, guid: 1c34f6336cb18f34b8429da9046f973d, type: 2}
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.18439709, b: 0.16105376, a: 0.92941177}
+  m_Color: {r: 0.2264151, g: 0.18439709, b: 0.16105376, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1448,9 +1448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Przepi\u0119knie wchodzili w zakr\u0119t, to wygl\u0105da\u0142o jak jaki\u015B
-    taniec na lodzie, gdyby patrze\u0107 tylko na to jak zasuwaj\u0105 to z obojgiem
-    mog\u0119 od razu jecha\u0107 na randk\u0119."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c34f6336cb18f34b8429da9046f973d, type: 2}
   m_sharedMaterial: {fileID: 8197700200537020326, guid: 1c34f6336cb18f34b8429da9046f973d, type: 2}
@@ -1484,7 +1482,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

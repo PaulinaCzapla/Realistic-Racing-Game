@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue04
   m_EditorClassIdentifier: 
   sceneElements:
-  - position: {x: -600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
   - position: {x: 600, y: -100}
     sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+  - position: {x: -600, y: -100}
+    sprite: {fileID: 21300000, guid: 17204c0e87c76e546866058e8c07ce0f, type: 3}
   dialogueSegment: "Cccz-czekaj, to w ich je\u017Adzie"
   name: Paulina
   shouldFadeIn: 0
