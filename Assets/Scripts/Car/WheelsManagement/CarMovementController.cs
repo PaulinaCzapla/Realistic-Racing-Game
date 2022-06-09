@@ -83,7 +83,7 @@ namespace Car.WheelsManagement
         
         private void ApplyDownForce()
         {
-            var downForce = car._downForce.Evaluate(rb.velocity.magnitude * 3.6f);
+            var downForce = car._downForce.Evaluate(car.carSpeed);
             rb.AddForce(-Vector3.up * downForce);
         }
 
@@ -193,7 +193,7 @@ namespace Car.WheelsManagement
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
                 wheelsController.MoveWheels(0, 0, car.drive);
-                wheelsController.ApplyBrake();
+                wheelsController.ApplyBrake(2000);
             }
             else
             {

@@ -4943,7 +4943,7 @@ WheelCollider:
     spring: 30000
     damper: 4000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.08
+  m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 1
@@ -4954,11 +4954,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.9
+    m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 4
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
   m_Enabled: 1
 --- !u!1 &6601733914428629343
 GameObject:
@@ -4998,13 +4998,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601733914428629343}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
     spring: 30000
     damper: 4000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.08
+  m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 1
@@ -5015,11 +5015,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
+    m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.6
-    m_AsymptoteValue: 0.8
-    m_Stiffness: 16
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &6601733914566895847
 GameObject:
@@ -5059,13 +5059,13 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601733914566895847}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}
   m_Radius: 0.32
   m_SuspensionSpring:
     spring: 30000
     damper: 4000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.08
+  m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 1
@@ -5076,11 +5076,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
+    m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.6
-    m_AsymptoteValue: 0.8
-    m_Stiffness: 16
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &6601733915013294901
 GameObject:
@@ -5126,7 +5126,7 @@ WheelCollider:
     spring: 30000
     damper: 4000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.08
+  m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 1
@@ -5137,11 +5137,11 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 2
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.9
+    m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 4
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
   m_Enabled: 1
 --- !u!1 &6601733915122604598
 GameObject:
@@ -5167,7 +5167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601733915122604598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8245596480130127046}
@@ -5201,7 +5201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601733915928559274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6601733914566895846}
@@ -6699,6 +6699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!1 &8248970707652042728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,6 +7139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!114 &2850947764704595058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8027,6 +8029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!114 &5561134424878703757
 MonoBehaviour:
   m_ObjectHideFlags: 0
