@@ -42,7 +42,7 @@ namespace VisualNovel.UI
         
         private float _pauseBetweenLetters;
         private bool _isSegmentDisplayedCurrently;
-        private int _dialogue;
+        private int _dialogue = 0;
         private bool _canDisplay = false;
         private bool _isDialogueActive;
         private bool _wasInputDisabled;
@@ -66,24 +66,24 @@ namespace VisualNovel.UI
 
             StopAllCoroutines();
 
-            if (_isDialogueActive)
-                CloseDialogue();
+           // if (_isDialogueActive)
+             //   CloseDialogue();
         }
 
         private void OnStartFadeIn(GameObject arg0)
         {
-            CloseDialogue();
+           // CloseDialogue();
         }
-        private void CloseDialogue()
-        {
-            arrow.gameObject.SetActive(false);
-            _canDisplay = false;
-            _dialogue = 0;
-            _isDialogueActive = false;
-            onDialogueFinishedEvent.RaiseEvent();
-            FadeOutPanel();
-            _pauseBetweenLetters = InitialPauseBetweenLetters;
-        }
+        // private void CloseDialogue()
+        // {
+        //     arrow.gameObject.SetActive(false);
+        //     _canDisplay = false;
+        //     _dialogue = 0;
+        //     _isDialogueActive = false;
+        //     onDialogueFinishedEvent.RaiseEvent();
+        //     FadeOutPanel();
+        //     _pauseBetweenLetters = InitialPauseBetweenLetters;
+        // }
 
         private void Update()
         {
@@ -95,7 +95,12 @@ namespace VisualNovel.UI
             Debug.Log(sceneIndex);
             if (_canDisplay)
             {
-                _currentScene = sceneIndex;
+                if (_currentScene != sceneIndex)
+                {
+                    _currentScene = sceneIndex;
+                    _dialogue = 0;
+                }
+
                 if (!_isSegmentDisplayedCurrently)
                 {
                     _pauseBetweenLetters = InitialPauseBetweenLetters;
@@ -186,8 +191,8 @@ namespace VisualNovel.UI
         {
             _pauseBetweenLetters = InitialPauseBetweenLetters;
 
-            if (_isDialogueActive)
-                CloseDialogue();
+            //if (_isDialogueActive)
+              //  CloseDialogue();
 
             _currentScene = firstScene;
             text.text = String.Empty;

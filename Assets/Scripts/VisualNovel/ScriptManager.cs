@@ -17,21 +17,20 @@ namespace VisualNovel
         [SerializeField] private VoidEventChannelSO onReturnToMenu;
         [SerializeField] private VoidEventChannelSO onDialogueFinishedEvent;
         
-        private ScriptSO _script;
-       // private int _sceneIndex = 0;
-
        private IEnumerator Start()
        {
            input.SetInput();
+           if (scriptInfo.CurrentlySelectedScript.dialogueScenes.Count- 1 < scriptInfo.CurrentDialogueScene )
+               scriptInfo.CurrentDialogueScene = 0;
+
            yield return new WaitForSeconds(1.5f);
            displayDialoguePanelEvent.RaiseEvent(scriptInfo.CurrentlySelectedScript, scriptInfo.CurrentDialogueScene);
-
        }
 
        private void OnEnable()
-        {
-            input.SkipDialogueEvent += OnSkipClicked;
-            onDialogueFinishedEvent.OnEventRaised += OnSceneFinished;
+       {
+           input.SkipDialogueEvent += OnSkipClicked;
+           onDialogueFinishedEvent.OnEventRaised += OnSceneFinished;
        }
 
         private void OnDisable()
@@ -42,8 +41,12 @@ namespace VisualNovel
 
         private void OnSceneFinished()
         {
-            Debug.Log("finished");
-           // scriptInfo.CurrentDialogueScene++;
+            if(scriptInfo.CurrentlySelectedScript.dialogueScenes.Count-1 > scriptInfo.CurrentDialogueScene)
+                scriptInfo.CurrentDialogueScene++;
+            else
+            {
+                //finished tutorial, return to main menu
+            }
         }
 
         private void OnSkipClicked()
