@@ -1,3 +1,4 @@
+using System;
 using Events.ScriptableObjects;
 using Photon.Pun;
 using SceneManagement.ScriptableObjects;
@@ -46,7 +47,7 @@ namespace Network
             color4Button.onClick.AddListener(() => ChosenColor(4));
             minusButton.onClick.AddListener(() => UpdateLaps(-1));
             plusButton.onClick.AddListener(() => UpdateLaps(1));
-
+            _numberOfLaps = 1;
             if (PhotonNetwork.IsMasterClient)
             {
                 raceStartButton.gameObject.SetActive(true);
@@ -88,20 +89,30 @@ namespace Network
                 GetComponent<PhotonView>().RPC("UnselectColor", RpcTarget.OthersBuffered, playerChoices.chosenButton);
             }
             GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.OthersBuffered, color);
-        
+
+            var hash1 = new Hashtable();
+
             switch (color)
             {
                 case 1:
                     PlayerSelectedColor(color1Button);
+                    hash1.Add("name","Red");
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 2:
                     PlayerSelectedColor(color2Button);
+                    hash1.Add("name","Green");
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 3:
                     PlayerSelectedColor(color3Button);
+                    hash1.Add("name","Pink");
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 4:
                     PlayerSelectedColor(color4Button);
+                    hash1.Add("name","Yellow");
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
             }
         

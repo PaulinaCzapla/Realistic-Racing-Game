@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: body
       value: 
       objectReference: {fileID: 5615260205463427390}
+    - target: {fileID: 330382151600293167, guid: b2d885da23d00a741b79975db27f7957, type: 3}
+      propertyPath: onRaceFinished
+      value: 
+      objectReference: {fileID: 11400000, guid: ae5e43e8c009fa0479d5a830cf0417e7, type: 2}
     - target: {fileID: 446280378792268351, guid: b2d885da23d00a741b79975db27f7957, type: 3}
       propertyPath: m_Enabled
       value: 0

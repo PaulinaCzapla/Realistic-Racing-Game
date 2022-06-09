@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
 using Events.ScriptableObjects;
+using Photon.Pun;
 using RaceManagement.ControlPoints;
 using RaceManagement.Timer;
 using TMPro;
 using UnityEngine;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace RaceManagement
 {
     public class RaceParticipant : MonoBehaviour 
     { 
         public int LapsFinished => _lapsFinished;
+        public string Name => _name;
+        public float RaceTime => _stats.RaceTime;
         
         //to get last activated control point - ControlPointsActivated[ControlPointsActivated.Count -1].SpawnPoint
         public List<ControlPoint> ControlPointsActivated { get; set; }
@@ -19,8 +23,10 @@ namespace RaceManagement
         [SerializeField] private IntEventChannelSO onUpdateLapsCount;
         [SerializeField] private FloatEventChannelSO onUpdateRaceTimeUI;
         [SerializeField] private VoidEventChannelSO onRaceStarted;
+        [SerializeField] private VoidEventChannelSO onRaceFinished;
 
         private int _lapsFinished = 0;
+        private string _name;
         private TimeCounter _timer = new TimeCounter();
         private RaceStats _stats = new RaceStats();
         private bool _timerStarted;
@@ -33,11 +39,14 @@ namespace RaceManagement
         private void OnEnable()
         {
             onRaceStarted.OnEventRaised +=StartTimer;
+            onRaceFinished.OnEventRaised += StopTimer;
+            _name = (string)PhotonNetwork.LocalPlayer.CustomProperties["name"];
         }
 
         private void OnDisable()
         {
             onRaceStarted.OnEventRaised -=StartTimer;
+            onRaceFinished.OnEventRaised -= StopTimer;
         }
 
         private void StartTimer()
@@ -45,6 +54,12 @@ namespace RaceManagement
             _timer.StartTimer();
             _timerStarted = true;
         }
+
+        public void StopTimer()
+        {
+            _timerStarted = false;
+        }
+        
         private void FixedUpdate()
         {
             if (_timerStarted)
@@ -60,6 +75,8 @@ namespace RaceManagement
                 _timer.TimeElapsed - _stats.LapTimes[_lapsFinished-1]);
             
             _lapsFinished++;
+            //var hash = new Hashtable {{"lapsFinished", _lapsFinished}};
+            //PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
             ControlPointsActivated.Clear();
             onUpdateLapsCount.RaiseEvent(_lapsFinished);
         }
