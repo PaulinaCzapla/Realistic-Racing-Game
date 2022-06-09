@@ -14,6 +14,7 @@ namespace InputSystem
         public event UnityAction CancelEvent = delegate { };
         public event UnityAction ClickEvent = delegate { };
         public event UnityAction MenuEvent = delegate { };
+        public event UnityAction SkipDialogueEvent = delegate { };
 
         private InputActions _inputActionsPlayer;
         private InputActions.IUIActions _iuiActionsImplementation;
@@ -70,6 +71,12 @@ namespace InputSystem
         {
             if (context.performed)
                 MenuEvent?.Invoke();
+        }
+
+        public void OnSkipDialogue(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                SkipDialogueEvent?.Invoke();
         }
     }
 }
