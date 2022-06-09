@@ -5,7 +5,7 @@ using VisualNovel.Dialogues;
 
 namespace VisualNovel
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Script")]
+    [CreateAssetMenu(menuName = "CarSimulator/ScriptableObjects/Script")]
     public class ScriptSO : ScriptableObject
     {
         public List<DialogueScene> dialogueScenes;

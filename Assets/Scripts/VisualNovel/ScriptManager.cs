@@ -9,6 +9,7 @@ namespace VisualNovel
     public class ScriptManager : MonoBehaviour
     {
         [SerializeField] private UIInputReader input;
+        [SerializeField] private ScriptInfoSO scriptInfo;
         
         [Header("Events")]
         [SerializeField] private ScriptEventChannelSO displayDialoguePanelEvent;
@@ -17,12 +18,21 @@ namespace VisualNovel
         [SerializeField] private VoidEventChannelSO onDialogueFinishedEvent;
         
         private ScriptSO _script;
-        private int _sceneIndex = 0;
-        private void OnEnable()
+       // private int _sceneIndex = 0;
+
+       private IEnumerator Start()
+       {
+           input.SetInput();
+           yield return new WaitForSeconds(1.5f);
+           displayDialoguePanelEvent.RaiseEvent(scriptInfo.CurrentlySelectedScript, scriptInfo.CurrentDialogueScene);
+
+       }
+
+       private void OnEnable()
         {
             input.SkipDialogueEvent += OnSkipClicked;
             onDialogueFinishedEvent.OnEventRaised += OnSceneFinished;
-        }
+       }
 
         private void OnDisable()
         {
@@ -32,12 +42,14 @@ namespace VisualNovel
 
         private void OnSceneFinished()
         {
-            _sceneIndex++;
+            Debug.Log("finished");
+           // scriptInfo.CurrentDialogueScene++;
         }
 
         private void OnSkipClicked()
         {
-            displayDialogueSceneEvent.RaiseEvent(_sceneIndex);
+            Debug.Log("clicked");
+            displayDialogueSceneEvent.RaiseEvent(scriptInfo.CurrentDialogueScene);
         }
     }
 }

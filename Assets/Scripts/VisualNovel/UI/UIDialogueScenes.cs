@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Events.ScriptableObjects;
-using InputSystem;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 using VisualNovel.Dialogues;
 
 namespace VisualNovel.UI
@@ -15,15 +15,16 @@ namespace VisualNovel.UI
          [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip lettersClip;
         
-        [Header("Scriptable objects")] 
-        [SerializeField] private UIInputReader input;
+        [Header("Scriptable objects")]
         [SerializeField] private ScriptSO script;
+        [SerializeField] private ScriptInfoSO scriptInfo;
         
         [Header("Components")]
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private TextMeshProUGUI name;
         [SerializeField] private GameObject panel;
         [SerializeField] private SkipArrow arrow;
+        [SerializeField] private Image[] charactersImages;
         
         [Header("Events")]
         [SerializeField] private ScriptEventChannelSO displayDialoguePanelEvent;
@@ -35,7 +36,7 @@ namespace VisualNovel.UI
         [SerializeField] private List<Fade> componentsToFade;
         
         
-        private const float InitialPauseBetweenLetters = 0.04f;
+        private const float InitialPauseBetweenLetters = 0.025f;
         private const float InitialPauseBetweenSounds = 0.04f;
         private const float ShortPauseBetweenLetters = 0.005f;
         private const float CloseAfter = 1.5f;
@@ -48,12 +49,10 @@ namespace VisualNovel.UI
         private bool _wasInputDisabled;
         private float _timeElapsed = 0;
         private int _currentScene = 0;
+        private bool _isFading = false;
         
-        
-
         private void OnEnable()
         {
-            input.SkipDialogueEvent += () => DisplayDialogueSceneSegment(_currentScene );
             arrow.gameObject.SetActive(false);
             _pauseBetweenLetters = InitialPauseBetweenLetters;
             displayDialoguePanelEvent.OnEventRaised += DisplayDialoguePanel;
@@ -63,7 +62,6 @@ namespace VisualNovel.UI
 
         private void OnDisable()
         {
-            input.SkipDialogueEvent -= () => DisplayDialogueSceneSegment(_currentScene );
             displayDialoguePanelEvent.OnEventRaised -= DisplayDialoguePanel;
             displayDialogueSceneEvent.OnEventRaised -= DisplayDialogueSceneSegment;
 
@@ -95,6 +93,7 @@ namespace VisualNovel.UI
 
         private void DisplayDialogueSceneSegment(int sceneIndex)
         {
+            Debug.Log(sceneIndex);
             if (_canDisplay)
             {
                 _currentScene = sceneIndex;
@@ -108,7 +107,8 @@ namespace VisualNovel.UI
                         name.text = script.dialogueScenes[sceneIndex].dialogues[_dialogue].name;
                         
                         _pauseBetweenLetters = InitialPauseBetweenLetters;
-                        
+
+                        SetCharactersOnScene(script.dialogueScenes[sceneIndex].dialogues[_dialogue]);
                         StartCoroutine(DisplayDialoguePart(script.dialogueScenes[sceneIndex].dialogues[_dialogue].dialogueSegment));
                         _dialogue++;
                         
@@ -128,13 +128,55 @@ namespace VisualNovel.UI
             }
         }
 
-        private void DisplayDialoguePanel(ScriptSO script)
+        private void SetCharactersOnScene(DialogueSO dialogue)
+        {
+            int images = Mathf.Clamp(dialogue.sceneElements.Count, 0, charactersImages.Length);
+
+            if (dialogue.shouldOverridePreviousDialogue)
+            {
+                foreach (var image in charactersImages)
+                {
+                    image.sprite = null;
+                    image.enabled = false;
+                }
+            }
+
+            for (int i = 0; i < images; i++)
+            {
+                foreach (var image in charactersImages)
+                {
+                    if (!image.enabled)
+                    {
+                        image.sprite = dialogue.sceneElements[i].sprite;
+                        image.transform.localPosition = dialogue.sceneElements[i].position;
+
+                        if (dialogue.shouldFadeIn)
+                        {
+                            image.color = new Color(image.color.r, image.color.g, image.color.b,
+                                0);
+                            if (i == images - 1)
+                            {
+                                _isFading = true;
+                                image.GetComponent<Fade>().OnFadedIn += () => _isFading = false;
+                            }
+
+                            image.GetComponent<Fade>().FadeIn();
+                        }
+
+                        image.enabled = true;
+                        break;
+                    }
+                }
+            }
+        }
+        private void DisplayDialoguePanel(ScriptSO script, int firstScene)
         {
             _pauseBetweenLetters = InitialPauseBetweenLetters;
 
             if (_isDialogueActive)
                 CloseDialogue();
 
+            _currentScene = firstScene;
             text.text = String.Empty;
             _isDialogueActive = true;
             this.script = script;
@@ -152,6 +194,8 @@ namespace VisualNovel.UI
         {
             arrow.gameObject.SetActive(false);
 
+            yield return new WaitUntil(() => _isFading == false );
+            
             if (dialogue != null)
             {
                 _isSegmentDisplayedCurrently = true;
@@ -200,7 +244,7 @@ namespace VisualNovel.UI
             _canDisplay = false;
             yield return new WaitForSeconds(0.5f);
             _canDisplay = true;
-            DisplayDialogueSceneSegment(0);
+            DisplayDialogueSceneSegment(_currentScene);
         }
         
     }

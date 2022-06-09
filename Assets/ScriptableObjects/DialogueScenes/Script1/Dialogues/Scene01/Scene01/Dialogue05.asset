@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
+  m_Name: Dialogue05
+  m_EditorClassIdentifier: 
+  sceneElements:
+  - position: {x: -600, y: -100}
+    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+  - position: {x: 600, y: -100}
+    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+  dialogueSegment: "Przepi\u0119knie wchodzili w zakr\u0119t. To wygl\u0105da\u0142o
+    jak jaki\u015B taniec na lodzie. Gdyby patrze\u0107 tylko na to jak zasuwaj\u0105,
+    to z obojgiem mog\u0119 od razu jecha\u0107 na randk\u0119."
+  name: Paulina
+  shouldFadeIn: 0
+  shouldOverridePreviousDialogue: 1

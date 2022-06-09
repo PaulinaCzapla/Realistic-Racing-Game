@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
-  m_Name: Dialogue01
+  m_Name: Dialogue08
   m_EditorClassIdentifier: 
-  sceneElements:
-  - position: {x: 0, y: 0}
-    sprite: {fileID: 0}
-  dialogueSegment: "Hej Paulina, jak ci si\u0119 wczoraj podoba\u0142o? "
-  shouldFadeIn: 1
-  shouldOverridePreviousDialogue: 1
+  sceneElements: []
+  dialogueSegment: "No wiesz, dziewczyny raczej kibicuj\u0105."
+  name: Werka
+  shouldFadeIn: 0
+  shouldOverridePreviousDialogue: 0

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Script1
   m_EditorClassIdentifier: 
   dialogueScenes:
-  - dialogues: []
+  - dialogues:
+    - {fileID: 11400000, guid: 2b3d0d3097adab840a013e455b8c9016, type: 2}
+    - {fileID: 11400000, guid: b9f5bf9c0edb4cc4ebf6b65472e23344, type: 2}
+    - {fileID: 11400000, guid: 3db275323a1be9441af5b13a4c5a619e, type: 2}

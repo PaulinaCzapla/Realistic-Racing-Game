@@ -7,12 +7,12 @@ namespace Events.ScriptableObjects
     [CreateAssetMenu(menuName = "CarSimulator/Events/Script Event Channel")]
     public class ScriptEventChannelSO : BaseEventChannelSO
     {
-        public UnityAction<ScriptSO> OnEventRaised;
+        public UnityAction<ScriptSO, int> OnEventRaised;
 
-        public void RaiseEvent(ScriptSO arg)
+        public void RaiseEvent(ScriptSO arg, int arg1)
         {
             if (OnEventRaised != null)
-                OnEventRaised.Invoke(arg);
+                OnEventRaised.Invoke(arg, arg1);
         }
     }
 }
