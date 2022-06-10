@@ -6552,6 +6552,7 @@ MonoBehaviour:
     - {fileID: 8249064626233380105}
     - {fileID: 8249400858958632795}
     - {fileID: 8248596832138042997}
+    carSo: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
   rb: {fileID: 8248937493791295054}
   car: {fileID: 11400000, guid: 3ca38e63895e8844eae5e113a1b6cb4d, type: 2}
   photonView: {fileID: 0}
@@ -6699,6 +6700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!1 &8248970707652042728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,6 +7140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!114 &2850947764704595058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8027,6 +8030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9aa916bee6ec47862688b11a56942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!114 &5561134424878703757
 MonoBehaviour:
   m_ObjectHideFlags: 0

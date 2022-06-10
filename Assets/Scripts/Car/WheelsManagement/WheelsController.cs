@@ -15,7 +15,8 @@ namespace Car.WheelsManagement
         
 
         [SerializeField] private  Wheel[] wheels;
-
+        [SerializeField] private CarSO carSo;
+        
         //tmp values for testing
         //private const float MotorForce = 1500;
         private const float BrakeForce = 10000;
@@ -75,6 +76,7 @@ namespace Car.WheelsManagement
             currAngle = Mathf.MoveTowards(currAngle, destination,   Rate);
             currAngle = Mathf.Clamp(currAngle, -maxAngle, maxAngle);
             _angle = currAngle;
+            carSo.currentSteerAngle = _angle;
         }
 
         public void UpdateWheels()

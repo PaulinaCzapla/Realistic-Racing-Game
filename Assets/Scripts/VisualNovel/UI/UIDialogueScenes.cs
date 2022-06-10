@@ -37,7 +37,7 @@ namespace VisualNovel.UI
         
         private const float InitialPauseBetweenLetters = 0.015f;
         private const float InitialPauseBetweenSounds = 0.04f;
-        private const float ShortPauseBetweenLetters = 0.001f;
+        private const float ShortPauseBetweenLetters = 0.0001f;
         private const float CloseAfter = 1.5f;
         
         private float _pauseBetweenLetters;

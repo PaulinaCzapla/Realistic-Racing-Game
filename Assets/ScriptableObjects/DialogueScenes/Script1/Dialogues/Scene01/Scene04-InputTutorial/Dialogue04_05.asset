@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
+  m_Name: Dialogue04_05
+  m_EditorClassIdentifier: 
+  sceneElements: []
+  dialogueSegment: "Sprawd\u017Amy teraz, jak radzisz sobie z biegami. Aby zmieni\u0107
+    bieg na wy\u017Cszy wci\u015Bnij E/ButtonEast. Aby zredukowa\u0107, u\u017Cyj
+    Q/ButtonWest. Nie zapomnij o sprz\u0119gle! (Shift/LeftShoulder)."
+  name: Mentor
+  numOfFadeInCharacters: 1
+  shouldFadeIn: 0
+  shouldOverridePreviousDialogue: 1
