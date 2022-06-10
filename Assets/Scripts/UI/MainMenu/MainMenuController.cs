@@ -34,7 +34,6 @@ namespace UI.MainMenu
         }
         private void OnEnable()
         {
-            Debug.Log("di[a");
             //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
             roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
             optionsButton.onClick.AddListener(HandleOptionsButtonClick);
