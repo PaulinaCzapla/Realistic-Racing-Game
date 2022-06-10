@@ -84,7 +84,17 @@ namespace RaceManagement
                     // todo: display end view
                     //onRaceFinished.RaiseEvent();
                     onFinish.RaiseEvent(participant);
-                    finishMenu.gameObject.SetActive(true);
+                    photonView = participant.GetComponent<PhotonView>();
+                    
+                    if (participant.GetComponent<PhotonView>().IsMine)
+                    {
+                        finishMenu.gameObject.SetActive(true);
+                        var timeSpan = TimeSpan.FromSeconds(participant.RaceTime);
+                        var raceTime = timeSpan.ToString(@"mm\:ss\:ff");
+                        var nameTime = participant.Name + "   Time: " + raceTime;
+                        this.photonView.RPC("ParticipantFinishedRace", RpcTarget.AllBuffered, nameTime);
+                    }
+                    //finishMenu.gameObject.SetActive(true);
                     Debug.Log("max lap count achieved");
                 }
                 
@@ -94,6 +104,12 @@ namespace RaceManagement
                     //invoke update UI even
                 }
             }
+        }
+
+        [PunRPC]
+        public void ParticipantFinishedRace(string nameTime)
+        {
+            raceOutcome.Add(nameTime);
         }
     }
 }

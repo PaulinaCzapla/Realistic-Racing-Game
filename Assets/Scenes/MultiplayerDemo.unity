@@ -253,6 +253,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1631841324}
     - target: {fileID: 8858317189546579344, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
+      propertyPath: photonView
+      value: 
+      objectReference: {fileID: 19558226}
+    - target: {fileID: 8858317189546579344, guid: fd2a3a68fbf5ab845a5e9982d3eea0f3, type: 3}
       propertyPath: onRaceStarted
       value: 
       objectReference: {fileID: 11400000, guid: f012a68ad2a83184491ffb0841b1551d, type: 2}

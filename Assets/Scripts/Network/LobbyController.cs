@@ -29,6 +29,7 @@ namespace Network
         [SerializeField] private TextMeshProUGUI numberOfLapsText;
 
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
+        //[SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
         //[SerializeField] private LoadSceneEventChannelSO photonLoadSceneEvent;
         [SerializeField] private SoundEventChannelSO onMenuMusicStart;
         [SerializeField] private PlayerChoicesController playerChoices;
@@ -40,7 +41,7 @@ namespace Network
         private void OnEnable()
         {
             raceStartButton.onClick.AddListener(RaceStart);
-            menuReturnButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(mainMenuScene, true));
+            //menuReturnButton.onClick.AddListener(ReturnMenu);
             color1Button.onClick.AddListener(() => ChosenColor(1));
             color2Button.onClick.AddListener(() => ChosenColor(2));
             color3Button.onClick.AddListener(() => ChosenColor(3));
@@ -58,7 +59,10 @@ namespace Network
 
         private void Update()
         {
-            playersInLobbyText.text = "Players in lobby: " + PhotonNetwork.CurrentRoom.PlayerCount + "/4";
+            if (PhotonNetwork.IsConnected)
+            {
+                playersInLobbyText.text = "Players in lobby: " + PhotonNetwork.CurrentRoom.PlayerCount + "/4";
+            }
             if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
             {
                 PhotonNetwork.CurrentRoom.IsOpen = false;

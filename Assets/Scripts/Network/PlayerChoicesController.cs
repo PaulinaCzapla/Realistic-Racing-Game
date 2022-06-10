@@ -26,6 +26,7 @@ namespace Network
             {
                 if (!(bool) player.CustomProperties["hasChosen"])
                 {
+                    Debug.Log(PlayerPrefs.GetInt("color1"));
                     if (PlayerPrefs.GetInt("color1") == 0)
                     {
                         _hash = new Hashtable {{"color", 1}};
@@ -33,6 +34,7 @@ namespace Network
                         _hasChosen = new Hashtable {{"hasChosen", true}};
                         player.SetCustomProperties(_hasChosen);
                         PlayerPrefs.SetInt("color1", 1);
+                        Debug.Log((int) player.CustomProperties["color"]);
                         continue;
                     }
                     if (PlayerPrefs.GetInt("color2") == 0)
@@ -62,6 +64,8 @@ namespace Network
                         PlayerPrefs.SetInt("color4", 1);
                     }
                 }
+                //Debug.Log("haha");
+                Debug.Log((int) player.CustomProperties["color"]);
             }
         }
 

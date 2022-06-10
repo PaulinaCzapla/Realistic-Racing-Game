@@ -11,7 +11,7 @@ public class RaceFinishMenuController : MonoBehaviour
     [SerializeField] private ControlPointsManager controlPointsManager;
 
 
-    private void OnEnable()
+    private void Update()
     {
         for (var i = 0; i < controlPointsManager.raceOutcome.Count; i++)
         {

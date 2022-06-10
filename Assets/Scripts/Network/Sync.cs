@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Car.WheelsManagement;
 using Photon.Pun;
+using Photon.Realtime;
+using RaceManagement;
 using UnityEngine;
 using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
@@ -26,7 +28,6 @@ namespace Network
                 body.GetComponent<MeshRenderer>().material =
                     _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
             }
-
         }
 
         private void Update()
