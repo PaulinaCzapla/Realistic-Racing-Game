@@ -72,7 +72,8 @@ namespace Network
         private void ChosenColor(int color)
         {
             var hash = new Hashtable();
-
+            var hash1 = new Hashtable();
+            
             if (playerChoices.chosenButton > 0)
             {
                 switch (playerChoices.chosenButton)
@@ -94,36 +95,42 @@ namespace Network
             }
             GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.OthersBuffered, color);
 
-            var hash1 = new Hashtable();
-
+            var name = "white";
+            
             switch (color)
             {
                 case 1:
                     PlayerSelectedColor(color1Button);
-                    hash1.Add("name","Red");
+                    //hash1.Add("name","Red");
+                    name = "Red";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 2:
                     PlayerSelectedColor(color2Button);
-                    hash1.Add("name","Green");
+                    //hash1.Add("name","Green");
+                    name = "Green";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 3:
                     PlayerSelectedColor(color3Button);
-                    hash1.Add("name","Pink");
+                    //hash1.Add("name","Pink");
+                    name = "Pink";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 4:
                     PlayerSelectedColor(color4Button);
-                    hash1.Add("name","Yellow");
+                    //hash1.Add("name","Yellow");
+                    name = "Yellow";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
             }
         
             playerChoices.chosenButton = color;
             hash.Add("color",color);
+            hash1.Add("name", name);
             playerChoices.PlayerHasChosenColor();
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
         }
 
         private void OnDisable()

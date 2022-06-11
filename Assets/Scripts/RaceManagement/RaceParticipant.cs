@@ -13,7 +13,7 @@ namespace RaceManagement
     public class RaceParticipant : MonoBehaviour 
     { 
         public int LapsFinished => _lapsFinished;
-        public string Name => _name;
+        public string Name; //=> _name;
         public float RaceTime => _stats.RaceTime;
         
         //to get last activated control point - ControlPointsActivated[ControlPointsActivated.Count -1].SpawnPoint
@@ -40,13 +40,18 @@ namespace RaceManagement
         {
             onRaceStarted.OnEventRaised +=StartTimer;
             onRaceFinished.OnEventRaised += StopTimer;
-            _name = (string)PhotonNetwork.LocalPlayer.CustomProperties["name"];
+            //_name = (string)PhotonNetwork.LocalPlayer.CustomProperties["name"];
         }
 
         private void OnDisable()
         {
             onRaceStarted.OnEventRaised -=StartTimer;
             onRaceFinished.OnEventRaised -= StopTimer;
+        }
+
+        private void Update()
+        {
+            Debug.Log(Name);
         }
 
         private void StartTimer()
