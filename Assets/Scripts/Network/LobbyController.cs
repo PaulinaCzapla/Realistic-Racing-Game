@@ -101,25 +101,21 @@ namespace Network
             {
                 case 1:
                     PlayerSelectedColor(color1Button);
-                    //hash1.Add("name","Red");
                     name = "Red";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 2:
                     PlayerSelectedColor(color2Button);
-                    //hash1.Add("name","Green");
                     name = "Green";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 3:
                     PlayerSelectedColor(color3Button);
-                    //hash1.Add("name","Pink");
                     name = "Pink";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 4:
                     PlayerSelectedColor(color4Button);
-                    //hash1.Add("name","Yellow");
                     name = "Yellow";
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
@@ -203,13 +199,13 @@ namespace Network
                 case 3:
                     color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                     color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                    color1Button.interactable = false;
+                    color3Button.interactable = false;
                     PlayerPrefs.SetInt("color3", 1);
                     break;
                 case 4:
                     color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                     color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                    color1Button.interactable = false;
+                    color4Button.interactable = false;
                     PlayerPrefs.SetInt("color4", 1);
                     break;
             }
@@ -229,19 +225,19 @@ namespace Network
                 case 2:
                     color2Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color2Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color2Button.interactable = true;
                     PlayerPrefs.SetInt("color2", 0);
                     break;
                 case 3:
                     color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color3Button.interactable = true;
                     PlayerPrefs.SetInt("color3", 0);
                     break;
                 case 4:
                     color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color4Button.interactable = true;
                     PlayerPrefs.SetInt("color4", 0);
                     break;
             }

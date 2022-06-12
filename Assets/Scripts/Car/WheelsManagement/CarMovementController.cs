@@ -1,6 +1,7 @@
 ﻿using System;
 using InputSystem;
 using Photon.Pun;
+using RaceManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,8 @@ namespace Car.WheelsManagement
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CarSO car;
         [SerializeField] private PhotonView photonView;
+        //[SerializeField] private RaceParticipant raceParticipant;
+        [SerializeField] private DisconnectPlayer disconnectPlayer;
         //[SerializeField] private PlayerInput input;
 
         private EngineController _engine;
@@ -108,6 +111,13 @@ namespace Car.WheelsManagement
                 else
                 {
                     _direction = _inputDirection.x;
+                }
+
+                if (inputReader.GasPressed)
+                {
+                    disconnectPlayer.timeSinceNoInput = 0f;
+                    disconnectPlayer.countdownStarted = false;
+                    disconnectPlayer._timeToDisconnecting = 45f;
                 }
             //}
             //else

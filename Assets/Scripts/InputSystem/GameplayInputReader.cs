@@ -50,7 +50,7 @@ namespace InputSystem
             if (_inputActionsPlayer == null)
             {
                 _inputActionsPlayer = new InputActions();
-
+                
                 _inputActionsPlayer.Gameplay.SetCallbacks(this);
             }
             _inputActionsPlayer.Gameplay.Enable();

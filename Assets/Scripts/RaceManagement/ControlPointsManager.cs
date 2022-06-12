@@ -82,7 +82,6 @@ namespace RaceManagement
                 if (participant.LapsFinished >= _raceLaps) //
                 {
                     // todo: display end view
-                    //onRaceFinished.RaiseEvent();
                     onFinish.RaiseEvent(participant);
                     photonView = participant.GetComponent<PhotonView>();
                     
@@ -94,7 +93,6 @@ namespace RaceManagement
                         var nameTime = participant.Name + "   Time: " + raceTime;
                         this.photonView.RPC("ParticipantFinishedRace", RpcTarget.AllBuffered, nameTime);
                     }
-                    //finishMenu.gameObject.SetActive(true);
                     Debug.Log("max lap count achieved");
                 }
                 

@@ -19,6 +19,7 @@ namespace RaceManagement
         //to get last activated control point - ControlPointsActivated[ControlPointsActivated.Count -1].SpawnPoint
         public List<ControlPoint> ControlPointsActivated { get; set; }
         
+
         [Header("EventChannels")]
         [SerializeField] private IntEventChannelSO onUpdateLapsCount;
         [SerializeField] private FloatEventChannelSO onUpdateRaceTimeUI;
@@ -40,18 +41,12 @@ namespace RaceManagement
         {
             onRaceStarted.OnEventRaised +=StartTimer;
             onRaceFinished.OnEventRaised += StopTimer;
-            //_name = (string)PhotonNetwork.LocalPlayer.CustomProperties["name"];
         }
 
         private void OnDisable()
         {
             onRaceStarted.OnEventRaised -=StartTimer;
             onRaceFinished.OnEventRaised -= StopTimer;
-        }
-
-        private void Update()
-        {
-            Debug.Log(Name);
         }
 
         private void StartTimer()
@@ -80,8 +75,6 @@ namespace RaceManagement
                 _timer.TimeElapsed - _stats.LapTimes[_lapsFinished-1]);
             
             _lapsFinished++;
-            //var hash = new Hashtable {{"lapsFinished", _lapsFinished}};
-            //PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
             ControlPointsActivated.Clear();
             onUpdateLapsCount.RaiseEvent(_lapsFinished);
         }
