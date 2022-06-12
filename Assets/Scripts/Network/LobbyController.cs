@@ -1,3 +1,4 @@
+using System;
 using Events.ScriptableObjects;
 using Photon.Pun;
 using SceneManagement.ScriptableObjects;
@@ -28,6 +29,7 @@ namespace Network
         [SerializeField] private TextMeshProUGUI numberOfLapsText;
 
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
+        //[SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
         //[SerializeField] private LoadSceneEventChannelSO photonLoadSceneEvent;
         [SerializeField] private SoundEventChannelSO onMenuMusicStart;
         [SerializeField] private PlayerChoicesController playerChoices;
@@ -39,14 +41,14 @@ namespace Network
         private void OnEnable()
         {
             raceStartButton.onClick.AddListener(RaceStart);
-            menuReturnButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(mainMenuScene, true));
+            //menuReturnButton.onClick.AddListener(ReturnMenu);
             color1Button.onClick.AddListener(() => ChosenColor(1));
             color2Button.onClick.AddListener(() => ChosenColor(2));
             color3Button.onClick.AddListener(() => ChosenColor(3));
             color4Button.onClick.AddListener(() => ChosenColor(4));
             minusButton.onClick.AddListener(() => UpdateLaps(-1));
             plusButton.onClick.AddListener(() => UpdateLaps(1));
-
+            _numberOfLaps = 1;
             if (PhotonNetwork.IsMasterClient)
             {
                 raceStartButton.gameObject.SetActive(true);
@@ -57,7 +59,10 @@ namespace Network
 
         private void Update()
         {
-            playersInLobbyText.text = "Players in lobby: " + PhotonNetwork.CurrentRoom.PlayerCount + "/4";
+            if (PhotonNetwork.IsConnected)
+            {
+                playersInLobbyText.text = "Players in lobby: " + PhotonNetwork.CurrentRoom.PlayerCount + "/4";
+            }
             if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
             {
                 PhotonNetwork.CurrentRoom.IsOpen = false;
@@ -67,7 +72,8 @@ namespace Network
         private void ChosenColor(int color)
         {
             var hash = new Hashtable();
-
+            var hash1 = new Hashtable();
+            
             if (playerChoices.chosenButton > 0)
             {
                 switch (playerChoices.chosenButton)
@@ -88,27 +94,39 @@ namespace Network
                 GetComponent<PhotonView>().RPC("UnselectColor", RpcTarget.OthersBuffered, playerChoices.chosenButton);
             }
             GetComponent<PhotonView>().RPC("ColorOccupied", RpcTarget.OthersBuffered, color);
-        
+
+            var name = "white";
+            
             switch (color)
             {
                 case 1:
                     PlayerSelectedColor(color1Button);
+                    name = "Red";
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 2:
                     PlayerSelectedColor(color2Button);
+                    name = "Green";
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 3:
                     PlayerSelectedColor(color3Button);
+                    name = "Pink";
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
                 case 4:
                     PlayerSelectedColor(color4Button);
+                    name = "Yellow";
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
                     break;
             }
         
             playerChoices.chosenButton = color;
             hash.Add("color",color);
+            hash1.Add("name", name);
             playerChoices.PlayerHasChosenColor();
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash1);
         }
 
         private void OnDisable()
@@ -181,13 +199,13 @@ namespace Network
                 case 3:
                     color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                     color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                    color1Button.interactable = false;
+                    color3Button.interactable = false;
                     PlayerPrefs.SetInt("color3", 1);
                     break;
                 case 4:
                     color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _selectedColor;
                     color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-                    color1Button.interactable = false;
+                    color4Button.interactable = false;
                     PlayerPrefs.SetInt("color4", 1);
                     break;
             }
@@ -207,19 +225,19 @@ namespace Network
                 case 2:
                     color2Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color2Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color2Button.interactable = true;
                     PlayerPrefs.SetInt("color2", 0);
                     break;
                 case 3:
                     color3Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color3Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color3Button.interactable = true;
                     PlayerPrefs.SetInt("color3", 0);
                     break;
                 case 4:
                     color4Button.gameObject.transform.parent.Find("Panel").GetComponent<Outline>().effectColor = _unselectedColor;
                     color4Button.GetComponent<Image>().color = new Color(255, 255, 255, 0);
-                    color1Button.interactable = true;
+                    color4Button.interactable = true;
                     PlayerPrefs.SetInt("color4", 0);
                     break;
             }

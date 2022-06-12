@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColorLobby.unity
     guid: edcc30fbcf417d8418004413ec919d03
+  - enabled: 1
+    path: Assets/Scenes/LeavingRoomScene.unity
+    guid: 5dadf9129a8fad348bb1702778cc60f9
   m_configObjects: {}

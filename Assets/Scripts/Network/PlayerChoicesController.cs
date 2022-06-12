@@ -9,6 +9,7 @@ namespace Network
         public int chosenButton;
         private Hashtable _hasChosen;
         private Hashtable _hash;
+        private Hashtable _name;
 
         private void OnEnable()
         {
@@ -26,12 +27,15 @@ namespace Network
             {
                 if (!(bool) player.CustomProperties["hasChosen"])
                 {
+                    Debug.Log(PlayerPrefs.GetInt("color1"));
                     if (PlayerPrefs.GetInt("color1") == 0)
                     {
                         _hash = new Hashtable {{"color", 1}};
                         player.SetCustomProperties(_hash);
                         _hasChosen = new Hashtable {{"hasChosen", true}};
                         player.SetCustomProperties(_hasChosen);
+                        _name = new Hashtable {{"name", "Red"}};
+                        player.SetCustomProperties(_name);
                         PlayerPrefs.SetInt("color1", 1);
                         continue;
                     }
@@ -41,6 +45,8 @@ namespace Network
                         player.SetCustomProperties(_hash);
                         _hasChosen = new Hashtable {{"hasChosen", true}};
                         player.SetCustomProperties(_hasChosen);
+                        _name = new Hashtable {{"name", "Green"}};
+                        player.SetCustomProperties(_name);
                         PlayerPrefs.SetInt("color2", 1);
                         continue;
                     }
@@ -50,6 +56,8 @@ namespace Network
                         player.SetCustomProperties(_hash);
                         _hasChosen = new Hashtable {{"hasChosen", true}};
                         player.SetCustomProperties(_hasChosen);
+                        _name = new Hashtable {{"name", "Pink"}};
+                        player.SetCustomProperties(_name);
                         PlayerPrefs.SetInt("color3", 1);
                         continue;
                     }
@@ -59,9 +67,12 @@ namespace Network
                         player.SetCustomProperties(_hash);
                         _hasChosen = new Hashtable {{"hasChosen", true}};
                         player.SetCustomProperties(_hasChosen);
+                        _name = new Hashtable {{"name", "Yellow"}};
+                        player.SetCustomProperties(_name);
                         PlayerPrefs.SetInt("color4", 1);
                     }
                 }
+                Debug.Log((string)player.CustomProperties["name"]);
             }
         }
 
