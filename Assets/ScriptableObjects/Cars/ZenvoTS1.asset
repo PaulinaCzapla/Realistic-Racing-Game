@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   drive: 1
-  totalPower: 0.000001224
+  totalPower: 0.00000187
   _engineTorque:
     serializedVersion: 2
     m_Curve:
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   MAXRpm: 10000
   gearType: 1
-  gearNum: 3
+  gearNum: 1
   gears:
   - 2.5
   - 2.75
@@ -128,31 +128,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 35
-      inSlope: -0.2814825
-      outSlope: -0.2814825
+      time: -0.8959007
+      value: 40
+      inSlope: -0.047608487
+      outSlope: -0.047608487
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.021545982
+      outWeight: 0.039349828
     - serializedVersion: 3
-      time: 305.7102
-      value: 4.978215
-      inSlope: 0
-      outSlope: 0
+      time: 349.1023
+      value: 4.894043
+      inSlope: -0.10067008
+      outSlope: -0.10067008
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05393545
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 350
-      value: 5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.13430272
+      inWeight: 0.037703604
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -160,4 +151,4 @@ MonoBehaviour:
   turnOnRpm: 1000
   smoothTime: 0.2
   lerpSmoothTime: 3
-  carSpeed: 0.00001608247
+  carSpeed: 0.28120694

@@ -24723,8 +24723,8 @@ WheelCollider:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &6601733914428629343
 GameObject:
@@ -24906,8 +24906,8 @@ WheelCollider:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &6601733915122604598
 GameObject:
@@ -26256,6 +26256,7 @@ GameObject:
   - component: {fileID: 1304056529718365587}
   - component: {fileID: 69617578069971644}
   - component: {fileID: 7376187751297420259}
+  - component: {fileID: 2655723673449866724}
   m_Layer: 0
   m_Name: CarWhite
   m_TagString: Untagged
@@ -26490,6 +26491,23 @@ MonoBehaviour:
     wheel: {fileID: 6601733914379764177}
   - emiisionObject: {fileID: 2567090008217229415}
     wheel: {fileID: 6601733915013294907}
+--- !u!114 &2655723673449866724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248937493791295048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41c80207af60ef439dd63fe94f64527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel:
+  - {fileID: 6601733914566895845}
+  - {fileID: 6601733914428629341}
+  inputReader: {fileID: 11400000, guid: d463ba73e49cfd14cbaa68e1829484d7, type: 2}
+  rb: {fileID: 8248937493791295054}
 --- !u!1 &8248970707652042728
 GameObject:
   m_ObjectHideFlags: 0
