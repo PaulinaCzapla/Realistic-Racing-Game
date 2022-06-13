@@ -18,7 +18,7 @@ namespace Car.WheelsManagement
 
         //tmp values for testing
         //private const float MotorForce = 1500;
-        private const float BrakeForce = 10000;
+        private const float BrakeForce = 8000;
         //private const float Range = 30f;
         private const float Rate = 45;
         private float _angle;
