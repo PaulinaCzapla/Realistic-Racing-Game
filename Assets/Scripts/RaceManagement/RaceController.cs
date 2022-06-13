@@ -9,6 +9,7 @@ namespace RaceManagement
 {
     public class RaceController : MonoBehaviour
     {
+        private Timer _timer;
         [SerializeField] private TextMeshProUGUI textMesh;
         [SerializeField] private GameplayInputReader inputReader;
         [SerializeField] private VoidEventChannelSO onRaceStarted;
@@ -18,7 +19,7 @@ namespace RaceManagement
         {
             inputReader.SetInput();
             inputReader.GameplayInputEnabled(false);
-            
+            _timer = FindObjectOfType<Timer>;
             StartCoroutine(RaceStart());
         }
 
@@ -42,7 +43,7 @@ namespace RaceManagement
             yield return new WaitUntil(() => _coroutineFinished);
             inputReader.GameplayInputEnabled(true);
             textMesh.enabled = false;
-            
+            _timer.timerOn = true;
             onRaceStarted.RaiseEvent();
         }
 

@@ -7,13 +7,13 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     //public TextMeshProUGUI TimerText;
-   
-    public bool timerOn = false;
+
+    public bool timerOn = false {get; set;}
     public float time=0;
     // Start is called before the first frame update
     void Start()
     {
-        timerOn = true;
+        //timerOn = true;
     }
 
     // Update is called once per frame
