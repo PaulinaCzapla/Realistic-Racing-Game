@@ -56,4 +56,11 @@ public class BackToCheckpoint : MonoBehaviour
             }
         }
     }
+
+    public void StopWheelsAfterFinish()
+    {
+        wheelsController.StopWheels();
+        StartCoroutine(inputReader.DisableInput());
+        //_rigidbody.isKinematic = false;
+    }
 }
