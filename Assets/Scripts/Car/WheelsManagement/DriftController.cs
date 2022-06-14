@@ -9,8 +9,8 @@ public class DriftController : MonoBehaviour
     [SerializeField] private GameplayInputReader inputReader;
     [SerializeField] private Rigidbody rb;
 
-    private float _minStiffness = 1f;
-    private float _maxStiffness = 2f;
+    private float _minStiffness = .4f;
+    private float _maxStiffness = 1f;
 
     // Update is called once per frame
     void FixedUpdate()
