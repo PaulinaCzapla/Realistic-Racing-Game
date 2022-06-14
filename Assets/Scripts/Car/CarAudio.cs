@@ -44,7 +44,6 @@ public class CarAudio : MonoBehaviour
     private void Update()
     {
         float pitch = GetNewPitch();
-
         _highAccelSource.pitch = Mathf.Min(pitch * pitchMultiplier * highPitchMultiplier, 1.3f);
         // float newLowPitch = pitch * pitchMultiplier;
         // float newHighPitch = newLowPitch * highPitchMultiplier;
@@ -54,7 +53,7 @@ public class CarAudio : MonoBehaviour
         // _highAccelSource.pitch = newHighPitch;
         // _highDecelSource.pitch = newHighPitch;
 
-        // float normalizedRPM = Mathf.Min(car._engineRPM / car._maxRPM, 1f);
+        // float normalizedRPM = Mathf.Min(car.totalPower / car.MAXRpm, 1f);
         // float acceleration = inputReader.GasPressed ? 1 : 0;
         // _accFade = Mathf.Lerp(_accFade, Mathf.Abs(acceleration), 20 * Time.deltaTime);
 
@@ -71,14 +70,13 @@ public class CarAudio : MonoBehaviour
         // _lowDecelSource.volume = Mathf.Lerp(_lowDecelSource.volume, lowFade * decFade, 30 * Time.deltaTime);
         // _highAccelSource.volume = Mathf.Lerp(_highAccelSource.volume, highFade * _accFade, 30 * Time.deltaTime);
         // _highDecelSource.volume = Mathf.Lerp(_highDecelSource.volume, highFade * decFade, 30 * Time.deltaTime);
-        // Debug.Log($"{_lowAccelSource.volume}, {_lowDecelSource.volume}, {_highAccelSource.volume}, {_highDecelSource.volume}");
     }
 
     private float GetNewPitch()
     {
-        float pitch = ULerp(lowPitchMin, lowPitchMax, car.totalPower / 7000);
-        Debug.Log($"{car.totalPower} {pitch}");
-        return Mathf.Min(lowPitchMax, pitch);
+        Debug.Log(car.totalPower);
+        float pitch = ULerp(lowPitchMin, lowPitchMax, car.engineRpm / car.MAXRpm);
+        return pitch;
     }
 
     private AudioSource SetUpEngineAudioSource(AudioClip clip)
