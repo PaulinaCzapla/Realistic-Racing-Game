@@ -27,9 +27,6 @@ public class CarAudio : MonoBehaviour
     {
         Debug.Log("Hello from enable");
         _highAccelSource = SetUpEngineAudioSource(highAccelClip);
-        // _lowAccelSource = SetUpEngineAudioSource(lowAccelClip);
-        // _highDecelSource = SetUpEngineAudioSource(highDecelClip);
-        // _lowDecelSource = SetUpEngineAudioSource(lowDecelClip);
     }
 
     private void OnDisable()
@@ -45,31 +42,6 @@ public class CarAudio : MonoBehaviour
     {
         float pitch = GetNewPitch();
         _highAccelSource.pitch = Mathf.Min(pitch * pitchMultiplier * highPitchMultiplier, 1.3f);
-        // float newLowPitch = pitch * pitchMultiplier;
-        // float newHighPitch = newLowPitch * highPitchMultiplier;
-
-        // _lowAccelSource.pitch = newLowPitch;
-        // _lowDecelSource.pitch = newLowPitch;
-        // _highAccelSource.pitch = newHighPitch;
-        // _highDecelSource.pitch = newHighPitch;
-
-        // float normalizedRPM = Mathf.Min(car.totalPower / car.MAXRpm, 1f);
-        // float acceleration = inputReader.GasPressed ? 1 : 0;
-        // _accFade = Mathf.Lerp(_accFade, Mathf.Abs(acceleration), 20 * Time.deltaTime);
-
-        // float decFade = 1 - _accFade;
-
-        // float highFade = _accFade;//Mathf.InverseLerp(0.2f, 0.8f, normalizedRPM);
-        // float lowFade = 1 - highFade;
-
-        // highFade = Mathf.InverseLerp(0.2f, 0.8f, normalizedRPM);
-        // lowFade = 1 - ((1 - lowFade) * (1 - lowFade));
-        // decFade = 1 - (1 - decFade) * (1 - decFade);
-
-        // _lowAccelSource.volume = Mathf.Lerp(_lowAccelSource.volume, lowFade * _accFade, 30 * Time.deltaTime);
-        // _lowDecelSource.volume = Mathf.Lerp(_lowDecelSource.volume, lowFade * decFade, 30 * Time.deltaTime);
-        // _highAccelSource.volume = Mathf.Lerp(_highAccelSource.volume, highFade * _accFade, 30 * Time.deltaTime);
-        // _highDecelSource.volume = Mathf.Lerp(_highDecelSource.volume, highFade * decFade, 30 * Time.deltaTime);
     }
 
     private float GetNewPitch()
