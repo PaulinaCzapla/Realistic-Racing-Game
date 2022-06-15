@@ -18,17 +18,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 42.5
-      outSlope: 42.5
+      inSlope: 113.33332
+      outSlope: 113.33332
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 400
-      value: 17000
-      inSlope: 42.5
-      outSlope: 42.5
+      value: 45333.33
+      inSlope: 113.33332
+      outSlope: 113.33332
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -128,22 +128,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.8959007
-      value: 40
-      inSlope: -0.047608487
-      outSlope: -0.047608487
+      time: 0.30169773
+      value: 30.155474
+      inSlope: -0.0068415985
+      outSlope: -0.0068415985
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.039349828
+      outWeight: 0.32164243
     - serializedVersion: 3
-      time: 349.1023
-      value: 4.894043
-      inSlope: -0.10067008
-      outSlope: -0.10067008
+      time: 222.51251
+      value: 21.646942
+      inSlope: -0.08495218
+      outSlope: -0.08495218
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.037703604
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 349.69897
+      value: 7.2108154
+      inSlope: -0.04161192
+      outSlope: -0.04161192
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05209201
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -151,4 +160,4 @@ MonoBehaviour:
   turnOnRpm: 1000
   smoothTime: 0.2
   lerpSmoothTime: 3
-  carSpeed: 0.28120694
+  carSpeed: 0.0010114092
