@@ -2180,9 +2180,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4858703145272265206, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858703145272265206, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4858703146272423436, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
       propertyPath: m_Convex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858703146272423436, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4858703146272423436, guid: c5d2ac17f605e8746a5f08b5448c542d, type: 3}
       propertyPath: m_IsTrigger
