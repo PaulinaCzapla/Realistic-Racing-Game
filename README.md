@@ -15,3 +15,6 @@ Game features:
 - engine and crash sound effects;
 - game UI with tahometer, speedometer, timer, laps count and current gear;
 - an extensive tutorial with plot elements in the visual novel style.
+
+
+Current game version is on "dev" branch.
