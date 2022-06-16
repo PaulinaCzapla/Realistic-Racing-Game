@@ -9,7 +9,7 @@ namespace UI.MainMenu
 {
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField] private Button startButton;
+       [SerializeField] private Button tutorialButton;
         [SerializeField] private Button roomButton;
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button creditsButton;
@@ -22,6 +22,7 @@ namespace UI.MainMenu
         [SerializeField] private GameSceneSO joinRoomScene;
         [SerializeField] private GameObject optionsContainer;
         [SerializeField] private GameObject creditsContainer;
+        [SerializeField] private GameObject tutorialContainer;
         [SerializeField] private GameObject menuContainer;
 
         private void OnStart()
@@ -34,7 +35,7 @@ namespace UI.MainMenu
         }
         private void OnEnable()
         {
-            //  startButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(RaceTrackScene, true));
+            tutorialButton.onClick.AddListener(HandleTutorialButtonClick);
             roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
             optionsButton.onClick.AddListener(HandleOptionsButtonClick);
             creditsButton.onClick.AddListener(HandleCreditsButtonClick);
@@ -42,8 +43,16 @@ namespace UI.MainMenu
             onMenuMusicStart.RaiseEvent(SoundName.MenuMusic);
         }
 
+        private void HandleTutorialButtonClick()
+        {
+            tutorialContainer.SetActive(true);
+            menuContainer.SetActive(false);
+            backButton.gameObject.SetActive(true);
+        }
+
         private void HandleBackButtonClick()
         {
+            tutorialContainer.SetActive(false);
             optionsContainer.SetActive(false);
             creditsContainer.SetActive(false);
             menuContainer.SetActive(true);
@@ -65,7 +74,7 @@ namespace UI.MainMenu
 
         private void OnDisable()
         {
-            startButton.onClick.RemoveAllListeners();
+            tutorialButton.onClick.RemoveAllListeners();
             roomButton.onClick.RemoveAllListeners();
             optionsButton.onClick.RemoveAllListeners();
             creditsButton.onClick.RemoveAllListeners();
