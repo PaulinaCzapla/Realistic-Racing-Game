@@ -5,6 +5,7 @@ using Events.ScriptableObjects;
 using InputSystem;
 using Tutorial;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace VisualNovel
 {
@@ -26,13 +27,13 @@ namespace VisualNovel
         private Vector3 rot1 = new Vector3(1.3f, -310f, 0);
         private Vector3 pos2 = new Vector3(2.3f, 0.3f, 7.33f);
         private Vector3 rot2 = new Vector3(6.9f, -11.24f, 0);
-        
-       private IEnumerator Start()
+
+        private IEnumerator Start()
        {
            input.SetInput();
            inputGameplay.SetInput();
            inputGameplay.GameplayInputEnabled(false);
-           scriptInfo.CurrentDialogueScene = 2;
+           scriptInfo.CurrentDialogueScene = 0;
            if (scriptInfo.CurrentDialogueScene >= 2)
            {
                camera.transform.localPosition = pos2;
@@ -69,7 +70,9 @@ namespace VisualNovel
                 scriptInfo.CurrentDialogueScene++;
             else
             {
-                //finished tutorial, return to main menu
+                SceneManager.LoadSceneAsync("PresistentScene", LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             }
 
             if (scriptInfo.CurrentDialogueScene == 2)
@@ -91,7 +94,7 @@ namespace VisualNovel
         {
             Debug.Log("clicked");
             if(scriptInfo.CurrentDialogueScene != 3)
-            displayDialogueSceneEvent.RaiseEvent(scriptInfo.CurrentDialogueScene);
+                 displayDialogueSceneEvent.RaiseEvent(scriptInfo.CurrentDialogueScene);
             
             
             

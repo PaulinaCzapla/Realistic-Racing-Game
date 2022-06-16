@@ -39,8 +39,9 @@ public class TutorialUI : MonoBehaviour
     private void OnButtonClicked(ScriptSO script)
     {  
         scriptInfo.CurrentlySelectedScript = script;
-        SceneManager.LoadSceneAsync(persistentScene.SceneName, LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync(tutorialScene.SceneName, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(mainMenuScene.SceneName);
+        
+        SceneManager.LoadSceneAsync(tutorialScene.SceneName, LoadSceneMode.Single);
+       
+           
     }
 }

@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneElements:
   - position: {x: -600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+    sprite: {fileID: 21300000, guid: d7b4fdd6e34a35043b50f54b28622f3f, type: 3}
   - position: {x: 600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+    sprite: {fileID: 21300000, guid: 1c3bb77b40bac2c45aaf77312850522f, type: 3}
   dialogueSegment: Czekaj, w kim? Tym blondynie, czy tym wysokim z srebrnego forda,
     hmm?
   name: Werka
+  numOfFadeInCharacters: 1
   shouldFadeIn: 0
   shouldOverridePreviousDialogue: 1

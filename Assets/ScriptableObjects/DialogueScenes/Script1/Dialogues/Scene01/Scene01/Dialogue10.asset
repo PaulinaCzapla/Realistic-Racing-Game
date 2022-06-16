@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneElements:
   - position: {x: -600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+    sprite: {fileID: 21300000, guid: d7b4fdd6e34a35043b50f54b28622f3f, type: 3}
   - position: {x: 600, y: -100}
-    sprite: {fileID: 21300000, guid: 16dc7bea1f59f4d44ad16a2e258d8da9, type: 3}
+    sprite: {fileID: 21300000, guid: 06107eec0224edb48821d398084fdd3c, type: 3}
   dialogueSegment: "No tak w\u0142a\u015Bciwie to niekt\xF3rzy i tak wol\u0105 fan\xF3w,
     mam ci\u0119 przedstawi\u0107? Mo\u017Ce Ci\u0119 czego\u015B naucz\u0105\u2026"
   name: Werka
+  numOfFadeInCharacters: 1
   shouldFadeIn: 0
   shouldOverridePreviousDialogue: 1
