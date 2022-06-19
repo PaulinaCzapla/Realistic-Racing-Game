@@ -33,7 +33,7 @@ namespace VisualNovel
            input.SetInput();
            inputGameplay.SetInput();
            inputGameplay.GameplayInputEnabled(false);
-           scriptInfo.CurrentDialogueScene = 0;
+           scriptInfo.CurrentDialogueScene = 2;
            if (scriptInfo.CurrentDialogueScene >= 2)
            {
                camera.transform.localPosition = pos2;
@@ -70,7 +70,7 @@ namespace VisualNovel
                 scriptInfo.CurrentDialogueScene++;
             else
             {
-                SceneManager.LoadSceneAsync("PresistentScene", LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
                 SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
                 SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             }
@@ -85,7 +85,7 @@ namespace VisualNovel
             if (scriptInfo.CurrentDialogueScene == 3)
             {
                 camera.GetComponent<FollowingCamera>().enabled = true;
-                inputsTutorial.StartTutorial(scriptInfo.CurrentlySelectedScript);
+                inputsTutorial.StartTutorial(scriptInfo);
                 //OnSkipClicked();
             }
         }
@@ -95,9 +95,7 @@ namespace VisualNovel
             Debug.Log("clicked");
             if(scriptInfo.CurrentDialogueScene != 3)
                  displayDialogueSceneEvent.RaiseEvent(scriptInfo.CurrentDialogueScene);
-            
-            
-            
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Events.ScriptableObjects;
 using InputSystem;
 using UnityEngine;
@@ -19,13 +20,14 @@ namespace Tutorial
         [SerializeField] private VoidEventChannelSO onReturnToMenu;
         [SerializeField] private VoidEventChannelSO onDialogueFinishedEvent;
 
-        private int _dialogue = 0;
+        private int _dialogue = -1;
         private bool _wasSpeedig = false;
         private bool _didShiftUp;
         private bool _didShiftDown;
         private float _blockInputTime = 0;
         private float _holdTime = 0;
         private bool _started;
+        private ScriptInfoSO _scriptInfo;
         
         private void OnDisable()
         {
@@ -38,17 +40,34 @@ namespace Tutorial
             {
                 _dialogue++;
                 displayDialogueSceneEvent.RaiseEvent(3);
+                _blockInputTime = 0;
+            }
+
+            if (_dialogue == 9)
+            {
+                input.SkipDialogueEvent -=  OnSkipClicked;
+                _scriptInfo.CurrentDialogueScene++;
             }
         }
 
-        public void StartTutorial(ScriptSO script)
+        public void StartTutorial(ScriptInfoSO script)
         {
+            input.GameplayInputEnabled(false);
             input.SkipDialogueEvent += OnSkipClicked;
-            
+            _scriptInfo = script;
            // displayDialoguePanelEvent.RaiseEvent(script, 3);
             displayDialogueSceneEvent.RaiseEvent(3);
+            StartCoroutine(SetIndex());
         }
 
+        IEnumerator SetIndex()
+        {
+           
+            yield return new WaitForSeconds(3f);
+            _dialogue = 0;
+            input.GameplayInputEnabled(true); 
+        }
+        
         private void Update()
         {
             Debug.Log(_dialogue);
@@ -66,7 +85,19 @@ namespace Tutorial
                         _dialogue++;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
+                        input.GameplayInputEnabled(false);
                         _blockInputTime = 0;
+                    }
+
+                    break;
+                }
+                case 2:
+                {
+                    _blockInputTime += Time.deltaTime;
+
+                    if (_blockInputTime > 2f)
+                    {
+                        input.GameplayInputEnabled(true);
                     }
 
                     break;
@@ -144,13 +175,44 @@ namespace Tutorial
                         _dialogue++;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
+                        input.GameplayInputEnabled(false);
                     }
+                    break;
+                }
+                case 7:
+                {
+                    _blockInputTime += Time.deltaTime;
+
+                    if (_blockInputTime > 2f)
+                    {
+                        input.GameplayInputEnabled(true);
+                    }
+
                     break;
                 }
                 case 8:
                 {
-                    input.SkipDialogueEvent -=  OnSkipClicked;
+                    if(_blockInputTime > 2f)
+                        inputGameplay.GameplayInputEnabled(true);
+                    
+                    if (inputGameplay.ReversePressed)
+                        _holdTime += Time.deltaTime;
+
+                    if (_holdTime > 1.5f)
+                    {
+                        _blockInputTime = 0;
+                        _holdTime = 0;
+                        _dialogue++;
+                        displayDialogueSceneEvent.RaiseEvent(3);
+                        inputGameplay.GameplayInputEnabled(false);
+                    }
                     break;
+
+                }
+                case 9:
+                {
+                   
+                        break;
                 }
             }
         }
