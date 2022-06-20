@@ -162,7 +162,9 @@ namespace Tutorial
                 }
                 case 6:
                 {
-                    if(_blockInputTime > 2f)
+                    _blockInputTime += Time.deltaTime;
+
+                    if (_blockInputTime > 2f)
                         inputGameplay.GameplayInputEnabled(true);
                     
                     if (inputGameplay.ReversePressed)
@@ -183,7 +185,7 @@ namespace Tutorial
                 {
                     _blockInputTime += Time.deltaTime;
 
-                    if (_blockInputTime > 2f)
+                    if (_blockInputTime > 3f)
                     {
                         input.GameplayInputEnabled(true);
                     }
@@ -192,27 +194,23 @@ namespace Tutorial
                 }
                 case 8:
                 {
-                    if(_blockInputTime > 2f)
+                    _blockInputTime += Time.deltaTime;
+
+                    if (_blockInputTime > 2f)
                         inputGameplay.GameplayInputEnabled(true);
                     
                     if (inputGameplay.ReversePressed)
-                        _holdTime += Time.deltaTime;
+                    _holdTime += Time.deltaTime;
 
-                    if (_holdTime > 1.5f)
+                    if ((car.currentSteerAngle > 30 || car.currentSteerAngle < -30) && car.carSpeed >= 8 && inputGameplay.HandBrakePressed)
                     {
                         _blockInputTime = 0;
                         _holdTime = 0;
                         _dialogue++;
-                        displayDialogueSceneEvent.RaiseEvent(3);
+                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                     }
                     break;
-
-                }
-                case 9:
-                {
-                   
-                        break;
                 }
             }
         }

@@ -33,7 +33,7 @@ namespace VisualNovel
            input.SetInput();
            inputGameplay.SetInput();
            inputGameplay.GameplayInputEnabled(false);
-           scriptInfo.CurrentDialogueScene = 2;
+           scriptInfo.CurrentDialogueScene = 0;
            if (scriptInfo.CurrentDialogueScene >= 2)
            {
                camera.transform.localPosition = pos2;

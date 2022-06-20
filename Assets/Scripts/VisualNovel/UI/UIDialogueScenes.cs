@@ -5,6 +5,7 @@ using Events.ScriptableObjects;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VisualNovel.Dialogues;
 
@@ -24,6 +25,7 @@ namespace VisualNovel.UI
         [SerializeField] private TextMeshProUGUI name;
         [SerializeField] private GameObject panel;
         [SerializeField] private SkipArrow arrow;
+        [SerializeField] private Button skipButton;
         [SerializeField] private Image[] charactersImages;
         
         [Header("Events")]
@@ -54,6 +56,7 @@ namespace VisualNovel.UI
         {
             arrow.gameObject.SetActive(false);
             _pauseBetweenLetters = InitialPauseBetweenLetters;
+            skipButton.onClick.AddListener(OnSkipped);
             displayDialoguePanelEvent.OnEventRaised += DisplayDialoguePanel;
             displayDialogueSceneEvent.OnEventRaised += DisplayDialogueSceneSegment;
             _timeElapsed = 0;
@@ -61,6 +64,7 @@ namespace VisualNovel.UI
 
         private void OnDisable()
         {
+            skipButton.onClick.RemoveListener(OnSkipped);
             displayDialoguePanelEvent.OnEventRaised -= DisplayDialoguePanel;
             displayDialogueSceneEvent.OnEventRaised -= DisplayDialogueSceneSegment;
 
@@ -68,6 +72,11 @@ namespace VisualNovel.UI
 
            // if (_isDialogueActive)
              //   CloseDialogue();
+        }
+
+        private void OnSkipped()
+        {
+            SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
         }
 
         private void OnStartFadeIn(GameObject arg0)
@@ -124,6 +133,13 @@ namespace VisualNovel.UI
                         
                         onDialogueFinishedEvent.RaiseEvent();
                     }
+
+                    if (_dialogue >= script.AllDialogues)
+                    {
+                        //END
+                        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+                    }
+
                 }
                 else
                 {

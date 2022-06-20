@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
+  m_Name: Dialogue09
+  m_EditorClassIdentifier: 
+  sceneElements:
+  - position: {x: 600, y: -100}
+    sprite: {fileID: 21300000, guid: 08bb9ea0ac1ef82489d127d896103c53, type: 3}
+  - position: {x: -600, y: -100}
+    sprite: {fileID: 21300000, guid: b6ab7d8c356855346904ba5cfef0f681, type: 3}
+  dialogueSegment: "No c\xF3\u017C chyba warto spr\xF3bowa\u0107"
+  name: Beniamin
+  numOfFadeInCharacters: 0
+  shouldFadeIn: 0
+  shouldOverridePreviousDialogue: 1

@@ -12,4 +12,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a60ad5afa4c1c945e308a8bf7c1df, type: 3}
   m_Name: Script2
   m_EditorClassIdentifier: 
-  dialogueScenes: []
+  dialogueScenes:
+  - dialogues:
+    - {fileID: 11400000, guid: a577ef73f9f604541bb6144220cf4443, type: 2}
+    - {fileID: 11400000, guid: 20a3466333dc8a34a8257aa57f479fa6, type: 2}
+    - {fileID: 11400000, guid: 8bb522a253cb2b24bacd94439c603fcf, type: 2}
+    - {fileID: 11400000, guid: 0f046b863b7ffd249be2c34958d08b74, type: 2}
+    - {fileID: 11400000, guid: 9b091df7491331e4d9bfbac88a64f0b3, type: 2}
+    - {fileID: 11400000, guid: 16951031c7d0c03498fa8dd0916432f5, type: 2}
+    - {fileID: 11400000, guid: b0b8cc4381ec98a40a83e7908b556fbc, type: 2}
+    - {fileID: 11400000, guid: 264e6175dc28394429b7c161af112e99, type: 2}
+    - {fileID: 11400000, guid: eea0d460813f9ab4ca61a5f78cbf4699, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: f022bde151cd6a2409984c1367b276da, type: 2}
+    - {fileID: 11400000, guid: 106c686de1e095e449c863a7d369b35f, type: 2}
+    - {fileID: 11400000, guid: b32987e90e4ff244686090d0d2dd5197, type: 2}
+    - {fileID: 11400000, guid: 0ac6345d3168b504faa99404391e0073, type: 2}
+    - {fileID: 11400000, guid: f6e7c9151be351642b5d8d902c96d6a2, type: 2}
+    - {fileID: 11400000, guid: e3d942619468dc54988f8fdd6439740c, type: 2}
+    - {fileID: 11400000, guid: 5c12b93009d02814abecdb6617bf0fa6, type: 2}
+    - {fileID: 11400000, guid: 8aa658626da341445b3282445dfa22b1, type: 2}
+    - {fileID: 11400000, guid: fc04859c8334af647a63b0e005097975, type: 2}
+    - {fileID: 11400000, guid: 21ab2e4582705ab499f475ce88be66f8, type: 2}
+    - {fileID: 11400000, guid: 5cb0f5c20a2923748a20d14b307f1b4e, type: 2}
+    - {fileID: 11400000, guid: 24ae1824057c0c548a8c2d81fd982796, type: 2}
+    - {fileID: 11400000, guid: 50b71f394ee5d1343a328f1454fd601e, type: 2}
+    - {fileID: 11400000, guid: 98455ad8a48331347a705257ee45f8bc, type: 2}
+    - {fileID: 11400000, guid: 40d1472b31aa4e34a80e03b177d2acb8, type: 2}
+    - {fileID: 11400000, guid: dbce1d40ac32fe44691bbad15fac1cb3, type: 2}
+    - {fileID: 11400000, guid: bba0ed3e14e961245886770a432addbb, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: 3624903eb3471ed44abdb20ef05f7fd7, type: 2}
+    - {fileID: 11400000, guid: 772c95f241a8b304a9cedae29f1f56fb, type: 2}
+    - {fileID: 11400000, guid: 4965e2a325266dd468a89391acd55ea9, type: 2}
+    - {fileID: 11400000, guid: 6a9f53da37d1ad049aa9db63d7797235, type: 2}
+    - {fileID: 11400000, guid: caea1f5668ba0f5419e9bbee4d159ce3, type: 2}
+    - {fileID: 11400000, guid: c71700357f6ed2b4ca406e62d95f06ba, type: 2}
+    - {fileID: 11400000, guid: 3f1e8770add32e540a05e0ab5c2b7a00, type: 2}
+    - {fileID: 11400000, guid: 491db6d20b47a564fb99389b54c33092, type: 2}
+    - {fileID: 11400000, guid: f249b1f7c6a974a4f95a5311fed68c56, type: 2}
+    - {fileID: 11400000, guid: af4eb0a454303784590ac8d507d68729, type: 2}
+    - {fileID: 11400000, guid: b23d2eaf61d36294ba0079470d1683da, type: 2}
+    - {fileID: 11400000, guid: 2ceb0eda521b36643b53f57c60105a7b, type: 2}
+    - {fileID: 11400000, guid: cc05680454cb2ba418fdcb0ecbe15560, type: 2}
+    - {fileID: 11400000, guid: b7bc7c56212e3bd4d9e8cca6cf38d837, type: 2}
+    - {fileID: 11400000, guid: f0c6188e250ae0347b8988c064439403, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: bb1749f039885b641aa284d21892b391, type: 2}
+    - {fileID: 11400000, guid: 0db636fbadbc28745a45bf3709cc39f8, type: 2}
+    - {fileID: 11400000, guid: e2f67368723c37d4ab114c7e3650e282, type: 2}
+    - {fileID: 11400000, guid: 1c98ba0316e1a0f4da549bdb14ab9c3f, type: 2}
+    - {fileID: 11400000, guid: 097c7d32297602744b67c2a8fecd1388, type: 2}
+    - {fileID: 11400000, guid: 186b3c36fb5799148840cfaa865970f6, type: 2}
+    - {fileID: 11400000, guid: 417aa5f20267af64f849d0c68e190ebc, type: 2}
+    - {fileID: 11400000, guid: 7e389e766ac32c246be7288b42b035a1, type: 2}
+    - {fileID: 11400000, guid: 2c5a0aa11ec647f44bbaad8c1c440ae2, type: 2}
+    - {fileID: 11400000, guid: 6f4ad7b4f644fce49ae587a018a7b656, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: 17dc5e046b1c8d94b87f4877cd1d61f6, type: 2}
+    - {fileID: 11400000, guid: 848b51879457f0b4596a6c100dcc3b50, type: 2}
+    - {fileID: 11400000, guid: 21a5b452889de35439fbf9f1c6cb7790, type: 2}
+    - {fileID: 11400000, guid: 671e19658cc855847a07fb521e910514, type: 2}
+    - {fileID: 11400000, guid: 70eea731a4dec56418bc9d2831eda8c2, type: 2}
+    - {fileID: 11400000, guid: d62b246921fda464b864e98c3f070cdf, type: 2}
+    - {fileID: 11400000, guid: 2666827832732f44692c700a68311095, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: 9f5d11e278f6f014685cd4e44ff70bd7, type: 2}
+    - {fileID: 11400000, guid: 487ce842062131b4bba94d2edcd9784f, type: 2}
+    - {fileID: 11400000, guid: ac0a8cd94b2873f4b81e138e485837f8, type: 2}
+    - {fileID: 11400000, guid: 7584bac0abdb3654494a00f5871b9284, type: 2}
+    - {fileID: 11400000, guid: ca4d69ec9a60f4b47ab0617cc7db91e2, type: 2}
+    - {fileID: 11400000, guid: 3a027dd05dcca3444ba02cdecb53fea9, type: 2}

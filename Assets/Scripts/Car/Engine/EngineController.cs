@@ -17,13 +17,13 @@ public class EngineController
 
     public void CalculateEnginePower(float wheelRPM, float velocity, bool clutch, float vertical)
     {
-        
         LerpEngine(velocity);
         if (_car.engineRpm >= _car.MAXRpm) SetEngineLerp(_car.MAXRpm - 1000);
         if (!_engineLerp)
         {
-            _car.engineRpm =  Mathf.SmoothDamp(_car.engineRpm, _car.turnOnRpm + (Mathf.Abs(wheelRPM) * _car.finalDrive * _car.gears[_car.gearNum]), ref vel, _car.smoothTime * Time.deltaTime) ;
-            _car.totalPower = (float)(clutch ? 0.0 :  _car._engineTorque.Evaluate(_car.engineRpm) * (_car.gears[_car.gearNum]) * _car.finalDrive * (Mathf.Abs(vertical)+0.000000001));
+            var gear = _car.gears[Mathf.Clamp(_car.gearNum, 0, _car.gears.Length - 1)];
+            _car.engineRpm =  Mathf.SmoothDamp(_car.engineRpm, _car.turnOnRpm + (Mathf.Abs(wheelRPM) * _car.finalDrive * gear), ref vel, _car.smoothTime * Time.deltaTime);
+            _car.totalPower = (float)(clutch ? 0.0 :  _car._engineTorque.Evaluate(_car.engineRpm) * gear * _car.finalDrive * (Mathf.Abs(vertical)+0.000000001));
         }
         
     }

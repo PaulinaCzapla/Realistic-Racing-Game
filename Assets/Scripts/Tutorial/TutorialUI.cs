@@ -40,8 +40,6 @@ public class TutorialUI : MonoBehaviour
     {  
         scriptInfo.CurrentlySelectedScript = script;
         
-        SceneManager.LoadSceneAsync(tutorialScene.SceneName, LoadSceneMode.Single);
-       
-           
+        SceneManager.LoadSceneAsync(tutorialScene.SceneName, LoadSceneMode.Single);        
     }
 }
