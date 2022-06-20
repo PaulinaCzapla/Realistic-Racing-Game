@@ -92,6 +92,8 @@ namespace RaceManagement
                         var raceTime = timeSpan.ToString(@"mm\:ss\:ff");
                         var nameTime = participant.Name + "   Time: " + raceTime;
                         this.photonView.RPC("ParticipantFinishedRace", RpcTarget.AllBuffered, nameTime);
+                        participant.GetComponent<BackToCheckpoint>().StopWheelsAfterFinish();
+                        participant.gameObject.SetActive(false);
                     }
                     Debug.Log("max lap count achieved");
                 }

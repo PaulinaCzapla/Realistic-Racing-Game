@@ -125,6 +125,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeaveGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bac92f6-fa02-4e04-a77e-f362de010525"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -600,6 +609,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""008f1175-0d65-442a-a857-1fac56881403"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LeaveGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -962,6 +982,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Clutch = m_Gameplay.FindAction("Clutch", throwIfNotFound: true);
         m_Gameplay_ResetPosition = m_Gameplay.FindAction("ResetPosition", throwIfNotFound: true);
         m_Gameplay_Reverse = m_Gameplay.FindAction("Reverse", throwIfNotFound: true);
+        m_Gameplay_LeaveGame = m_Gameplay.FindAction("LeaveGame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1040,6 +1061,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Clutch;
     private readonly InputAction m_Gameplay_ResetPosition;
     private readonly InputAction m_Gameplay_Reverse;
+    private readonly InputAction m_Gameplay_LeaveGame;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1055,6 +1077,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Clutch => m_Wrapper.m_Gameplay_Clutch;
         public InputAction @ResetPosition => m_Wrapper.m_Gameplay_ResetPosition;
         public InputAction @Reverse => m_Wrapper.m_Gameplay_Reverse;
+        public InputAction @LeaveGame => m_Wrapper.m_Gameplay_LeaveGame;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1097,6 +1120,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Reverse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
                 @Reverse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
                 @Reverse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReverse;
+                @LeaveGame.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeaveGame;
+                @LeaveGame.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeaveGame;
+                @LeaveGame.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeaveGame;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1134,6 +1160,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Reverse.started += instance.OnReverse;
                 @Reverse.performed += instance.OnReverse;
                 @Reverse.canceled += instance.OnReverse;
+                @LeaveGame.started += instance.OnLeaveGame;
+                @LeaveGame.performed += instance.OnLeaveGame;
+                @LeaveGame.canceled += instance.OnLeaveGame;
             }
         }
     }
@@ -1242,6 +1271,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnClutch(InputAction.CallbackContext context);
         void OnResetPosition(InputAction.CallbackContext context);
         void OnReverse(InputAction.CallbackContext context);
+        void OnLeaveGame(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

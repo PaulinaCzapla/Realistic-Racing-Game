@@ -39,6 +39,8 @@ namespace InputSystem
         public bool ResetPositionPressed { get; private set; }
         public event UnityAction ResetPositionEvent = delegate { };
         public event UnityAction ResetPositionCanceledEvent = delegate { };
+        public event UnityAction LeaveGameEvent = delegate { };
+        public event UnityAction LeaveGameCanceledEvent = delegate { };
         
         public bool ClutchPressed { get; private set; }
         private InputActions _inputActionsPlayer;
@@ -106,6 +108,18 @@ namespace InputSystem
             {
                 ResetPositionPressed = false;
                 ResetPositionCanceledEvent?.Invoke();
+            }
+        }
+
+        public void OnLeaveGame(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                LeaveGameEvent?.Invoke();
+            }
+            if (context.canceled)
+            {
+                LeaveGameCanceledEvent?.Invoke();
             }
         }
 
