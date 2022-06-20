@@ -11,6 +11,7 @@ namespace Network
         [SerializeField] private Button menuReturnButton;
         [SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
         [SerializeField] private GameSceneSO mainMenuScene;
+        [SerializeField] private PlayerChoicesController playerChoicesController;
         private void Start()
         {
             menuReturnButton.onClick.AddListener(ReturnMenu);
@@ -18,15 +19,17 @@ namespace Network
 
         private void ReturnMenu()
         {
+            playerChoicesController.returnToMenu = true;
+            PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.Disconnect();
-            //loadMenuSceneEvent.RaiseEvent(mainMenuScene, true);
+            loadMenuSceneEvent.RaiseEvent(mainMenuScene, true);
         }
 
-        public override void OnLeftRoom()
+        /*public override void OnLeftRoom()
         {
             loadMenuSceneEvent.RaiseEvent(mainMenuScene, true);
             base.OnLeftRoom();
-        }
+        }*/
     }
 }
