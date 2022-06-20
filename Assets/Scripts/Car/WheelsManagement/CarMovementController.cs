@@ -116,9 +116,9 @@ namespace Car.WheelsManagement
 
                 if (inputReader.GasPressed)
                 {
-                    disconnectPlayer.timeSinceNoInput = 0f;
+                    disconnectPlayer.TimeSinceNoInput = 0f;
                     disconnectPlayer.countdownStarted = false;
-                    disconnectPlayer._timeToDisconnecting = 45f;
+                    disconnectPlayer.TimeToDisconnecting = 45f;
                 }
             //}
             //else
