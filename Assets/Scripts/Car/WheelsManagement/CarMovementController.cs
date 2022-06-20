@@ -1,6 +1,8 @@
 ﻿using System;
 using InputSystem;
+using Network;
 using Photon.Pun;
+using RaceManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +16,8 @@ namespace Car.WheelsManagement
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CarSO car;
         [SerializeField] private PhotonView photonView;
+        //[SerializeField] private RaceParticipant raceParticipant;
+        [SerializeField] private DisconnectPlayer disconnectPlayer;
         //[SerializeField] private PlayerInput input;
 
         private EngineController _engine;
@@ -83,7 +87,7 @@ namespace Car.WheelsManagement
         
         private void ApplyDownForce()
         {
-            var downForce = car._downForce.Evaluate(rb.velocity.magnitude * 3.6f);
+            var downForce = car._downForce.Evaluate(car.carSpeed);
             rb.AddForce(-Vector3.up * downForce);
         }
 
@@ -108,6 +112,13 @@ namespace Car.WheelsManagement
                 else
                 {
                     _direction = _inputDirection.x;
+                }
+
+                if (inputReader.GasPressed)
+                {
+                    disconnectPlayer.timeSinceNoInput = 0f;
+                    disconnectPlayer.countdownStarted = false;
+                    disconnectPlayer._timeToDisconnecting = 45f;
                 }
             //}
             //else
@@ -193,7 +204,7 @@ namespace Car.WheelsManagement
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
                 wheelsController.MoveWheels(0, 0, car.drive);
-                wheelsController.ApplyBrake();
+                wheelsController.ApplyBrake(2000);
             }
             else
             {

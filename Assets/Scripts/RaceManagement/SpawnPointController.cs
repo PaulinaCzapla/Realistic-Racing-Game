@@ -8,12 +8,6 @@ public class SpawnPointController : MonoBehaviour
 {
     private int _i;
     [SerializeField] private ControlPoint controlPoint;
-
-    private void Start()
-    {
-        Debug.Log("hahahaha");
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         _i = controlPoint.spawnPoints.IndexOf(this.gameObject);
@@ -22,7 +16,6 @@ public class SpawnPointController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //controlPoint.spawnPoints.Add(this.gameObject);
         controlPoint.spawnPoints.Insert(_i, this.gameObject);
     }
 }

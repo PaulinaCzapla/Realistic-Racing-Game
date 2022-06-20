@@ -9,7 +9,7 @@ public class ColisionEvents : MonoBehaviour
     [SerializeField] private SoundEventChannelSO playSound;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
+        //Debug.Log(other);
         if (other.TryGetComponent(out ControlPoint controlPoint))
         {
             foreach (var point in controlPoint.spawnPoints)
@@ -41,7 +41,6 @@ public class ColisionEvents : MonoBehaviour
 
         if (other.gameObject.TryGetComponent(out WallColision wall))
         {
-            Debug.Log("XDDD");
             playSound.RaiseEvent(SoundName.TrackColision);
         }
     }

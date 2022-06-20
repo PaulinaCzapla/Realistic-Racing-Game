@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Car.WheelsManagement;
 using Photon.Pun;
+using Photon.Realtime;
+using RaceManagement;
+using TMPro;
 using UnityEngine;
 using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
@@ -15,7 +19,10 @@ namespace Network
         private PhotonView _photonView;
         private SpawnPlayer _spawnPlayer;
         private int _color;
+        private string _name;
         [SerializeField] private GameObject body;
+        [SerializeField] private RaceParticipant raceParticipant;
+        [SerializeField] private TextMeshProUGUI text;
 
         private void Start()
         {
@@ -27,6 +34,27 @@ namespace Network
                     _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
             }
 
+            /*switch ((int) PhotonNetwork.LocalPlayer.CustomProperties["color"])
+            {
+                case 1:
+                    raceParticipant.Name = "Red";
+                    break;
+                case 2:
+                    raceParticipant.Name = "Green";
+                    break;
+                case 3:
+                    raceParticipant.Name = "Pink";
+                    break;
+                case 4:
+                    raceParticipant.Name = "Yellow";
+                    break;
+                    
+            }*/
+            if (raceParticipant != null)
+            {
+                raceParticipant.Name = (string) PhotonNetwork.LocalPlayer.CustomProperties["name"];
+            }
+            
         }
 
         private void Update()
@@ -40,6 +68,8 @@ namespace Network
                     transform.Find("View").transform.Find("body").GetComponent<MeshRenderer>().material =
                         _spawnPlayer.colors[_color - 1];
                 }
+                raceParticipant.Name = _name;
+                text.text = _name;
             }
         }
 
@@ -51,6 +81,7 @@ namespace Network
                 {
                     this._trueLoc = (Vector3) stream.ReceiveNext();
                     this._color = (int) stream.ReceiveNext();
+                    this._name = (string) stream.ReceiveNext();
                 }
             }
             else
@@ -59,6 +90,7 @@ namespace Network
                 {
                     stream.SendNext(transform.position);
                     stream.SendNext((int) PhotonNetwork.LocalPlayer.CustomProperties["color"]);
+                    stream.SendNext((string)PhotonNetwork.LocalPlayer.CustomProperties["name"]);
                 }
 
                 if (_photonView == null)

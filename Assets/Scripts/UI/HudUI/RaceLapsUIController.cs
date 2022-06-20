@@ -1,5 +1,7 @@
 ﻿using System;
+using Car.WheelsManagement;
 using Events.ScriptableObjects;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,6 +10,7 @@ namespace UI.HudUI
 {
     public class RaceLapsUIController : MonoBehaviour
     {
+        private int _raceLaps;
         [Header("Event Channels")] [SerializeField]
         private IntEventChannelSO onSetMaxLapsCount;
 
@@ -15,6 +18,7 @@ namespace UI.HudUI
         [SerializeField] private IntEventChannelSO onUpdateLapsCount;
 
         [SerializeField] int UpdateFrameCount = 3;
+        //[SerializeField] private TextMeshProUGUI numberOfPlayersInRace;
         [SerializeField] TextMeshProUGUI SpeedText;
         [SerializeField] TextMeshProUGUI CurrentGearText;
         [SerializeField] TextMeshProUGUI lapsText;
@@ -29,7 +33,13 @@ namespace UI.HudUI
         private int _maxLapsCount;
         private int _lapsCount;
         private int _currentFrame;
-        
+
+        /*private void Update()
+        {
+            var numberOfPlayersInScene = FindObjectsOfType<CarMovementController>();
+            numberOfPlayersInRace.text = numberOfPlayersInScene.Length + "/" + PhotonNetwork.CurrentRoom.PlayerCount;
+        }*/
+
         private void FixedUpdate()
         {
             UpdateGamePanel();
@@ -52,11 +62,12 @@ namespace UI.HudUI
 
         private void UpdateLaps()
         {
-            lapsText.text = _lapsCount + "/" + 5;
+            lapsText.text = _lapsCount + "/" + _raceLaps;
         }
         
         private void OnEnable()
         {
+            _raceLaps = PlayerPrefs.GetInt("NumberOfLaps");
             onSetMaxLapsCount.OnEventRaised += (int value) => _maxLapsCount = value;
             onUpdateLapsCount.OnEventRaised += (int value) => _lapsCount = value;
         }

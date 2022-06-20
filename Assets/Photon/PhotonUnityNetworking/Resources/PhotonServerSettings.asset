@@ -41,6 +41,8 @@ MonoBehaviour:
   - StartRace
   - UnselectColor
   - RaceStart
+  - ShowFinishMenu
+  - ParticipantFinishedRace
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
