@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Events.ScriptableObjects;
+using Network;
 using Photon.Pun;
 using RaceManagement.ControlPoints;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace RaceManagement
     {
         private int _raceLaps;
         public List<string> raceOutcome = new List<string>();
+        private Vector3 _afterRacePosition = new Vector3(-10, -16, 0);
         [SerializeField] private int maxLapsCount = 2;
         [SerializeField] private List<ControlPoint> controlPoints;
         [SerializeField] private PhotonView photonView;
@@ -93,7 +95,8 @@ namespace RaceManagement
                         var nameTime = participant.Name + "   Time: " + raceTime;
                         this.photonView.RPC("ParticipantFinishedRace", RpcTarget.AllBuffered, nameTime);
                         participant.GetComponent<BackToCheckpoint>().StopWheelsAfterFinish();
-                        participant.gameObject.SetActive(false);
+                        participant.transform.position = _afterRacePosition;
+                        participant.GetComponent<DisconnectPlayer>().RaceFinished = true;
                     }
                     Debug.Log("max lap count achieved");
                 }

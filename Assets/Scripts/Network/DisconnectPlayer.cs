@@ -1,6 +1,7 @@
 using Events.ScriptableObjects;
 using InputSystem;
 using Photon.Pun;
+using RaceManagement;
 using SceneManagement.ScriptableObjects;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Network
     {
         public float TimeSinceNoInput { get; set; }
         public float TimeToDisconnecting { get; set; }
+        public bool RaceFinished { get; set; }
         public bool startCountingNoInput;
         public bool countdownStarted;
         private bool _leaving;
@@ -43,7 +45,7 @@ namespace Network
         {
             if (GetComponent<PhotonView>().IsMine)
             {
-                if (startCountingNoInput)
+                if (startCountingNoInput && !RaceFinished)
                 {
                     TimeSinceNoInput += Time.deltaTime;
                     if (TimeSinceNoInput > 15f)
@@ -58,7 +60,7 @@ namespace Network
                     }
                 }
 
-                if (countdownStarted)
+                if (countdownStarted && !RaceFinished)
                 {
                     if (TimeToDisconnecting > 0)
                     {
