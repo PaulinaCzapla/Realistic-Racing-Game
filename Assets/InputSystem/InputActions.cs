@@ -680,6 +680,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""87caf87c-5342-46d3-9c7f-3ee185d254d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -935,6 +944,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d586b270-c77b-44cb-843a-e12897c84e87"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SkipDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""662385f3-6544-4caf-a368-00193471372c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SkipDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -991,6 +1022,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Menu = m_UI.FindAction("Menu", throwIfNotFound: true);
+        m_UI_SkipDialogue = m_UI.FindAction("SkipDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1177,6 +1209,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Menu;
+    private readonly InputAction m_UI_SkipDialogue;
     public struct UIActions
     {
         private @InputActions m_Wrapper;
@@ -1187,6 +1220,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @Menu => m_Wrapper.m_UI_Menu;
+        public InputAction @SkipDialogue => m_Wrapper.m_UI_SkipDialogue;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1214,6 +1248,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Menu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
+                @SkipDialogue.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipDialogue;
+                @SkipDialogue.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipDialogue;
+                @SkipDialogue.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipDialogue;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1236,6 +1273,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @SkipDialogue.started += instance.OnSkipDialogue;
+                @SkipDialogue.performed += instance.OnSkipDialogue;
+                @SkipDialogue.canceled += instance.OnSkipDialogue;
             }
         }
     }
@@ -1281,5 +1321,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnSkipDialogue(InputAction.CallbackContext context);
     }
 }

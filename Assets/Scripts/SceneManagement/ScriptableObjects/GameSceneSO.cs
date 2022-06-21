@@ -13,7 +13,7 @@ namespace SceneManagement.ScriptableObjects
 #if UNITY_EDITOR
         public SceneAsset sceneAsset;
 #endif
-        public string SceneName;
+        public string SceneName { get; private set; }
 
 #if UNITY_EDITOR
         private void OnEnable()

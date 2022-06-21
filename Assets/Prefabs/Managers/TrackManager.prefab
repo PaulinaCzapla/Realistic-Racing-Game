@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6421d526d24c548a6566290c56f11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceOutcome: []
   maxLapsCount: 2
   controlPoints:
   - {fileID: 0}
@@ -286,10 +287,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   photonView: {fileID: 0}
+  finishMenu: {fileID: 0}
   onFinishPointEntered: {fileID: 11400000, guid: 8f0f0b8a26b42db40beba277cd6ec7c4, type: 2}
   onControlPointEntered: {fileID: 11400000, guid: 1281f6f65433de446a75aa7028ea04cd, type: 2}
   onSetMaxLapsCount: {fileID: 11400000, guid: 77b49f54eb16d8547988c76b407e70a5, type: 2}
   onRaceFinished: {fileID: 11400000, guid: ae5e43e8c009fa0479d5a830cf0417e7, type: 2}
+  onRaceStarted: {fileID: 11400000, guid: f012a68ad2a83184491ffb0841b1551d, type: 2}
+  onFinish: {fileID: 11400000, guid: eb56f871c8dd686429b8bb53cbdb5c40, type: 2}
 --- !u!114 &6320262907808699958
 MonoBehaviour:
   m_ObjectHideFlags: 0

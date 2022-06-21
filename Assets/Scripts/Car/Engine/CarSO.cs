@@ -32,6 +32,8 @@ public class CarSO : ScriptableObject
     [Header("Wheels variables")]
     public AnimationCurve _maxSteerAngle;
 
+    public float currentSteerAngle = 0;
+    
     [Header("Wheels checking variables")]
     //public float _wheelRPM = 0.0f;
     //public float _velocity = 0.0f;
