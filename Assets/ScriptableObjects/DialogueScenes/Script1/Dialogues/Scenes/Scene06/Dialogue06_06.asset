@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Dialogue06_06
   m_EditorClassIdentifier: 
   sceneElements:
-  - position: {x: 300, y: 0}
+  - position: {x: 800, y: 0}
     sprite: {fileID: 21300000, guid: e1632e34ec891cb42bcb7c3306a8606e, type: 3}
-  - position: {x: -700, y: 0}
+  - position: {x: -800, y: 0}
     sprite: {fileID: 21300000, guid: fa5a729d0ac8103489edb61fc89a17ff, type: 3}
-  - position: {x: -300, y: 0}
+  - position: {x: -400, y: 0}
     sprite: {fileID: 21300000, guid: 2145e199063da354ea01f0ff7298cc58, type: 3}
-  - position: {x: 0, y: 0}
+  - position: {x: 400, y: 0}
     sprite: {fileID: 21300000, guid: 403e68aa19b687e40bff6bc039d777d2, type: 3}
-  - position: {x: 700, y: 0}
-    sprite: {fileID: 21300000, guid: 654e52e0fdd778045a4c51b450234bdb, type: 3}
+  - position: {x: 50, y: 0}
+    sprite: {fileID: 21300000, guid: a97bcdb3c49a6334c92ebf90a9756d29, type: 3}
   dialogueSegment: Nagle szarmancki popatrzcie.
   name: Werka
   numOfFadeInCharacters: 0

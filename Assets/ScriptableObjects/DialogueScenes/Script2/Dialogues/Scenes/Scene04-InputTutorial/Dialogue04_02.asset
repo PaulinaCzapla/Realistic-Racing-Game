@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
   m_Name: Dialogue04_02
   m_EditorClassIdentifier: 
-  sceneElements:
-  - position: {x: -700, y: -100}
-    sprite: {fileID: 21300000, guid: a97bcdb3c49a6334c92ebf90a9756d29, type: 3}
+  sceneElements: []
   dialogueSegment: "Na pocz\u0105tek sprawd\u017Amy, jak sobie radzisz z ruszaniem
     samochodem. (Aby ruszy\u0107 wci\u015Bnij W lub lew\u0105 ga\u0142k\u0119 pada
     w g\xF3r\u0119)."

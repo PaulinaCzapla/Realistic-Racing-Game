@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
   m_Name: Dialogue04_05
   m_EditorClassIdentifier: 
-  sceneElements:
-  - position: {x: 700, y: -100}
-    sprite: {fileID: 21300000, guid: a97bcdb3c49a6334c92ebf90a9756d29, type: 3}
+  sceneElements: []
   dialogueSegment: "Sprawd\u017Amy teraz, jak radzisz sobie z biegami. Aby zmieni\u0107
     bieg na wy\u017Cszy wci\u015Bnij E/ButtonEast. Aby zredukowa\u0107, u\u017Cyj
     Q/ButtonWest. Nie zapomnij o sprz\u0119gle! (Shift/LeftShoulder)."

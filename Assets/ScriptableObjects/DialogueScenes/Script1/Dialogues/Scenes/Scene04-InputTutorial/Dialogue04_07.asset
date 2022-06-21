@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
   m_Name: Dialogue04_07
   m_EditorClassIdentifier: 
-  sceneElements:
-  - position: {x: 700, y: -100}
-    sprite: {fileID: 21300000, guid: a97bcdb3c49a6334c92ebf90a9756d29, type: 3}
+  sceneElements: []
   dialogueSegment: "Wygl\u0105da na to, \u017Ce znasz jakie\u015B podstawy. Zeby
     zosta\u0107 \u015Bcigantem, musisz potrafi\u0107 co\u015B wi\u0119cej. Pora na
     nauk\u0119 driftu. "

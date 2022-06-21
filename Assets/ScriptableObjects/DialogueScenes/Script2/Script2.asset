@@ -60,8 +60,8 @@ MonoBehaviour:
   - dialogues:
     - {fileID: 11400000, guid: bb1749f039885b641aa284d21892b391, type: 2}
     - {fileID: 11400000, guid: 0db636fbadbc28745a45bf3709cc39f8, type: 2}
-    - {fileID: 11400000, guid: e2f67368723c37d4ab114c7e3650e282, type: 2}
     - {fileID: 11400000, guid: 1c98ba0316e1a0f4da549bdb14ab9c3f, type: 2}
+    - {fileID: 11400000, guid: e2f67368723c37d4ab114c7e3650e282, type: 2}
     - {fileID: 11400000, guid: 097c7d32297602744b67c2a8fecd1388, type: 2}
     - {fileID: 11400000, guid: 186b3c36fb5799148840cfaa865970f6, type: 2}
     - {fileID: 11400000, guid: 417aa5f20267af64f849d0c68e190ebc, type: 2}

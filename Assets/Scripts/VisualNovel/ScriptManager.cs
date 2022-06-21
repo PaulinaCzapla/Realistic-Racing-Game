@@ -28,6 +28,12 @@ namespace VisualNovel
         private Vector3 pos2 = new Vector3(2.3f, 0.3f, 7.33f);
         private Vector3 rot2 = new Vector3(6.9f, -11.24f, 0);
 
+        private void Awake()
+        {
+          // SceneManager.UnloadSceneAsync("SceneInitializer");
+          SceneManager.SetActiveScene(SceneManager.GetSceneByName("PersistentScene"));
+        }
+
         private IEnumerator Start()
        {
            input.SetInput();
@@ -64,15 +70,26 @@ namespace VisualNovel
             onDialogueFinishedEvent.OnEventRaised -= OnSceneFinished;
         }
 
+        private void OnSkipped()
+        {
+            var loadMenu = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+            loadMenu.completed += OnMenuLoaded;
+        }
+
+        private void OnMenuLoaded(AsyncOperation obj)
+        {
+            SceneManager.UnloadSceneAsync("TutorialScene");
+        }
         private void OnSceneFinished()
         {
             if(scriptInfo.CurrentlySelectedScript.dialogueScenes.Count-1 > scriptInfo.CurrentDialogueScene)
                 scriptInfo.CurrentDialogueScene++;
             else
             {
-                SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
-                SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+                OnSkipped();
+                //SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
+               // SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+               // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             }
 
             if (scriptInfo.CurrentDialogueScene == 2)

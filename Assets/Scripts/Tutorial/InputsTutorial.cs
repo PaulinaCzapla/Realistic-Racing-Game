@@ -82,7 +82,7 @@ namespace Tutorial
                     
                     if (car.carSpeed >= 25)
                     {
-                        _dialogue++;
+                        _dialogue = 2;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                         input.GameplayInputEnabled(false);
@@ -95,7 +95,7 @@ namespace Tutorial
                 {
                     _blockInputTime += Time.deltaTime;
 
-                    if (_blockInputTime > 2f)
+                    if (_blockInputTime > 3f)
                     {
                         input.GameplayInputEnabled(true);
                     }
@@ -111,7 +111,7 @@ namespace Tutorial
 
                     if ((car.currentSteerAngle > 20 ||  car.currentSteerAngle < -20) && car.carSpeed >= 7)
                     {
-                        _dialogue++;
+                        _dialogue = 4;
                         _holdTime = 0;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
@@ -131,7 +131,7 @@ namespace Tutorial
 
                     if (_wasSpeedig && car.carSpeed < 1 && inputGameplay.HandBrakePressed)
                     {
-                        _dialogue++;
+                        _dialogue = 5;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                         _blockInputTime = 0;
@@ -152,7 +152,7 @@ namespace Tutorial
 
                     if (_didShiftUp && _didShiftDown)
                     {
-                        _dialogue++;
+                        _dialogue = 6;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                         _blockInputTime = 0;
@@ -174,7 +174,7 @@ namespace Tutorial
                     {
                         _blockInputTime = 0;
                         _holdTime = 0;
-                        _dialogue++;
+                        _dialogue = 7;
                         displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                         input.GameplayInputEnabled(false);
@@ -206,7 +206,7 @@ namespace Tutorial
                     {
                         _blockInputTime = 0;
                         _holdTime = 0;
-                        _dialogue++;
+                        _dialogue = 9;
                          displayDialogueSceneEvent.RaiseEvent(3);
                         inputGameplay.GameplayInputEnabled(false);
                     }

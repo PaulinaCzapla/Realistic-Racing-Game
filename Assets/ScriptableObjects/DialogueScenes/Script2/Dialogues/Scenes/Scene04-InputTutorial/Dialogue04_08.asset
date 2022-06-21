@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce169706aae47129bd52880268fc1c6, type: 3}
   m_Name: Dialogue04_08
   m_EditorClassIdentifier: 
-  sceneElements:
-  - position: {x: -700, y: -100}
-    sprite: {fileID: 21300000, guid: a97bcdb3c49a6334c92ebf90a9756d29, type: 3}
+  sceneElements: []
   dialogueSegment: "Kiedy nabierzesz pr\u0119dko\u015B\u0107, ostro skr\u0119\u0107,
     trzymaj\u0105c hamulec r\u0119czny. "
   name: Mentor

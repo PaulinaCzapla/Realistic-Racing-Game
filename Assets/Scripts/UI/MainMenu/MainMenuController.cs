@@ -9,7 +9,7 @@ namespace UI.MainMenu
 {
     public class MainMenuController : MonoBehaviour
     {
-       [SerializeField] private Button tutorialButton;
+        [SerializeField] private Button tutorialButton;
         [SerializeField] private Button roomButton;
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button creditsButton;
@@ -25,22 +25,20 @@ namespace UI.MainMenu
         [SerializeField] private GameObject tutorialContainer;
         [SerializeField] private GameObject menuContainer;
 
-        private void OnStart()
-        {
-            backButton.gameObject.SetActive(false);
-        }
-        private void OnAwake()
-        {
 
-        }
         private void OnEnable()
         {
             tutorialButton.onClick.AddListener(HandleTutorialButtonClick);
-            roomButton.onClick.AddListener(() => loadSceneEvent.RaiseEvent(joinRoomScene, true));
+            roomButton.onClick.AddListener(OnPlayClicked);
             optionsButton.onClick.AddListener(HandleOptionsButtonClick);
             creditsButton.onClick.AddListener(HandleCreditsButtonClick);
             backButton.onClick.AddListener(HandleBackButtonClick);
             onMenuMusicStart.RaiseEvent(SoundName.MenuMusic);
+        }
+
+        private void OnPlayClicked()
+        {
+            loadSceneEvent.RaiseEvent(joinRoomScene, true);
         }
 
         private void HandleTutorialButtonClick()

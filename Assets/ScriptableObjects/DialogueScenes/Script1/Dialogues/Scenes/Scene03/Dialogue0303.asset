@@ -16,7 +16,7 @@ MonoBehaviour:
   - position: {x: 300, y: -100}
     sprite: {fileID: 21300000, guid: d7b4fdd6e34a35043b50f54b28622f3f, type: 3}
   - position: {x: 700, y: -100}
-    sprite: {fileID: 21300000, guid: e4b6c0a6963cb29418348751058f6aba, type: 3}
+    sprite: {fileID: 21300000, guid: 403e68aa19b687e40bff6bc039d777d2, type: 3}
   dialogueSegment: "Ale to ju\u017C 50 raz i nawet nie zostawi\u0142a\u015B jednego
     \u015Bladu na parkingu. "
   name: Werka

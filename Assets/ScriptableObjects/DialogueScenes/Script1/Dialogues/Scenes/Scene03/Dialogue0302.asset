@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneElements:
   - position: {x: 700, y: -100}
-    sprite: {fileID: 21300000, guid: df9e436890c729a478731ba294f404ee, type: 3}
+    sprite: {fileID: 21300000, guid: 1c3bb77b40bac2c45aaf77312850522f, type: 3}
   - position: {x: 300, y: -100}
     sprite: {fileID: 21300000, guid: 88e8b8843de1c5549884422d9ed765cf, type: 3}
   dialogueSegment: "Ok, chyba spr\xF3buj\u0119\u2026"

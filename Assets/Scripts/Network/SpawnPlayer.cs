@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Car.WheelsManagement;
+using Events.ScriptableObjects;
 using Photon.Pun;
 using RaceManagement;
 using TMPro;
@@ -18,6 +20,8 @@ namespace Network
         [SerializeField] private RaceController raceController;
         [SerializeField] private List<GameObject> canvasObjects = new List<GameObject>();
         [SerializeField] public List<Material> colors = new List<Material>();
+
+        private GameObject spawnedCar;
 
         private void Start()
         {
@@ -52,7 +56,8 @@ namespace Network
 
         private void SpawnNewPlayer()
         {
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].rotation, 0);
+            spawnedCar = PhotonNetwork.Instantiate(playerPrefab.name, spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, 
+                spawnPositions[PhotonNetwork.LocalPlayer.ActorNumber - 1].rotation, 0);
             _numberPlayers ++;
         }
     

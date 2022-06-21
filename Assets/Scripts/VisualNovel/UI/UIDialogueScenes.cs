@@ -26,10 +26,12 @@ namespace VisualNovel.UI
         [SerializeField] private GameObject panel;
         [SerializeField] private SkipArrow arrow;
         [SerializeField] private Button skipButton;
+        [SerializeField] private Button resetButton;
         [SerializeField] private Image[] charactersImages;
         
         [Header("Events")]
         [SerializeField] private ScriptEventChannelSO displayDialoguePanelEvent;
+        [SerializeField] private ResetCarEventChannelSO resetCarEvent;
         [SerializeField] private IntEventChannelSO displayDialogueSceneEvent;
         [SerializeField] private VoidEventChannelSO onReturnToMenu;
         [SerializeField] private VoidEventChannelSO onDialogueFinishedEvent;
@@ -51,12 +53,14 @@ namespace VisualNovel.UI
         private float _timeElapsed = 0;
         private int _currentScene = 0;
         private bool _isFading = false;
+        private bool _hasEnded = false;
         
         private void OnEnable()
         {
             arrow.gameObject.SetActive(false);
             _pauseBetweenLetters = InitialPauseBetweenLetters;
             skipButton.onClick.AddListener(OnSkipped);
+            resetButton.onClick.AddListener(OnCarReset);
             displayDialoguePanelEvent.OnEventRaised += DisplayDialoguePanel;
             displayDialogueSceneEvent.OnEventRaised += DisplayDialogueSceneSegment;
             _timeElapsed = 0;
@@ -65,6 +69,7 @@ namespace VisualNovel.UI
         private void OnDisable()
         {
             skipButton.onClick.RemoveListener(OnSkipped);
+            resetButton.onClick.RemoveListener(OnCarReset);
             displayDialoguePanelEvent.OnEventRaised -= DisplayDialoguePanel;
             displayDialogueSceneEvent.OnEventRaised -= DisplayDialogueSceneSegment;
 
@@ -74,9 +79,20 @@ namespace VisualNovel.UI
              //   CloseDialogue();
         }
 
+        private void OnCarReset()
+        {
+            resetCarEvent.RaiseEvent();
+        }
+
         private void OnSkipped()
         {
-            SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+            var loadMenu = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+            loadMenu.completed += OnMenuLoaded;
+        }
+
+        private void OnMenuLoaded(AsyncOperation obj)
+        {
+            SceneManager.UnloadSceneAsync("TutorialScene");
         }
 
         private void OnStartFadeIn(GameObject arg0)
@@ -134,10 +150,12 @@ namespace VisualNovel.UI
                         onDialogueFinishedEvent.RaiseEvent();
                     }
 
-                    if (_dialogue >= script.AllDialogues)
+                    if (!_hasEnded && _dialogue >= script.AllDialogues)
                     {
                         //END
-                        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+                        _hasEnded = true;
+                        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+                        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
                     }
 
                 }
