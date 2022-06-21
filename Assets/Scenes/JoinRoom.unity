@@ -1351,6 +1351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectionStatus: {fileID: 2099384688}
+  backButton: {fileID: 1402559887}
+  loadMenuSceneEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
+  mainMenuScene: {fileID: 11400000, guid: a87e389e36952fd4993415f6290a30af, type: 2}
 --- !u!4 &859249862
 Transform:
   m_ObjectHideFlags: 0

@@ -56,4 +56,11 @@ public class BackToCheckpoint : MonoBehaviour
             }
         }
     }
+
+    public void StopWheelsAfterFinish()
+    {
+        wheelsController.StopWheels();
+        car.gearNum = 1;
+        StartCoroutine(inputReader.DisableInput());
+    }
 }
