@@ -19,8 +19,8 @@ namespace SceneManagement
         {
             _initializationScene = SceneManager.GetActiveScene();
             
-            SceneManager.LoadSceneAsync(persistentScene.SceneName, LoadSceneMode.Additive);
-            SceneManager.LoadSceneAsync(mainMenuScene.SceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("PersistentScene", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
             
             // TODO: loading screen and waiting for scene load
             
