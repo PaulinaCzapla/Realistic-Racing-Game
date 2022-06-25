@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace Events.ScriptableObjects
 {
+    /// <summary>
+    /// Event trigerred on sound play
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/Sound Event Channel")]
     public class SoundEventChannelSO : BaseEventChannelSO
     {

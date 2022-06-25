@@ -2,6 +2,9 @@ using Events.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Options menu layout controller
+/// </summary>
 public class OptionsController : MonoBehaviour
 {
     [SerializeField] private Slider musicSlider;

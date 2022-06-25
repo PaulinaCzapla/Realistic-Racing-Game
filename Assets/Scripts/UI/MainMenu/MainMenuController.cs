@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace UI.MainMenu
 {
+    /// <summary>
+    /// Main menu layout controller
+    /// </summary>
     public class MainMenuController : MonoBehaviour
     {
         [SerializeField] private Button tutorialButton;

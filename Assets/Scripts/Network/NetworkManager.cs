@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 namespace Network.NetworkManager
 {
-
+    /// <summary>
+    /// Class neccessary to estblish connection with photon server
+    /// </summary>
     public class NetworkManager : MonoBehaviourPunCallbacks
     {
         private void Start()
