@@ -203,13 +203,13 @@ namespace Car.WheelsManagement
                 (!inputReader.ClutchPressed))
             {
                 //if there is no move forward input - apply the brake so the car can slowly lose speed 
-                wheelsController.MoveWheels(0, 0, car.drive);
+                wheelsController.MoveWheels(0, 0);
                 wheelsController.ApplyBrake(2000);
             }
             else
             {
                 //if max speed not achieved - set motor torque
-                wheelsController.MoveWheels(_inputDirection.y, car.totalPower, car.drive);
+                wheelsController.MoveWheels(_inputDirection.y, car.totalPower);
             }
         }
 

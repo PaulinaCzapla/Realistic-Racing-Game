@@ -17,19 +17,17 @@ namespace Car.WheelsManagement
         [SerializeField] private  Wheel[] wheels;
         [SerializeField] private CarSO carSo;
         
-        //tmp values for testing
-        //private const float MotorForce = 1500;
+
         private const float BrakeForce = 8000;
-        //private const float Range = 30f;
         private const float Rate = 45;
         private float _angle;
         
         
-        public void MoveWheels(float direction, float motorForce, DriveType drive)
+        public void MoveWheels(float direction, float motorForce)
         {
 
-            //apply motor force to wheels
-            switch (drive)
+            //apply motor force to wheels depending on drive
+            switch (carSo.drive)
             {
                 case DriveType.RWD:
                     wheels[2].ApplyMotorTorque(direction * motorForce/2);
