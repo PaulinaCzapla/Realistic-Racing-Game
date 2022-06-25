@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Axle class grouping together objects needed for equasions
+/// </summary>
 [Serializable]
 public class Axle
 {

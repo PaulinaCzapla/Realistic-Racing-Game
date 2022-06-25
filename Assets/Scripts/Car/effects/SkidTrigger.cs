@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class handling skid marking and smoke on race track
+/// </summary>
 public class SkidTrigger : MonoBehaviour
 {
     [SerializeField] private GameplayInputReader inputReader;
@@ -24,13 +27,18 @@ public class SkidTrigger : MonoBehaviour
         handleSkid();
     }
 
-
+    /// <summary>
+    /// Starts emiting traces when brake is hit
+    /// </summary>
     public void handleSkid()
     {
         if (inputReader.BrakePressed || inputReader.HandBrakePressed) startSkid();
         else stopSkid();
     }
 
+    /// <summary>
+    /// Starts emitinge traces if the wheel is on ground
+    /// </summary>
     public void startSkid()
     {
         WheelHit hit;
@@ -50,6 +58,9 @@ public class SkidTrigger : MonoBehaviour
         skidAplaience = true;
     }
 
+    /// <summary>
+    /// Stops emitinge traces if the wheel is on ground
+    /// </summary>
     public void stopSkid()
     {
         if (!skidAplaience) return;

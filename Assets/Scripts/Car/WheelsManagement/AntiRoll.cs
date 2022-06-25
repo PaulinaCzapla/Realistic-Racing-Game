@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classs handling Anti-Roll bars implementations in the fixed update
+/// </summary>
 public class AntiRoll : MonoBehaviour
 {
     
@@ -31,6 +34,15 @@ public class AntiRoll : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Determinned compression ration between suspension and wheel
+    /// </summary>
+    /// <param name="WheelL">
+    /// WheelCollider to determine  the compression ration
+    /// </param>
+    /// <returns>
+    /// The compression ration
+    /// </returns>
     private static float GetCompressionRatio(WheelCollider WheelL)
     {
         WheelHit hit;
@@ -40,6 +52,15 @@ public class AntiRoll : MonoBehaviour
         return 0;
     }
 
+    /// <summary>
+    /// Determines if the wheel hit the ground and takes that point
+    /// </summary>
+    /// <param name="WheelL">
+    /// WheelCollider to be determined
+    /// </param>
+    /// <returns>
+    /// WheelHit object with exact point 
+    /// </returns>
     private static WheelHit GetHit(WheelCollider WheelL)
     {
         WheelHit hit;

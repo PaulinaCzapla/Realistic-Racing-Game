@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Scriptable object holding all car variables
+/// </summary>
 [CreateAssetMenu(fileName = "Car", menuName = "CarSimulator/ScriptableObjects/Car")]
 public class CarSO : ScriptableObject
 {

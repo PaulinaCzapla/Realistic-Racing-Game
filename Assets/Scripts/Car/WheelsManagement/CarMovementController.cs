@@ -93,8 +93,6 @@ namespace Car.WheelsManagement
 
         private void HandleSmoothSteering()
         {
-            //if (input.currentControlScheme.Equals("Keyboard&Mouse") || input.currentControlScheme.Equals("Gamepad"))
-            //{
                 if (inputReader.SteerPressed && _inputDirection.x != 0)
                 {
                     if (Mathf.Abs(_direction) < Mathf.Abs(_inputDirection.x))
@@ -120,13 +118,11 @@ namespace Car.WheelsManagement
                     disconnectPlayer.countdownStarted = false;
                     disconnectPlayer.TimeToDisconnecting = 45f;
                 }
-            //}
-            //else
-            //{
-                //_direction = _inputDirection.x;
-            //}
         }
 
+        /// <summary>
+        /// Handles gear swaps depending on car gear shifter type 
+        /// </summary>
         private void HandleGearSwap()
         {
             if (_inputDirection.y > 0 & car.gearNum == 0)
@@ -152,6 +148,9 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Changing gears in non automatic gearshifts depending on input
+        /// </summary>
         private void DemandShift()
         {
             if (car.gearNum != 1 && inputReader.ShiftDownGuard)
@@ -162,6 +161,9 @@ namespace Car.WheelsManagement
             inputReader.ShiftUpGuard = false;
         }
 
+        /// <summary>
+        /// Shifts gears automatically
+        /// </summary>
         private void AutoShift()
         {
             if (car.engineRpm > car.MAXRpm + 1000 && car.gearNum < car.gears.Length - 1)

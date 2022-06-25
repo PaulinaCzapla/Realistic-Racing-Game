@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Class controlling engine rpm and motor torque
+/// </summary>
 public class EngineController 
 {
     private CarSO _car;
@@ -16,6 +19,21 @@ public class EngineController
         this._car = car;
     }
 
+    /// <summary>
+    /// Method for calculating current engine total power
+    /// </summary>
+    /// <param name="wheelRPM">
+    /// Current wheels RPM taken from wheel colliders
+    /// </param>
+    /// <param name="velocity">
+    /// Velocity of the car referenced to adjust stiffness in particular frame in Km/h
+    /// </param>
+    /// <param name="clutch">
+    /// Determiner if the clutch is pressed 
+    /// </param>
+    /// <param name="vertical">
+    /// Input of the gas pedal from 0-1
+    /// </param>
     public void CalculateEnginePower(float wheelRPM, float velocity, bool clutch, float vertical)
     {
         
@@ -28,18 +46,30 @@ public class EngineController
         }
         
     }
-    
+
+    /// <summary>
+    /// Set the lerp loop
+    /// </summary>
+    /// <param name="num">
+    /// lerp value to be settled
+    /// </param>
     private void SetEngineLerp(float num)
     {
         _engineLerp = true;
         _car.engineLerpValue = num;
     }
 
+    /// <summary>
+    /// Engine lerping function, to prevent player from overreaching RPM value
+    /// </summary>
+    /// <param name="velocity">
+    /// Velocity of the car referenced to adjust stiffness in particular frame in Km/h
+    /// </param>
     private void LerpEngine(float velocity)
     {
         if (_engineLerp)
         {
-            //_car.engineRpm = Mathf.SmoothDamp(_car.engineRpm, _car.engineLerpValue, ref velocity, _car.lerpSmoothTime * Time.deltaTime);
+           
            _car.engineRpm = Mathf.Lerp(_car.engineRpm, _car.engineLerpValue,  _car.lerpSmoothTime * Time.deltaTime);
             _engineLerp = _car.engineRpm <= _car.engineLerpValue + 100 ? false : true;
         }
