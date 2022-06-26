@@ -22,7 +22,15 @@ namespace Car.WheelsManagement
         private const float Rate = 45;
         private float _angle;
         
-        
+        /// <summary>
+        /// Adds power to the wheels as torque
+        /// </summary>
+        /// <param name="direction">
+        /// Input provided <0 when in reverse
+        /// </param>
+        /// <param name="motorForce">
+        /// Sum of the wheels torques that needs to be distributed
+        /// </param>
         public void MoveWheels(float direction, float motorForce)
         {
 
@@ -49,6 +57,13 @@ namespace Car.WheelsManagement
            
         }
 
+
+        /// <summary>
+        /// Handles brakes
+        /// </summary>
+        /// <param name="force">
+        /// The break torque
+        /// </param>
         public void ApplyBrake(float force = BrakeForce )
         {
             //apply brake force to all wheels
@@ -58,6 +73,9 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Stopping wheels procedure
+        /// </summary>
         public void StopWheels()
         {
             //stop all wheels
@@ -67,6 +85,15 @@ namespace Car.WheelsManagement
             }
         }
         
+        /// <summary>
+        /// Handles correct rotation of the wheel
+        /// </summary>
+        /// <param name="steeringInput">
+        /// Player input as float <0 when left
+        /// </param>
+        /// <param name="maxAngle">
+        /// Max angle that wheel can rotate at given speed
+        /// </param>
         public void RotateWheels(float steeringInput, float maxAngle)
         {
             var destination = steeringInput * maxAngle;
@@ -77,6 +104,9 @@ namespace Car.WheelsManagement
             carSo.currentSteerAngle = _angle;
         }
 
+        /// <summary>
+        /// Updates the wheel positions, it provides Ackermann steering
+        /// </summary>
         public void UpdateWheels()
         {
             foreach (var wheel in wheels)
