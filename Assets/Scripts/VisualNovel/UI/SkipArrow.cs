@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace VisualNovel.UI
 {
+    /// <summary>
+    /// A class that represents moving arrow in dialogue panel
+    /// </summary>
     public class SkipArrow : MonoBehaviour
     {
         private RectTransform _rect;

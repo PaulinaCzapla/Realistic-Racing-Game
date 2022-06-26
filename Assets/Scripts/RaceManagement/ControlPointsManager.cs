@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace RaceManagement
 {
+    /// <summary>
+    /// Class that contains all activated control points and manages it
+    /// /// </summary>
     public class ControlPointsManager : MonoBehaviour
     {
         private int _raceLaps;

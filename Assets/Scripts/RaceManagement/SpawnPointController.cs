@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class SpawnPointController : MonoBehaviour
 {
-    private int _i;
+   
     [SerializeField] private ControlPoint controlPoint;
+     private int _i;
+    
     private void OnTriggerEnter(Collider other)
     {
         _i = controlPoint.spawnPoints.IndexOf(this.gameObject);

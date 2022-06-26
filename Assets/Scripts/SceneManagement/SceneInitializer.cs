@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 namespace SceneManagement
 {
+    /// <summary>
+    /// A class that is responsible for initializing scenes at the beginning of the game
+    /// /// </summary>
     public class SceneInitializer : MonoBehaviour
     {
         [Header("Events")] 

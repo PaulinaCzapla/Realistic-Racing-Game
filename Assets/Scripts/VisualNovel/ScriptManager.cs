@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 namespace VisualNovel
 {
+    /// <summary>
+    /// A class responsible for setting right camera position and dialogue scene
+    /// </summary>
     public class ScriptManager : MonoBehaviour
     {
         [SerializeField] private UIInputReader input;

@@ -11,6 +11,9 @@ using VisualNovel.Dialogues;
 
 namespace VisualNovel.UI
 {
+    /// <summary>
+    /// A class that manages dialogue scenes. This class is responsible for switching the scenes and displaying them.
+    /// </summary>
     public class UIDialogueScenes : MonoBehaviour
     {
          [SerializeField] private AudioSource audioSource;

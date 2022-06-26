@@ -3,6 +3,11 @@ using Utilities;
 
 namespace CameraFollow
 {
+
+    /// <summary>
+    /// A class responsible for camera following the car. It updates the camera position and rotation according to the
+    /// position and rotation of the followed car.
+    /// </summary>
     public class FollowingCamera : MonoBehaviour
     {
         public Transform target;

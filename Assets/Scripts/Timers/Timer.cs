@@ -2,6 +2,9 @@
 
 namespace Timers
 {
+    /// <summary>
+    /// A class responsible for counting time
+    /// </summary>
     public class Timer
     {
         public float TimeElapsed => Time.time - _startTime;

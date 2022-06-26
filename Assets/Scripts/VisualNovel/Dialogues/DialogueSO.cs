@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace VisualNovel.Dialogues
 {
+    /// <summary>
+    /// A scriptable object that contains dialogues for one scene
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/ScriptableObjects/Dialogue")]
     [Serializable]
     public class DialogueSO : ScriptableObject

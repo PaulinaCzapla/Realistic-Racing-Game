@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 namespace InputSystem
 {
+    /// <summary>
+    /// Class that invokes events if specific UI navigation input was performed
+    /// </summary>
     [CreateAssetMenu(fileName = "UI Input Reader", menuName = "CarSimulator/ScriptableObjects/UIInputReader")]
     public class UIInputReader : ScriptableObject, InputActions.IUIActions
     {
@@ -18,8 +21,9 @@ namespace InputSystem
 
         private InputActions _inputActionsPlayer;
         private InputActions.IUIActions _iuiActionsImplementation;
-        
-        //This have to be called at least once, before using input system
+        /// <summary>
+        ///This have to be called at least once, before using input system
+        /// </summary>
         public void SetInput()
         {
             if (_inputActionsPlayer == null)
@@ -29,8 +33,9 @@ namespace InputSystem
             }
             _inputActionsPlayer.UI.Enable();
         }
-
-        // Enables/disables ui input. Disable ui input when gameplay is active
+        /// <summary>
+        /// Enables/disables ui input. Disable ui input when gameplay is active
+        /// </summary>
         public void GameplayInputEnabled(bool enabled)
         {
             if (enabled)

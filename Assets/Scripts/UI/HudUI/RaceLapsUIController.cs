@@ -8,6 +8,9 @@ using TMPro;
 
 namespace UI.HudUI
 {
+    /// <summary>
+    /// Manages tahometer and laps counter ui
+    /// </summary>
     public class RaceLapsUIController : MonoBehaviour
     {
         private int _raceLaps;

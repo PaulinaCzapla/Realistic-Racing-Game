@@ -8,6 +8,9 @@ using VisualNovel.UI;
 
 namespace Tutorial
 {
+    /// <summary>
+    /// A class that manages tutorial
+    /// </summary>
     public class InputsTutorial : MonoBehaviour
     {
         [SerializeField] private UIInputReader input;

@@ -2,6 +2,9 @@
 
 namespace Timers
 {
+    /// <summary>
+    /// Class for counting cooldown.
+    /// /// </summary>
     public class Cooldown
     {
         public bool CooldownEnded => IsCooldownEnded();

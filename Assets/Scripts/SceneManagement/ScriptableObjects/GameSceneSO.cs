@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace SceneManagement.ScriptableObjects
 {
+    /// <summary>
+    /// Represents game scene
+    /// /// </summary>
+    /// 
     [CreateAssetMenu(fileName = "GameScene", menuName = "Scene Data/GameSceneSO")]
     public class GameSceneSO : ScriptableObject
     {

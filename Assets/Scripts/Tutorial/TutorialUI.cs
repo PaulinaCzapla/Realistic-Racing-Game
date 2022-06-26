@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VisualNovel;
 
+/// <summary>
+/// Manages tutorial ui and sets adequate tutorial script.
+/// </summary>
 public class TutorialUI : MonoBehaviour
 {
     [Header("Scriptable objects")]

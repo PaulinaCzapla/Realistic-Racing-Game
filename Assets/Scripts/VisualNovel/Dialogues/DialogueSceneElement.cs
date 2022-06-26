@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace VisualNovel.Dialogues
 {
+    /// <summary>
+    /// A class that represents dialogue scene
+    /// </summary>
     [Serializable]
     public class DialogueSceneElement
     {

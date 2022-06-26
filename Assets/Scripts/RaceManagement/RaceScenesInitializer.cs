@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 namespace RaceManagement
 {
+    /// <summary>
+    /// Initializes race scenes
+    /// /// </summary>
     public class RaceScenesInitializer : MonoBehaviour
     {
         [SerializeField] private GameSceneSO UI;
