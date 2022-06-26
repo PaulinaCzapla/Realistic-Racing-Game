@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using InputSystem;
 using UnityEngine;
 
+/// <summary>
+/// Class meant for managing engine sound
+/// </summary>
 public class CarAudio : MonoBehaviour
 {
     [SerializeField] private GameplayInputReader inputReader;

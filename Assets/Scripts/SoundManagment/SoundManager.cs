@@ -1,6 +1,9 @@
 using Events.ScriptableObjects;
 using UnityEngine;
 
+/// <summary>
+/// Sound manager used for playing sounds in game
+/// </summary>
 namespace SoundManagement
 {
     public class SoundManager : MonoBehaviour
@@ -44,7 +47,7 @@ namespace SoundManagement
                 Destroy(source);
             }
         }
-
+        
         private void OnSoundPlay(SoundName soundName)
         {
             switch (soundName)

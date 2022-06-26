@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 namespace Network.RoomConnectionManager
 {
-
+    /// <summary>
+    /// Class which is responsible for creating or connecting with rooms
+    /// </summary>
     public class RoomConnectionManager : MonoBehaviourPunCallbacks
     {
         [SerializeField]
