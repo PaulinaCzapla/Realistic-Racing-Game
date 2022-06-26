@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace Network
 {
+    ///<summary>
+    /// This class allows player to create new room or join an existing one. When player is connected to the room a next scene is loaded (Color Lobby). On failed action player receives a message about the error.
+    ///</summary>
     public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         [SerializeField] private InputField createInput;

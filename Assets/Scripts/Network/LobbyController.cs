@@ -11,6 +11,10 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace Network
 {
+    ///<summary>
+    /// Class controlling Color Lobby. Here players can choose colors for their cars and it will be saved to custom properties of a player. Master player can also customise number of laps, which will be saved to PlayerPrefs. 
+    /// Master player starts a game by pressing a button. This class controls synchronization between players. How lobby looks and which colors are already taken. For that we used RPC method.
+    ///</summary>
     public class LobbyController : MonoBehaviourPun
     {
         private Color _selectedColor = new Color(236,197,48,255);
@@ -29,8 +33,6 @@ namespace Network
         [SerializeField] private TextMeshProUGUI numberOfLapsText;
 
         [SerializeField] private LoadSceneEventChannelSO loadSceneEvent;
-        //[SerializeField] private LoadSceneEventChannelSO loadMenuSceneEvent;
-        //[SerializeField] private LoadSceneEventChannelSO photonLoadSceneEvent;
         [SerializeField] private SoundEventChannelSO onMenuMusicStart;
         [SerializeField] private PlayerChoicesController playerChoices;
     
