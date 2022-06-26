@@ -2,6 +2,9 @@
 
 namespace Utilities
 {
+    /// <summary>
+    /// Utility static class for ackermann steering
+    /// </summary>
     public static class AckermannUtility
     {
         public static float GetSecondaryAngle(float primaryAngle, float separation, float width) 

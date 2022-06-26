@@ -10,6 +10,9 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace RaceManagement
 {
+    /// <summary>
+    /// A class that represents a participant of the race. Manages his control points and statistics.
+    /// /// </summary>
     public class RaceParticipant : MonoBehaviour 
     { 
         public int LapsFinished => _lapsFinished;

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class for resetting car position in tutorial
+/// </summary>
 public class ResetController : MonoBehaviour
 {
     [SerializeField] private ResetCarEventChannelSO resetCarEvent;

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Experimental.GlobalIllumination;
 
+/// <summary>
+/// Sets the date format and displays it in UI
+/// </summary>
 public class TimerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;

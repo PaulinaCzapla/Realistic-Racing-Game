@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    /// A class that fades graphic components
+    /// </summary>
     public class Fade : MonoBehaviour
     {
         public UnityAction OnFadedIn { get; set; }

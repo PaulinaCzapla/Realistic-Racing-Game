@@ -1843,6 +1843,7 @@ MonoBehaviour:
     - {fileID: 5615103854440067363}
     - {fileID: 5615296013665971057}
     - {fileID: 5615615705613476447}
+    carSo: {fileID: 0}
 --- !u!114 &1854684229547096008
 MonoBehaviour:
   m_ObjectHideFlags: 0

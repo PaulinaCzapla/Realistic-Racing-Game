@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 namespace SceneManagement
 {
+    /// <summary>
+    /// A class that load and manages scenes
+    /// /// </summary>
     public class SceneLoader : MonoBehaviour
     {
         [Header("Game scenes")]

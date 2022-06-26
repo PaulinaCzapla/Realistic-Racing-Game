@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace RaceManagement.ControlPoints
 {
+    /// <summary>
+    /// A class that represents control point/checkpoint, that can be activated by player.
+    /// /// </summary>
     public class ControlPoint : MonoBehaviour
     {
         public GameObject SpawnPoint => spawnPoint;

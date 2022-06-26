@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace VisualNovel
 {
+    /// <summary>
+    /// A class that represents tutorial script
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/ScriptableObjects/Script")]
     public class ScriptSO : ScriptableObject
     {

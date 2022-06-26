@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace RaceManagement
 {
+    /// <summary>
+    /// Class that is responsible for race start.
+    /// /// </summary>
     public class RaceController : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI textMesh;

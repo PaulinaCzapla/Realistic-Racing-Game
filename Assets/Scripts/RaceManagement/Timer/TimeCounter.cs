@@ -2,6 +2,9 @@
 
 namespace RaceManagement.Timer
 {
+    /// <summary>
+    /// Helper class for time counting.
+    /// /// </summary>
     public class TimeCounter
     {
         public float TimeElapsed => Time.time - _startTime;

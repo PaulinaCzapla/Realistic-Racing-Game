@@ -6,6 +6,9 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 namespace InputSystem
 {
+    /// <summary>
+    /// Class that invokes events if specific input during gameplay was performed
+    /// </summary>
     [CreateAssetMenu(fileName = "Gameplay Input Reader", menuName = "CarSimulator/ScriptableObjects/GameplayInputReader")]
     public class GameplayInputReader : ScriptableObject, InputActions.IGameplayActions
     {
@@ -45,8 +48,10 @@ namespace InputSystem
         public bool ClutchPressed { get; private set; }
         private InputActions _inputActionsPlayer;
         private InputActions.IGameplayActions _gameplayActionsImplementation;
-
-        //This have to be called once, before using the input system
+        
+        /// <summary>
+        ///This have to be called once, before using the input system
+        /// </summary>
         public void SetInput()
         {
             if (_inputActionsPlayer == null)
@@ -64,8 +69,9 @@ namespace InputSystem
             yield return new WaitForSeconds(1);
             _inputActionsPlayer.Gameplay.Enable();
         }
-
-        // Enables/disables gameplay input. Disable gameplay input when player is in UI (MainMenu, Settings ...)
+        /// <summary>
+        /// Enables/disables gameplay input. Disable gameplay input when player is in UI (MainMenu, Settings ...)
+        /// </summary>
         public void GameplayInputEnabled(bool enabled)
         {
             if (enabled)
