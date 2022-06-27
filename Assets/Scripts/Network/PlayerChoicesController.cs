@@ -4,6 +4,9 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace Network
 {
+    ///<summary>
+    /// This class saves basic information of local player that will be used for choosing a color. Color will chosen for a player if they don't do it in given time.
+    ///</summary>
     public class PlayerChoicesController : MonoBehaviour
     {
         public int chosenButton;

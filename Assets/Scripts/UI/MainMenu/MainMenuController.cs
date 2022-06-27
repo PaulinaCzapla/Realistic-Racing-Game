@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace UI.MainMenu
 {
     /// <summary>
-    /// Manages main menu options
+    /// Main menu layout controller
     /// </summary>
     public class MainMenuController : MonoBehaviour
     {

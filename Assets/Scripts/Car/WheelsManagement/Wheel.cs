@@ -21,16 +21,28 @@ namespace Car.WheelsManagement
             _initialAngle = collider.steerAngle;
         }
 
+        /// <summary>
+        /// Applies toprque on collider
+        /// </summary>
+        /// <param name="force">
+        /// Torque for the wheel
+        /// </param>
         public void ApplyMotorTorque(float force)
         {
             collider.motorTorque = force;
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="force"></param>
         public void ApplyBrakeTorque(float force)
         {
             collider.brakeTorque = force;
         }
         
+        /// <summary>
+        /// Update wheel postion
+        /// </summary>
         public void UpdateWheel()
         {
             Vector3 pos;
@@ -42,6 +54,9 @@ namespace Car.WheelsManagement
             _transform.position = pos;
         }
 
+        /// <summary>
+        /// Auto centers wheel
+        /// </summary>
         private void HandleAutoCenteringWheels()
         {
             collider.steerAngle += -Mathf.Sign(collider.steerAngle) * RotationSpeedMultiplier/2;
@@ -52,6 +67,12 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Steers the wheel
+        /// </summary>
+        /// <param name="angle">
+        /// Angle to steer with
+        /// </param>
         public void SetSteeringAngle(float angle)
         {
             collider.steerAngle = angle;

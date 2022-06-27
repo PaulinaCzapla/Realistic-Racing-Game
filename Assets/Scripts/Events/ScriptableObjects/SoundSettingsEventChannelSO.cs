@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace Events.ScriptableObjects
 {
     /// <summary>
-    /// Event channel with SoundSettings parameter
+    /// Event trigerred on sound settings change
     /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/Sound Settings Event Channel")]
     public class SoundSettingsEventChannelSO : BaseEventChannelSO

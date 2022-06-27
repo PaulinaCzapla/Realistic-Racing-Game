@@ -70,6 +70,7 @@ namespace Car.WheelsManagement
                 HandleBrake();
                 HandleWheelsRotation();
                 HandleGearSwap();
+                ApplyDownForce();
             }
         }
 
@@ -85,12 +86,18 @@ namespace Car.WheelsManagement
         
         private void OnSteerCanceledPressed(Vector2 arg0)=> _inputDirection = _inputDirection = new Vector2(0, _inputDirection.y);
         
+        /// <summary>
+        /// Applies down force on the car to stabilize it
+        /// </summary>
         private void ApplyDownForce()
         {
             var downForce = car._downForce.Evaluate(car.carSpeed);
             rb.AddForce(-Vector3.up * downForce);
         }
 
+        /// <summary>
+        /// Redirects the wheels after realising the input
+        /// </summary>
         private void HandleSmoothSteering()
         {
                 if (inputReader.SteerPressed && _inputDirection.x != 0)
@@ -176,6 +183,9 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Handles correct acceraltion of the car with the input provided and stops it with correct circumstances
+        /// </summary>
         private void HandleCarAcceleration()
         {
             //Debug.Log("Text: " + car.drive);
@@ -215,6 +225,9 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Input break handler
+        /// </summary>
         private void HandleBrake()
         {
             // if (inputReader.BrakePressed)
@@ -233,6 +246,9 @@ namespace Car.WheelsManagement
             }
         }
 
+        /// <summary>
+        /// Handles sterring with max angle eavluation
+        /// </summary>
         private void HandleWheelsRotation()
         {
             float _currMaxAngle = car._maxSteerAngle.Evaluate(rb.velocity.magnitude * 3.6f);

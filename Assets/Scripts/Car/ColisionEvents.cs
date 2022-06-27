@@ -4,12 +4,14 @@ using RaceManagement.ControlPoints;
 using SoundManagement;
 using UnityEngine;
 
+/// <summary>
+/// Class meant for car colision sounds playing
+/// </summary>
 public class ColisionEvents : MonoBehaviour
 {
     [SerializeField] private SoundEventChannelSO playSound;
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other);
         if (other.TryGetComponent(out ControlPoint controlPoint))
         {
             foreach (var point in controlPoint.spawnPoints)
@@ -34,11 +36,6 @@ public class ColisionEvents : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        // if (other.gameObject.TryGetComponent(out CarMovementController controller))
-        // {
-        //     playSound.RaiseEvent(SoundName.CarColision);
-        // }
-
         if (other.gameObject.TryGetComponent(out WallColision wall))
         {
             playSound.RaiseEvent(SoundName.TrackColision);

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace Network
 {
+    ///<summary>
+    /// This class connects player to photon server and then to lobby. On Start player is connected to the server, then to master and then to lobby.
+    ///</summary>
     public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         [SerializeField] private Text connectionStatus;

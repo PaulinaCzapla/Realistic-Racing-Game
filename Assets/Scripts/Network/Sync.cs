@@ -12,6 +12,9 @@ using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 namespace Network
 {
+    ///<summary>
+    /// This class synchronizes players between each other. Players send to one another information about themselves, like their color, name, and position. For that we used streams to send information to another players.
+    ///</summary>
     public class Sync : Photon.Pun.MonoBehaviourPun, IPunObservable
     {
         private Vector3 _trueLoc;
@@ -33,23 +36,7 @@ namespace Network
                 body.GetComponent<MeshRenderer>().material =
                     _spawnPlayer.colors[(int) PhotonNetwork.LocalPlayer.CustomProperties["color"] - 1];
             }
-
-            /*switch ((int) PhotonNetwork.LocalPlayer.CustomProperties["color"])
-            {
-                case 1:
-                    raceParticipant.Name = "Red";
-                    break;
-                case 2:
-                    raceParticipant.Name = "Green";
-                    break;
-                case 3:
-                    raceParticipant.Name = "Pink";
-                    break;
-                case 4:
-                    raceParticipant.Name = "Yellow";
-                    break;
-                    
-            }*/
+            
             if (raceParticipant != null)
             {
                 raceParticipant.Name = (string) PhotonNetwork.LocalPlayer.CustomProperties["name"];
