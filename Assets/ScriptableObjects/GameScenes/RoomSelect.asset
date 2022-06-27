@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138588e4baab33c4a880bfc33c20fb6c, type: 3}
   m_Name: RoomSelect
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: b4e41a45ab365514cb001a39bee5684e, type: 3}
+  SceneName: JoinRoom
