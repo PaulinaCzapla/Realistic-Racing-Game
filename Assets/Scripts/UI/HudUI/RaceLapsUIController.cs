@@ -50,6 +50,9 @@ namespace UI.HudUI
             UpdateLaps();
         }
 
+        /// <summary>
+        /// Updates arrow rotation
+        /// </summary>
         void UpdateArrow()
         {
             var procent = 0.3f *(car.engineRpm/ car.MAXRpm);
@@ -57,12 +60,18 @@ namespace UI.HudUI
             TahometerArrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
+        /// <summary>
+        /// Updates game panel ui
+        /// </summary>
         void UpdateGamePanel()
         {
             SpeedText.text = ((int)car.carSpeed).ToString();
             CurrentGearText.text = car.gearNum.ToString();
         }
 
+        /// <summary>
+        /// Updates laps ui
+        /// </summary>
         private void UpdateLaps()
         {
             lapsText.text = _lapsCount + "/" + _raceLaps;

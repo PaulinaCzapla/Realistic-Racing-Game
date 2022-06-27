@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace Events.ScriptableObjects
 {
+    /// <summary>
+    /// Event channel with Int parameter
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/Int Event Channel")]
     public class IntEventChannelSO : BaseEventChannelSO
     {

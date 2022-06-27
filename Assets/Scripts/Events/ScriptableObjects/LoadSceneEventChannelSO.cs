@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace Events.ScriptableObjects
 {
+    /// <summary>
+    /// Event channel with GameSceneSO parameter
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/Load Scene Event Channel")]
     public class LoadSceneEventChannelSO : BaseEventChannelSO
     {

@@ -7,6 +7,9 @@ namespace Utilities
     /// </summary>
     public static class AckermannUtility
     {
+        /// <summary>
+        /// Counts angle for second wheel
+        /// </summary>
         public static float GetSecondaryAngle(float primaryAngle, float separation, float width) 
         {
             if (Mathf.Abs(primaryAngle) < 1)

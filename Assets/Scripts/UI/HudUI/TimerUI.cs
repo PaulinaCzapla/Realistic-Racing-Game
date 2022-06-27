@@ -25,6 +25,9 @@ public class TimerUI : MonoBehaviour
         onUpdateRaceTimeUI.OnEventRaised -= (float time) => OnUpdateTimer(time);
     }
 
+    /// <summary>
+    /// Updates timer ui
+    /// </summary>
     private void OnUpdateTimer(float time)
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(time);

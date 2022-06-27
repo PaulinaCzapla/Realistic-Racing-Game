@@ -49,6 +49,9 @@ namespace RaceManagement
             onFinish.OnEventRaised -= OnRaceFinished;
         }
 
+        /// <summary>
+        /// Invoked when race is started, sets first control point
+         /// </summary>
         private void OnRaceStarted()
         {
             var participants = FindObjectsOfType<RaceParticipant>();
@@ -60,6 +63,9 @@ namespace RaceManagement
             }
         }
 
+        /// <summary>
+        /// Invoked when race is finished, sets time
+        /// </summary>
         private void OnRaceFinished(RaceParticipant raceParticipant)
         {
             var timeSpan = TimeSpan.FromSeconds(raceParticipant.RaceTime);
@@ -67,15 +73,22 @@ namespace RaceManagement
             raceOutcome.Add(raceParticipant.Name +"   Time: " + raceTime);
         }
 
+        /// <summary>
+        /// Checks if activated control point is correct
+        /// </summary>
         private void OnControlPointEntered(RaceParticipant participant, ControlPoint controlPoint)
         {
             if (!participant.ControlPointsActivated.Contains(controlPoint)
-                && participant.ControlPointsActivated.Count < controlPoints.Count && controlPoints[participant.ControlPointsActivated.Count] == controlPoint)
+                && participant.ControlPointsActivated.Count < controlPoints.Count && 
+                controlPoints[participant.ControlPointsActivated.Count] == controlPoint)
             {
                 participant.ControlPointsActivated.Add(controlPoint);
             }
         }
 
+        /// <summary>
+        /// Invoked when player is on the finish line
+        /// </summary>
         private void OnFinishLineAchieved(RaceParticipant participant)
         {
             if (controlPoints.Count == participant.ControlPointsActivated.Count)

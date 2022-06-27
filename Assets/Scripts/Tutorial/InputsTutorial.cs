@@ -37,6 +37,9 @@ namespace Tutorial
             input.SkipDialogueEvent -=  OnSkipClicked;
         }
 
+        /// <summary>
+        /// Invoked when skip is clicked
+        /// </summary>
         private void OnSkipClicked()
         {
             if (_dialogue == 7 || _dialogue==2 || _dialogue == 0)
@@ -53,6 +56,9 @@ namespace Tutorial
             }
         }
 
+        /// <summary>
+        /// Starts tutorial
+        /// </summary>
         public void StartTutorial(ScriptInfoSO script)
         {
             input.GameplayInputEnabled(false);

@@ -22,12 +22,18 @@ namespace Timers
                 StartCooldown();
         }
 
+        /// <summary>
+        /// Starts time counting
+        /// </summary>
         public void StartCooldown()
         {
             _nextFireTime = Time.time + _cooldownTime;
             _isStarted = true;
         }
 
+        /// <summary>
+        /// Returns information about cooldown finish
+        /// </summary>
         private bool IsCooldownEnded()
         {
             if (Time.time > _nextFireTime)

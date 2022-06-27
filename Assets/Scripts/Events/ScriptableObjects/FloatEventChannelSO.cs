@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace Events.ScriptableObjects
 {
+    /// <summary>
+    /// Event channel with float parameter
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/Float Event Channel")]
     public class FloatEventChannelSO : BaseEventChannelSO
     {

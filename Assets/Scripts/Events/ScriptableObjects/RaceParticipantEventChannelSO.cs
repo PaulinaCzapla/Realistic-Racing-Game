@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace Events.ScriptableObjects
 {
+    /// <summary>
+    /// Event channel with RaceParticipant parameter
+    /// </summary>
     [CreateAssetMenu(menuName = "CarSimulator/Events/RaceParticipant Event Channel")]
     public class RaceParticipantEventChannelSO : BaseEventChannelSO
     {

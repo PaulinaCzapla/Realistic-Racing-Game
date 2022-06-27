@@ -29,6 +29,9 @@ public class ResetController : MonoBehaviour
         resetCarEvent.OnEventRaised -= OnResetCar;
     }
 
+    /// <summary>
+    /// Resets car position
+    /// </summary>
     private void OnResetCar()
     {
         car.position = beginPosition;

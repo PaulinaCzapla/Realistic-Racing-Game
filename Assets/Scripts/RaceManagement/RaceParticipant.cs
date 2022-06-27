@@ -72,6 +72,9 @@ namespace RaceManagement
             }
         }
 
+        /// <summary>
+        /// Invoked when lap is finished
+        /// </summary>
         public void LapFinished()
         {
             _stats.LapTimes.Add( _lapsFinished == 0 ? _timer.TimeElapsed :
@@ -83,6 +86,9 @@ namespace RaceManagement
         }
     }
 
+    /// <summary>
+    /// Struct for race statistics (time for laps, and race time)
+    /// </summary>
     public class RaceStats
     {
         public List<float> LapTimes { get; private set; }

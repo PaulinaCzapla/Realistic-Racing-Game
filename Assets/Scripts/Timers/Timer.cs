@@ -11,6 +11,9 @@ namespace Timers
         
         private float _startTime;
         
+        /// <summary>
+        /// Starts time counting
+        /// </summary>
         public void StartTimer()
         {
             _startTime = Time.time;

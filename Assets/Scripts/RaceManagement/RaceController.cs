@@ -27,6 +27,9 @@ namespace RaceManagement
             //StartCoroutine(RaceStart());
         }
 
+        /// <summary>
+        /// Displays race start text animation
+        /// </summary>
         private IEnumerator RaceStart()
         {
             textMesh.enabled = true;
@@ -51,6 +54,9 @@ namespace RaceManagement
             onRaceStarted.RaiseEvent();
         }
 
+        /// <summary>
+        /// Displays text animation
+        /// </summary>
         private IEnumerator DisplayText(string text)
         {
             _coroutineFinished = false;
