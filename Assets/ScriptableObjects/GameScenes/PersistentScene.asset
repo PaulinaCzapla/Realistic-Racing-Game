@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fe8359f8e24f15a41f55a543edde61, type: 3}
   m_Name: PersistentScene
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: d76ae64bd10ad70469bdf041e0290d37, type: 3}
+  SceneName: PersistentScene

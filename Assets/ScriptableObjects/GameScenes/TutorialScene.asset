@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fe8359f8e24f15a41f55a543edde61, type: 3}
   m_Name: TutorialScene
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: d8e6aa6a98d5843438e16de94e86d6e2, type: 3}
+  SceneName: TutorialScene

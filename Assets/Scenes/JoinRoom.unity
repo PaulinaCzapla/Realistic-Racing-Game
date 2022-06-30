@@ -3627,7 +3627,6 @@ GameObject:
   - component: {fileID: 2062619382}
   - component: {fileID: 2062619381}
   - component: {fileID: 2062619380}
-  - component: {fileID: 2062619383}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
