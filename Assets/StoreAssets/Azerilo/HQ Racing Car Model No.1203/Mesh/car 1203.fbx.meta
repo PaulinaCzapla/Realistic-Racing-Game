@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 09daf63b07ae7ae438ec02fd869b9967
+timeCreated: 1549561478
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: back
+    100002: body
+    100004: //RootNode
+    100006: chasis
+    100008: chasis_2
+    100010: chrome
+    100012: Collider
+    100014: dashboard
+    100016: glass
+    100018: Grilles
+    100020: Grills_2
+    100022: interior
+    100024: lights
+    100026: plate
+    100028: Roll
+    100030: window_frame
+    400000: back
+    400002: body
+    400004: //RootNode
+    400006: chasis
+    400008: chasis_2
+    400010: chrome
+    400012: Collider
+    400014: dashboard
+    400016: glass
+    400018: Grilles
+    400020: Grills_2
+    400022: interior
+    400024: lights
+    400026: plate
+    400028: Roll
+    400030: window_frame
+    2300000: back
+    2300002: body
+    2300004: chasis
+    2300006: chasis_2
+    2300008: chrome
+    2300010: Collider
+    2300012: dashboard
+    2300014: glass
+    2300016: Grilles
+    2300018: Grills_2
+    2300020: interior
+    2300022: lights
+    2300024: plate
+    2300026: Roll
+    2300028: window_frame
+    3300000: back
+    3300002: body
+    3300004: chasis
+    3300006: chasis_2
+    3300008: chrome
+    3300010: Collider
+    3300012: dashboard
+    3300014: glass
+    3300016: Grilles
+    3300018: Grills_2
+    3300020: interior
+    3300022: lights
+    3300024: plate
+    3300026: Roll
+    3300028: window_frame
+    4300000: lights
+    4300002: chasis_2
+    4300004: plate
+    4300006: interior
+    4300008: dashboard
+    4300010: window_frame
+    4300012: chasis
+    4300014: Grilles
+    4300016: Grills_2
+    4300018: back
+    4300020: chrome
+    4300022: body
+    4300024: glass
+    4300026: Roll
+    4300028: Collider
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

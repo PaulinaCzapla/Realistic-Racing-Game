@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4863fc843d5f40e2bbc10460aa19e763
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - persistentScene: {fileID: 11400000, guid: f31ddcfc901e6564eaaf9da0c217fd14, type: 2}
+  - gameplayScene: {fileID: 11400000, guid: 247e40decdc74a4488403a21cdf6c424, type: 2}
+  - uiScene: {fileID: 11400000, guid: d84d552cf779b764da6006b9f3199593, type: 2}
+  - joinRoomScene: {fileID: 11400000, guid: 916edef6796e3ce438a8cb79747c6fe2, type: 2}
+  - loadSceneEvent: {fileID: 11400000, guid: 120889961fbb66a438cf38009c17b0e7, type: 2}
+  - loadMenuSceneEvent: {fileID: 11400000, guid: 453e2c041b846644284cc1f0431024ef, type: 2}
+  - onSceneLoaded: {fileID: 11400000, guid: af72c85de5553dc4c8a75c79f1838501, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
