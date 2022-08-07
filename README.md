@@ -1,6 +1,6 @@
 # Realistic racing game
 
-Realistic racing game created in Unity Engine. Project is still in development. Expected date: July 2022.
+Realistic racing game created in Unity Engine. 
 
 Game features:
 - multiplayer mode, game for up to 4 players (Photon);
@@ -17,4 +17,4 @@ Game features:
 - an extensive tutorial with plot elements in the visual novel style.
 
 
-Current game version is on "dev" branch.
+
