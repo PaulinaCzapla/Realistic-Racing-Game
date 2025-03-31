@@ -3,13 +3,6 @@
 
 Realistic racing game created in Unity Engine with multiplayer mode. Game is for up to 4 players and includes an extensive tutorial with plot elements in the visual novel style.
 
-## Contributors: 
-- martaosm
-- PaulinaCzapla
-- Stasty
-- swietjak
-- AgataFrancik
-
 ## Game features:
 - multiplayer mode, game for up to 4 players (Photon);
 - 4 optional car colours and adjustable laps count;
@@ -26,6 +19,16 @@ Realistic racing game created in Unity Engine with multiplayer mode. Game is for
 
 ## Supported languages
 - polish
+
+## Contributors: 
+Gameplay:
+- swietjak
+- PaulinaCzapla
+- Stasty
+- martaosm
+Graphics:
+- Stasty
+- AgataFrancik
 
 ## Screenshots
 
