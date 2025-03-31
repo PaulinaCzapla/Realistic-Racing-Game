@@ -21,13 +21,13 @@ Realistic racing game created in Unity Engine with multiplayer mode. Game is for
 - polish
 
 ## Contributors: 
-#Gameplay:
+#### Gameplay:
 - swietjak
 - PaulinaCzapla
 - Stasty
 - martaosm
 
-#Graphics:
+#### Graphics:
 - Stasty
 - AgataFrancik
 
